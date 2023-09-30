@@ -1,0 +1,780 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Journey_PF_Standby_State</name>
+    </assembly>
+    <members>
+        <member name="T:HIL_Test_Script.Library_Functions_Communication">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.verdict_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.Api_payload_length">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.ReceiveData">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.Receive_Buffer">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Start_Timer_for_seconds(System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Init(Etas.Eas.Atcl.Interfaces.TestCase,Etas.Eas.Atcl.Interfaces.Ports.IPortMA,NTL_HIL.VAWasher,NTL_HIL.API11Payload,HIL_Test_Script.Library_Functions_electrical_signal)">
+            <summary>///Init function for API11Payload /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Init1(Etas.Eas.Atcl.Interfaces.TestCase,Etas.Eas.Atcl.Interfaces.Ports.IPortMA,NTL_HIL.VAWasher,NKM_HIL.NkmHILClass,HIL_Test_Script.Library_Functions_electrical_signal)">
+            <summary>
+            Function is created for Test script 3.7+ onwords
+            </summary>
+            <param name="myTestCase"></param>
+            <param name="myPort"></param>
+            <param name="VA_Washer"></param>
+            <param name="elecsignal"></param>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.printInHex(System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.GetValueForMultipacketData(System.Byte,System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.GetValueForMultipacketData(System.Byte,System.Byte,System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.GetValueForMultipacketData(System.Int32[],System.Int32[])">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.GetValueForMultipacketData(System.Byte[],System.Byte[])">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.check_bit_status(System.Int32,System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="T:HIL_Test_Script.Library_Functions_Communication.Cycle_state">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.Cycle_state.Programming">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.Cycle_state.Running">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.Cycle_state.Delay">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.Cycle_state.End">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.Cycle_state.Pause">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.Cycle_state.Fault">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.Cycle_state.Programming_Not_Ready">
+            <summary>/// /// </summary>
+        </member>
+        <member name="T:HIL_Test_Script.Library_Functions_Communication.Cycle_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.Cycle_status.On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_Communication.Cycle_status.Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.printInHandlerAndReport_comm(System.String)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.RegisterMemoryMappedVariable(System.Byte[])">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.ReadSpecificVariable(System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.ReadSpecificVariable_address">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.ReturnCommandResponse(System.Byte[])">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Deregistermemorymapedvariables">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Read_fault_id">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Press_PowerKey_On_HMI">
+            <summary>/// /// </summary>/// 
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_MasterRelay">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_Charge_pump_1">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_Hotwaterinlet">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_Coldwaterinlet">
+            <summary>///Mainwashwaterinlet Coldwaterinlet /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_DetergentDispenserValve">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_SoftenerDispenserValve">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_OxiDispenserValve">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_FaucetDispenserValve">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_DRAIN_PUMP">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_Detergent_PUMP">
+            <summary>/// ReCirculation_Pump_have doubt /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_SoftenerBulkDisp_Pump">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_RECYCLE_PUMP">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_DRAIN_PUMP_On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_DRAIN_PUMP_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Hot_Wash_valve_On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Hot_Wash_valve_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Cold_Wash_Valve_On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Cold_Wash_Valve_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Detergent_Dispenser_Valve_On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Detergent_Dispenser_Valve_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Softener_Dispenser_Valve_On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Softener_Dispenser_Valve_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_DETERGENT_PUMP_On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_DETERGENT_PUMP_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_SoftnerBulk_Pump_On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_SoftnerBulk_Pump_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Recycle_Pump_On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Recycle_Pump_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Main_relay_On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Main_relay_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Charge_Pump_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Lid_Lock">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_SetLoadstatus_Lid_UnLock">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetGI_Status_Lid_Switch">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetLoadstatus_LID_LOCK">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_GetGI_Status_Presure_Level">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.AdvancePhase(System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Request_Specific_variable_cycle_Number">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Request_Specific_variable_Phase">
+            <summary>/// /// </summary>  
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Request_Specific_variable_Step">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Request_Specific_variable_SubCycle">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Request_Specific_variable_Sub_Phase">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Request_Specific_variable_Sub_Step">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Request_Specific_variable_System_State">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Request_Specific_variable_Prefault">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Request_Specific_variable_fault">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Request_Specific_variable_Current_Water_Level">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Request_Specific_variable_Current_Water_Temperature">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Request_Specific_variable_Current_Motor_Speed">
+            <summary>/// /// </summary>    
+            
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Set_regulation_Start">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Set_regulation_Pause">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Set_regulation_Stop_reset">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Set_regulation_Selector(System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Set_regulation_Set_temp(System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Set_regulation_Set_Spin_Speed(System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Set_regulation_select_start(System.Byte)">
+            <summary>/// /// </summary> /// 
+            Used for templet 3.7+ as regulation using NKMClass
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Set_regulation_Switch_off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Set_regulation_Switch_on(System.Byte)">
+            <summary>/// /// </summary> 
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_Set_regulation_delayselect_delaystart(System.Byte,System.Byte,System.Byte)">
+            <summary>/// /// </summary>      
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Comm_set_Regulation_Delay(System.Byte,System.Byte)">
+            <summary>/// /// </summary>  
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Check_Precontions_1">
+            <summary>/// /// </summary>
+            
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Current_Overflow_counter_check(System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="specific_var"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_Communication.Configured_Overflow_timer_check(System.Byte)">
+            <summary>
+            
+            </summary>
+            <param name="specific_var"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HIL_Test_Script.Library_Functions_electrical_signal">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_electrical_signal.verdict_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_electrical_signal.ReceiveData">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_electrical_signal.Receive_Buffer">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_electrical_signal.global_iterator">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_electrical_signal.data_table">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_electrical_signal.connectionString">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_electrical_signal.da">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Init(Etas.Eas.Atcl.Interfaces.TestCase,Etas.Eas.Atcl.Interfaces.Ports.IPortMA,NTL_HIL.VAWasher)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="T:HIL_Test_Script.Library_Functions_electrical_signal.wait_unit">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_electrical_signal.wait_unit.var_seconds">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_electrical_signal.wait_unit.var_minutes">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Functions_electrical_signal.wait_unit.var_miliseconds">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Start_Timer_for(System.Int32,System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Start_Timer_for(System.Double,System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Start_Timer_for(System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Start_Timer_for(System.Int32,System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.ProvideVerdict(System.String,Etas.Eas.Atcl.Interfaces.Verdicts.VerdictCode,System.String)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.printInHandlerAndReport(System.String)">
+            <summary>/// /// </summary>     
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.read_Power_buton_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Power_On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Power_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.read_Lid_switch_status">
+            <summary>/// /// </summary>
+            
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.LidSwitch_Switch_open">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Door_Switch_close">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.read_Door_lock_status_model">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Door_Lock_open">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Door_Lock_close">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.read_Door_lock_status_ACU">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.ReSet_Door_lock_normal">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Set_bulk_detergent_low_switch">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.ReSet_bulk_detergent_low_switch">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Set_bulk_Softner_low_switch">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.check_detergent_Low_switch_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.check_softner_Low_switch_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.check_Bulk_pump1_detergent_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.check_Recirculation_pump_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.check_Inlet_Hot_Valve_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.check_Inlet_Cold_Valve_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.check_Inlet_Softener_Valve_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.check_Drain_Pump_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Get_Water_Temperature_Model">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Set_Water_Temperature(System.Double)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Set_WaterLevel_model(System.Double)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Pressure_Sensor_CC_Value(System.Double)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.get_WaterLevel_model_mmWC(System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.get_Watervolume_model_dL">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.ReSet_WaterLevel_normal">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Calculated_Gese_values_Overflow(System.String,HIL_Test_Script.Library_Functions_electrical_signal.wait_unit)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.PressAndRelease_Start_Pause_Key(System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.PressAndRelease_HMI_On_Off_Key(System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.PressAndRelease_TempSelection_Key(System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.PressAndRelease_Rinse_Key(System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.PressAndRelease_Options_Key(System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.PressAndRelease_Faucet_Key(System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Functions_electrical_signal.Select_Enc_Cycle_number(System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="T:HIL_Test_Script.Library_Integration">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Integration.verdict_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Integration.Api_payload_length">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Integration.ReceiveData">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Integration.variable_add_HMI">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.Library_Integration.Receive_Buffer">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Start_Timer_for_seconds(System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Init(NTL_HIL.VAWasher,HIL_Test_Script.Library_Functions_electrical_signal)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.printInHex(System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.GetValueForMultipacketData(System.Byte,System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.GetValueForMultipacketData(System.Int32[],System.Int32[])">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.GetValueForMultipacketData(System.Byte[],System.Byte[])">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.check_bit_status(System.Int32,System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.printInHandlerAndReport(System.String)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.RegisterMemoryMappedVariable_HMI(System.Byte[])">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.ReadSpecificVariable_HMI(System.Int32)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.ReadSpecificVariable_HMIaddress">
+            <summary>/// /// </summary>
+            
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Read_Row_1">
+            <summary>/// /// </summary>
+            
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Read_Row_2">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Read_Row_3">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Read_Row_4">
+            <summary>/// /// </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:HIL_Test_Script.Library_Integration.InitialiseMegaHmiData" -->
+        <!-- Badly formed XML comment ignored for member "M:HIL_Test_Script.Library_Integration.GetAllOnLEDState" -->
+        <!-- Badly formed XML comment ignored for member "M:HIL_Test_Script.Library_Integration.GetAllOffLEDState" -->
+        <!-- Badly formed XML comment ignored for member "M:HIL_Test_Script.Library_Integration.GetLEDState(System.String[])" -->
+        <!-- Badly formed XML comment ignored for member "M:HIL_Test_Script.Library_Integration.CheckLEDState(System.String[])" -->
+        <!-- Badly formed XML comment ignored for member "M:HIL_Test_Script.Library_Integration.GetLEDState(System.String)" -->
+        <member name="M:HIL_Test_Script.Library_Integration.RegisterMemoryMappedVariable(System.Byte[])">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.ReadSpecificVariable(System.Int32)">
+            <summary>/// /// </summary>
+            
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.ReadSpecificVariable_address">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Deregistermemorymapedvariables_HMI">
+            <summary>/// /// </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:HIL_Test_Script.Library_Integration.Get_TemperatureRegulation_Value" -->
+        <member name="M:HIL_Test_Script.Library_Integration.Set_Temp_Value(System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:HIL_Test_Script.Library_Integration.Get_RinseRegulation_Value" -->
+        <member name="M:HIL_Test_Script.Library_Integration.Set_Rinse_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Set_Softner_On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Set_Extrarinse_Value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Set_Softner_with_ExtraRinse">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Get_OptionRegulation_Value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Set_No_options">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Set_Presoak_On">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Set_Deepwater_Value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Set_Presoak_with_Deepwater">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Get_FaucetRegulation_Value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Set_Faucet_Value(System.Byte)">
+            <summary>/// /// </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Read_Cycle_Value">
+            <summary>/// /// </summary>
+            
+        </member>
+        <member name="M:HIL_Test_Script.Library_Integration.Read_HMI_State">
+            <summary>/// /// </summary>
+            
+        </member>
+        <member name="T:HIL_Test_Script.MMVariable">
+            <summary></summary>
+        </member>
+        <member name="F:HIL_Test_Script.MMVariable.CavityState">
+            <summary></summary>
+        </member>
+        <member name="T:HIL_Test_Script.MVM">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.PowerOnswitch">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Power_On_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.HotValve_Inlet">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.ColdValve_Inlet">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.SoftenerValve_Inlet">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.OxiDispenserValve_Inlet">
+             /// <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.DrainPump">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.DetergentPump">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.ReCirculationPump">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.DrumWaterVolume">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.DrumwaterPressure">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Pressure_Sensor_CC_Value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.water_pressure_overdrive_value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.OverrideEntryWaterPressure">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Lid_Switch_FB">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.LidSwitch_Overdrive_Value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.LidSwitch_Overdrive_select">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Lid_Lock_FB">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.LidLock_Drive_ACU">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.LidLockState_Overdrive_Select">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.LidLockState_Overdrive_Value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Water_Temperature">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.ColdValve_overdrive">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.ColdValve_overdrive_value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.HotValve_overdrive">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.HotValve_overdrive_value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.HMI_On_Off_Key">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Start_Pause_Key">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Enc_Cycle_Number">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.HMI_TempSelection_Key">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.HMI_OptionsSelections_Key">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.HMI_RinseSelection_Key">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.HMI_FaucetOn_Off">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Wash_Temp_override_value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.OverrideEntryWashTemp">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.OverrideEntryBulkdetergent">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Bulk_detergent_overdrive_value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.OverrideEntryBulksoftner">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Bulk_softner_overdrive_value">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Detergent_low_switch_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Softner_low_switch_status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Voltage_wash_ntc">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Fan_Status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="F:HIL_Test_Script.MVM.Shifter_OnOff_Status">
+            <summary>/// /// </summary>
+        </member>
+        <member name="T:HIL_Test_Script.Journey_PF_Standby_State">
+            <summary>
+            This section is main entry point of executable
+            The major functionalities are described here are common to all test case project
+            </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Journey_PF_Standby_State.Main(System.String[])">
+            <summary>
+            The Test Case is divided into 3 main sections 
+            </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Journey_PF_Standby_State.RegisterMetaData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Journey_PF_Standby_State.RegisterPorts">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:HIL_Test_Script.Journey_PF_Standby_State.PerformTest">
+            Method were the test functionality is scripted
+        </member>
+        <member name="F:HIL_Test_Script.Journey_PF_Standby_State.ACU_NODE_ID">
+            Update the ACU NODE ID for requesting Product Info
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,2315 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WideBoxLib</name>
+    </assembly>
+    <members>
+        <member name="T:WideBoxLib.CCB2Protocol">
+            <summary>
+            Define CCB2 Protocol Commands and Some constants.
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.CCB2Protocol.Commands">
+            <summary>
+            Current public list of available commands
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.NODE_ALIVE">
+            <summary>
+            PC->CCB2
+            This command can be used by the PC to ensure the CCB2 still alive.
+            CCB2 will return ACK if functional.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.CONFIGURATION">
+            <summary>
+            CCB2->PC or PC->CCB2
+            When Sent from PC to CCB2 configures the CCB.
+            When Sent from the CCB2 to the PC means publishing the current configuration on CCB2.
+                DATA2: Defines the protocol in the device side of the CCB2.
+                        0 = none
+                        1 = WIDE
+                        2 = WIN
+                        3 = WMSP (To be implemented in order to support Bootloader as PA)
+                DATA3: Defines the CCB2 address, values from 0 to 14 are acceptable.
+                DATA4: Defines the CCB2 node action:
+                        1 = Sniffer (WIDE)
+                        2 = Simple Node (WIDE) / Salve (WMSP)
+                        3 = Arbiter (WIDE) / Master (WMSP)
+                        4 = Service (WIDE) / Special
+                DATA5toN: Polling List for WIDE and WMSP
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.REQUEST_CURRENT_CONFIGURATION">
+            <summary>
+            PC->CCB2 only
+            Send from the PC to the CCB2 to request the current configuration being used by the CCB2.
+            CCB2 will return the CONFIGURATION message.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.DATA_FLOW">
+            <summary>
+            CCB2->PC or PC->CCB2
+            Send from PC to the CCB2 to set the Data Flow.
+            When Sent from CCB2 to PC to publish the current Data Flow configuration
+                DATA2: Flow
+                    0: Data OFF
+                    1: Data ON
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.REQUEST_DATA_FLOW">
+            <summary>
+            PC->CCB2 only
+            Send by the PC to the CCB2 to request the Flow information.
+            No payload required.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.DATA_FILTER">
+            <summary>
+            CCB2->PC or PC->CCB2
+            Send from PC to the CCB2 to set the Data Filter.
+            When Sent from CCB2 to PC to publish the current Data Filter configuration
+                DATA2: Flow
+                    0: Data Filter OFF
+                    1: Data Filter ON
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.REQUEST_DATA_FILTER">
+            <summary>
+            PC->CCB2 only
+            Send by the PC to the CCB2 to request the Data Filter information.
+            No payload required.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.BUS_HARDWARE_CONNECTION">
+            <summary>
+            CCB2->PC or PC->CCB2
+            This package is used from the PC to the CCB2 to set the hardware connection on the bus.
+            This package is used from the CCB2 to the PC to publish the current hardware connection on the bus.
+                DATA2: Connection
+                    0: Regular Uart Translator (WIN/WIDE)
+                    1: Serial TX/RX expecting echo
+                    2: Serial TX/RX skipping echo
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.REQUEST_BUS_HARDWARE_CONNECTION">
+            <summary>
+            PC->CCB2 only
+            This package is used from the PC To the CCB to request the hardware connection on the bus.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.REQUEST_BUS_STATUS">
+            <summary>
+            PC->CCB2 only
+            Send by the PC to the CCB2 to request the bus status information.
+            No Payload required
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.PUBLISH_BUS_STATUS">
+            <summary>
+            CCB2->PC only
+            Send from the CCB2 to the PC to inform the status of each node in the system.
+                DATA2: Node 0 Status
+                DATA3: Node 1 Status
+                ...
+                DATA16 Node 14 Status
+                The status can be:
+                        0: Not configured.
+                        1: Present.
+                        2: Configured but not present.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.REQUEST_BUS_ATTACHMENT_STATE">
+            <summary>
+            PC->CCB2 only
+            Send by the PC to the CCB2 to request the bus attachment state.
+            No Payload required
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.PUBLISH_BUS_ATTACHMENT_STATE">
+            <summary>
+            CCB2->PC only
+            Send from the CCB2 to the PC to inform the bus attachment state.
+                DATA2: State
+                The state can be:
+                        0: Not attached to bus.
+                        1: Attached to bus.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.SEND_MESSAGE">
+            <summary>
+            CCB2->PC or PC->CCB2
+            This package is used from PC to CCB2 to send a message into the bus.
+            This package is used from CCB2 to the PC to report a message from the bus.
+            Every time the PC sends a Message to the Bus this message returns as a message coming from the bus.
+                DATA2: Source (0 to 14)
+                DATA3: Destination (0 to 14 for specific address or 15 for broadcast)
+                DATA4: SAP
+                DATA5: Payload B0
+                DATA6: Payload B1
+                ...
+                DATA(n+5): Payload Bn
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.BROKEN_MESSAGE">
+            <summary>
+            CCB2->PC only
+            This package is used from CCB2 to PC to report a broken package.
+                DATA2: Protocol:
+                    0 = none
+                    1 = WIDE
+                    2 = WIN
+                    3 = WMSP (To be implemented in order to support Bootloader as PA)
+                DATA3: Destination (0 to 14 for specific address or 15 for broadcast)
+                DATA4: SAP
+                DATA5: Payload B0
+                DATA6: Payload B1
+                ...
+                DATA(n+5): Payload Bn
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.BUS_BREAK">
+            <summary>
+            CCB2->PC only
+            This package is used from CCB2 to PC to report a bus break.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.BUS_ACK">
+            <summary>
+            CCB2->PC only
+            This package is used from CCB2 to PC to report a bus ACK 
+            which only happen in certain (WIN) protocol when the filter is disabled.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.REPEATED_MESSAGE">
+            <summary>
+            CCB2->PC only
+            This package is used from CCB2 to the PC to report a repeated message from the bus.
+                DATA2: Source (0 to 14)
+                DATA3: Destination (0 to 14 for specific address or 15 for broadcast)
+                DATA4: SAP
+                DATA5: Payload B0
+                DATA6: Payload B1
+                ...
+                DATA(n+5): Payload Bn
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.PUBLISH_KEY_EVENT">
+            <summary>
+            CCB2->PC only
+            This package is used from CCB2 to PC to publish a key event
+            DATA2: Event
+                0: Key Clicked
+                2: Key Hold
+                4: Key Stuck
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.REQUEST_BUS_HARDWARE_TEST">
+            <summary>
+            PC->CCB2 only
+            This package is used from PC to CCB2 to request the system to execute a hardware test in on of the BUS connections.
+            This command can be ACK or NAK depending on what connection the system is using, if the request is to test the connection actually being used it will return NAK.
+            In order to test a Connection the system must be switched to the other connection using the command <see cref="F:WideBoxLib.CCB2Protocol.Commands.BUS_HARDWARE_CONNECTION"/>.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.REQUEST_BUS_HARDWARE_TEST_STATE">
+            <summary>
+            PC->CCB2 only
+            This package is used from PC to CCB2 to request the state of the BUS Hardware test machine.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.PUBLISH_BUS_HARDWARE_TEST_STATE">
+            <summary>
+            CCB2->PC only
+            This package is used from CCB2 to PC to publish the current state of the Bus hardware test state machine.
+            DATA2: Connection
+            	0: Regular Uart Translator
+            	1: Serial TX/RX expecting echo or not
+            DATA3: State
+            	0: BUSHARDWARE_TEST_STATE_IDLE,
+                1: BUSHARDWARE_TEST_STATE_SET_HIGH,
+            	2: BUSHARDWARE_TEST_STATE_TEST_HIGH,
+            	3: BUSHARDWARE_TEST_STATE_TEST_LOW,
+                4: BUSHARDWARE_TEST_STATE_TEST_PASS,
+                5: BUSHARDWARE_TEST_STATE_TEST_FAIL
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.SET_PPW_PROTOCOL">
+            <summary>
+            PC->CCB2 only
+            Set protocol to PPW (No Ack will be received)
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.REQUEST_VERSION">
+            <summary>
+            PC->CCB2 only
+            This package is used from PC to CCB2 to request the current version information.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.PUBLISH_VERSION">
+            <summary>
+            CCB2->PC only
+            This package is used from the CCB2 to the PC to publish the version information.
+                DATA2: SW Major
+                DATA3: SW Minor
+                DATA4: SW Test
+                DATA5: HW Major
+                DATA6: HW Minor
+                DATA7: HW Test
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.SEND_DEVICE_COMMAND">
+            <summary>
+            PC->CCB2 only
+            This package is used from PC to CCB2 to issue a command to the device
+            	DATA2 : Command
+            		0: Reset
+            		1: Factory Reset
+            		2: Test LEDS
+            		3: Generate a wake up signal on the Bus (100ms)
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.PUBLISH_ERRORS">
+            <summary>
+            CCB2->PC only
+            This package is used from the CCB2 to the PC to indicate errors
+            	DATA2: Error1
+            	DATA3: Error2
+            	...
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.Commands.ACK">
+            <summary>
+            CCB2->PC only
+            This package is used from the CCB2 to the PC to acknowledge received commands.
+                DATA2: Counter (refers to the counter of the received message)
+                DATA3: Command (refers to the command being acknowledged)
+                DATA4: Reason Code
+                    0: Accepted
+                    1: Busy
+                    2: Rejected
+                    3: reserved
+                    4: Unsupported
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.WMSP_WBOX_Node">
+            <summary>
+            Address of WBox(CCB2) node in the wmsp packet when CCB2 Protocol is used
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.WMSP_PC_Node">
+            <summary>
+            Address of PC node in the wmsp packet when CCB2 Protocol is used
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.CCB2Protocol.SAP">
+            <summary>
+            CCB2 Protocol SAP
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.CCB2ProtocolPacket.Counter">
+            <summary>
+            Get or Set the message counter. It is incremented on every message send and/or received
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.CCB2ProtocolPacket.RawCommand">
+            <summary>
+            Get or Set the raw byte command of the current message
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.CCB2ProtocolPacket.Command">
+            <summary>
+            Get or Set the command from the enum list
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.CCB2ProtocolPacket.Data">
+            <summary>
+            Get or Set the Data of the received message
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.CCB2ProtocolPacket.ToWMSPPayload">
+            <summary>
+            Convert CCB2 message into a WMSP payload array
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.CCB2ProtocolPacket.ParsePacketWMSP(WhirlpoolCommunication.Packets.WMSPPacket)">
+            <summary>
+            Get a Wmsp packet and set into the CCB2 message.
+            Returns false if is not a CCB2 message
+            </summary>
+            <param name="wmspPack">WMSP Pack to be parsed</param>
+            <returns></returns>
+        </member>
+        <member name="T:WideBoxLib.WideBoxConstants">
+            <summary>
+            List of constants to help user to send commands and additional info
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_SNIFFER_ON">
+            <summary>
+            Set wide box to sniffer type
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_WIDE_BOX_ADDR">
+            <summary>
+            Set the wide box address
+            Data[0]: WideBox address
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_NODE_LIST">
+            <summary>
+            Set the node list on the wide box
+            <para>
+            Data[0..n]: nodes to the list
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_SIMPLE_NODE">
+            <summary>
+            Set wide box to simple node type
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_EXTERNAL_NODE">
+            <summary>
+            Set wide box to external node type
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_POOL_LIST">
+            <summary>
+            Set the arbiter pooling list on the wide box
+            Note: When set the widebox will be set to arbiter node automatically
+            Data[0]: n - number of nodes
+            Data[1..n]: nodes to the list
+            Deprecated use CMD_SET_POLL_LIST instead
+            Will not be removed to maintain compatibility with old interfaces
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_POLL_LIST">
+            <summary>
+            Set the arbiter pooling list on the wide box
+            Note: When set the widebox will be set to arbiter node automatically
+            <para>
+            Data[0..n]: nodes to the list
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_ARBITER_MODE">
+            <summary>
+            Set wide box to arbiter node type
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_SERVICE_NODE">
+            <summary>
+            Set wide box to service node type
+            Note: When set the widebox address will change to 7
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_DATA_ON">
+            <summary>
+            Set Data ON at the widebox
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_DATA_OFF">
+            <summary>
+            Set Data OFF at the widebox
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_FILTER_ON">
+            <summary>
+            Set Filter ON at the widebox
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_FILTER_OFF">
+            <summary>
+            Set Filter OFF at the widebox
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_GET_WIDE_BOX_ADDR">
+            <summary>
+            Get the WideBox SW revision
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_GET_POLL_LIST">
+            <summary>
+            Get the WideBox poll list
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_GET_NODE_LIST">
+            <summary>
+            Get the WideBox node list
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_GET_NODE_MODE">
+            <summary>
+            Get the WideBox configuration
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_RESET_DEVICE">
+            <summary>
+            Reset the Device
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_GET_REVISION">
+            <summary>
+            Get the WideBox SW revision
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_DFU_MODE">
+            <summary>
+            Special command to send the WideBox to Device Firmware Upgrade mode
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_WAKE_UP_SIGNAL">
+            <summary>
+            Special command to send a wake up signal in the Whirlpool BUS (not available in SmartCable/CCB1)
+            Data null
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_PROTOCOL">
+            <summary>
+            Only Available in CCB2 (PPW and CCB2 protocol)
+            <para>
+            Set protocol to communicate with CCB2. This is always a blocking execution with 1 second timeout!
+            <para>Data[0] 0: CCB2Protocol 1: PPW</para>
+            It will send Set PPW command over CCB2Protocol and Set CCB2Protocol command over PPW
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_CONFIGURATION">
+            <summary>
+            Only Available in CCB2Protocol
+            <para>
+            Set device bus configuration
+            Data[0] 0: None, 1: Wide, 2: Win, 3: WMSP
+            Data[1] Device Address
+            Data[2] Node Action 1: Sniffer (WIDE) 2: Simple Node (WIDE) / Slave (WMSP) 3: Arbiter (WIDE) / Master (WMSP) 4: Service (WIDE) / Special
+            Data[3..n] Polling List
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_GET_DATA_FLOW">
+            <summary>
+            Only Available in CCB2Protocol
+            <para>
+            Get current Data Flow state (on or off)
+            Data null
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_GET_DATA_FILTER">
+            <summary>
+            Only Available in CCB2Protocol
+            <para>
+            Get current Data Filter state (on or off)
+            Data null
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SET_BUS_CONNECTION">
+            <summary>
+            Only Available in CCB2Protocol
+            <para>
+            Set the hardware connection on the bus
+            Data[0] 0: Regular Uart Translator	1: Serial TX/RX expecting echo	2: Serial TX/RX skipping echo
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_GET_BUS_CONNECTION">
+            <summary>
+            Only Available in CCB2Protocol
+            <para>
+            Get the hardware connection on the bus
+            Data null
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_GET_BUS_STATUS">
+            <summary>
+            Only Available in CCB2Protocol
+            <para>
+            Get bus status information of all nodes in the bus
+            Data null
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_GET_BUS_ATTACHMENT_STATE">
+            <summary>
+            Only Available in CCB2Protocol
+            <para>
+            Get bus attachment state information. It will ping the bus to check bus availability.
+            Data null
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_REQUEST_BUS_HARDWARE_TEST">
+            <summary>
+            Only Available in CCB2Protocol
+            <para>
+            Request the Device to run a self test in one of the bus connections.
+            To Run a test in a connection use the CMD_SET_BUS_CONNECTION to set the to a different connection from the to test.
+            Data[0] Bus Connection: 0: Regular Uart Translator	1: Serial TX/RX expecting echo
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_REQUEST_BUS_HARDWARE_TEST_STATE">
+            <summary>
+            Only Available in CCB2Protocol
+            <para>
+            Request the Device self test state.
+            Data null
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.CMD_SEND_DEVICE_COMMAND">
+            <summary>
+            Only Available in CCB2Protocol
+            <para>
+            Send a command to Device 
+            Data[0] Command: 0: Reset, 1: Factory Reset, 2: Test LEDS, 3: Generate a wake up signal on the Bus (100ms)
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.ACK">
+            <summary>
+            Ack message type
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.BREAK">
+            <summary>
+            Break message type
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.NACK">
+            <summary>
+            Nack message type
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.DLE">
+            <summary>
+            DLE message type
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.STRUCT_CHANGE">
+            <summary>
+            STRUCT_CHANGE message type
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.DELTA_T">
+            <summary>
+            DELTA_T message type
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.REVEAL_SAP">
+            <summary>
+            SAP for reveal messages
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.TDD_CMD_SAP">
+            <summary>
+            SAP for TDD Commands messages
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.TDD_FBK_SAP">
+            <summary>
+            SAP for TDD Feedback messages
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBoxConstants.GMCL_SAP">
+            <summary>
+            SAP for Gmcl messages
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.LowLevelParserStateMachine`1">
+            <summary>
+            Define minimum requirements for a state machine for low level device message parsing.
+            </summary>
+            <typeparam name="ReceiveStates">The type of the receive states.</typeparam>
+        </member>
+        <member name="P:WideBoxLib.LowLevelParserStateMachine`1.ReceptionBuffer">
+            <summary>
+            Gets or sets the reception buffer.
+            </summary>
+            <value>
+            The reception buffer.
+            </value>
+        </member>
+        <member name="P:WideBoxLib.LowLevelParserStateMachine`1.IncomingPackageSize">
+            <summary>
+            Gets or sets the size of the incoming package.
+            </summary>
+            <value>
+            The size of the incoming package.
+            </value>
+        </member>
+        <member name="P:WideBoxLib.LowLevelParserStateMachine`1.Number">
+            <summary>
+            Gets or sets the number of this state machine.
+            </summary>
+            <value>
+            The number.
+            </value>
+        </member>
+        <member name="T:WideBoxLib.WBoxService.PC_PROTOCOL">
+            <summary>
+            Enum the available protocols for the WBoxService
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.WBoxService.WBOX_PROTOCOL">
+            <summary>
+            Enum Available WBOX protocols (CCB2 only)
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.WBoxService.WBOX_MODE">
+            <summary>
+            Enum available WBOX modes
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.WBoxService.wmsp">
+            <summary>
+            Underlying WMSP/PPW handler
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WBoxService.wbox_pc_protocol">
+            <summary>
+            WBoxService protocol
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.WBoxService.PCProtocol">
+            <summary>
+            Get current Set PC protocol
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.WBoxService.WBOXProtocol">
+            <summary>
+            Get current Set Wide Box Bus protocol
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WBoxService.wbox_protocol">
+            <summary>
+            Protocol to set in Wbox (CCB2 only feature)
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WBoxService.changeProtocolWait">
+            <summary>
+            Semaphore to wait for a protocol change (have to reopen the COM port)
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.WBoxService.PPWCounter">
+            <summary>
+            PPW Message counter
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.WBoxService.CCB2Counter">
+            <summary>
+            CCB2 Message counter
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.EnableRawDataLog(System.Boolean)">
+            <summary>
+            Enable logging Raw state machine data into a log file
+            </summary>
+            <param name="enable"></param>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WideBoxLib.WBoxService"/> class.
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.openPort(System.String,WideBoxLib.WBoxService.PC_PROTOCOL,System.Int32)">
+            <summary>
+            Opens the port.
+            </summary>
+            <param name="port">The port.</param>
+            <param name="protocol">The protocol.</param>
+            <param name="interval">The interval.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.reopenPort(System.String,WideBoxLib.WBoxService.PC_PROTOCOL)">
+            <summary>
+            Reopens the port.
+            </summary>
+            <param name="port">The port.</param>
+            <param name="protocol">The protocol.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.closePort">
+            <summary>
+            Closes the port.
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.WBoxService.PortName">
+            <summary>
+            Gets the name of the port used in this instance.
+            </summary>
+            <value>
+            The name of the port.
+            </value>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.WaitProtocolChange(System.Int32)">
+            <summary>
+            Wait for the change of protocols to happen
+            </summary>
+            <param name="miliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.SetDFUMode">
+            <summary>
+            Send DFU mode command over CCB
+            <para>Remember that after this the CCB will not respond to PPW commands anymore</para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WBoxService.ProtocolPortSpeed">
+            <summary>
+            The protocol port speed dictionary
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.setProtocol(WideBoxLib.WBoxService.PC_PROTOCOL,System.Boolean,System.Double)">
+            <summary>
+            Sets the PC protocol.
+            </summary>
+            <param name="protocol">The protocol.</param>
+            <param name="blocking">if set to <c>true</c> [blocking].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.setWBoxProtocol(WideBoxLib.WBoxService.WBOX_PROTOCOL,System.Boolean,System.Double)">
+            <summary>
+            Set the Wbox protocol (CCB2 only feature)
+            </summary>
+            <param name="protocol">The protocol.</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.SetAddress(System.Byte,System.Boolean,System.Double)">
+            <summary>
+            Sets the address.
+            </summary>
+            <param name="address">The address.</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.setPollingList(System.Byte[],System.Boolean,System.Double)">
+            <summary>
+            Sets the polling list.
+            </summary>
+            <param name="nlist">The nlist.</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.setNodeList(System.Byte[],System.Boolean,System.Double)">
+            <summary>
+            Sets the node list.
+            </summary>
+            <param name="nlist">The nlist.</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.setWBOXMode(WideBoxLib.WBoxService.WBOX_MODE,System.Boolean,System.Double)">
+            <summary>
+            Sets the wbox mode.
+            </summary>
+            <param name="mode">The mode.</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.setDataONOFF(System.Boolean,System.Boolean,System.Double)">
+            <summary>
+            Sets the data onoff.
+            </summary>
+            <param name="dataonoff">if set to <c>true</c> [dataonoff].</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.setCRCCheck(System.Boolean,System.Boolean,System.Double)">
+            <summary>
+            Sets the CRC check.
+            </summary>
+            <param name="crc_check">if set to <c>true</c> [crc_check].</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.setFilter(System.Boolean,System.Boolean,System.Double)">
+            <summary>
+            Sets the filter.
+            </summary>
+            <param name="filter">if set to <c>true</c> [filter].</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.getFilter">
+            <summary>
+            Gets the filter state.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.requestInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.sendCommand(System.Byte,System.Byte[])">
+            <summary>
+            Sends the command.
+            </summary>
+            <param name="cmd">The command.</param>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.sendCommand(System.Byte,System.Byte[],System.Boolean,System.Double)">
+            <summary>
+            Send a command through PPW/CCB2Protocol
+            use SetPCProtocol to change protocols (bus protocol can be configured using this)
+            </summary>
+            <param name="cmd">The command.</param>
+            <param name="data">The data.</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.SendPPWCommand(System.Boolean,System.Double,System.Collections.Generic.List{System.Byte})">
+            <summary>
+            Sends the PPW command.
+            </summary>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <param name="datapkg">The datapkg.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.SendCCB2Command(System.Boolean,System.Double,WideBoxLib.CCB2ProtocolPacket)">
+            <summary>
+            Sends the ccb2 command.
+            </summary>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <param name="msg">The MSG.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.sendMessage(System.Byte,System.Byte,System.Byte[])">
+            <summary>
+            Send a message
+            </summary>
+            <param name="destination"></param>
+            <param name="SAP"></param>
+            <param name="sdu"></param>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.sendMessage(System.Byte,System.Byte,System.Byte[],System.Boolean,System.Int32)">
+            <summary>
+            Send a message and wait for confirmation if blocking Exection id true
+            Only one blocking call at time.
+            if other thread is waiting for a blockingExecution it will hold the thread until that message was Acknowledge
+            </summary>
+            <param name="destination">The destination.</param>
+            <param name="SAP">The sap.</param>
+            <param name="sdu">The sdu.</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.numIncomingMessages">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WBoxService.getMessages">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WideBoxLib.Wmsp.MaxIncomingListSize">
+            <summary>
+            Maximum that the Internal FIFO can hold
+            If the Internal list past this count it will remove 25% of the old messages
+            Default value is 70 000 packages
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.Wmsp.NextStateMachineNumber">
+            <summary>
+            Get the next state machine to operate
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.Wmsp.PPWStateMachines">
+            <summary>
+            Get the PPWStatemachine list
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.Wmsp.CurrentPPWStateMachine">
+            <summary>
+            Alias to PPWStateMachines[(int)currentStateMachineNumber]
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.Wmsp.NextPPWStateMachine">
+            <summary>
+            Get the next state machine available (use it for peeking, to move CurrentPPWStateMachine just increment CurrentStateMachineNumber)
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.Wmsp.WMSPStateMachines">
+            <summary>
+            Get WMSP State Machine list
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.Wmsp.CurrentWMSPStateMachine">
+            <summary>
+            Alias to WMSPStateMachines[(int)currentStateMachineNumber]
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.Wmsp.NextWMSPStateMachine">
+            <summary>
+            Get the next state machine available (use it for peeking, to move CurrentPPWStateMachine just increment CurrentStateMachineNumber)
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.Wmsp.CommandSent">
+            <summary>
+            Dictionary of counter and command sent
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.Wmsp.Finalize">
+            <summary>
+            Destructor makes sure that the serial port is close when diposing this object
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.Wmsp.getSizeOutgoingBuffer">
+            <summary>
+            Gets the size outgoing buffer.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.Wmsp.queueMessage(System.Byte,System.Byte,System.Byte,System.Collections.Generic.List{System.Byte})">
+            <summary>
+            Queues the message.
+            </summary>
+            <param name="destination">The destination.</param>
+            <param name="source">The source.</param>
+            <param name="sap">The sap.</param>
+            <param name="sdu">The sdu.</param>
+        </member>
+        <member name="M:WideBoxLib.Wmsp.getSizeIcomingBuffer">
+            <summary>
+            Gets the size icoming buffer.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.Wmsp.getMessageIcomingBuffer">
+            <summary>
+            Gets the message icoming buffer.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.Wmsp.setProtocol(WideBoxLib.Wmsp.PROTOCOL)">
+            <summary>
+            Set and Fix the protocol to be sending messages (don't allow to send messages in both protocols anymore)
+            </summary>
+            <param name="prot"></param>
+        </member>
+        <member name="M:WideBoxLib.Wmsp.resetProtocol">
+            <summary>
+            Allows to send message in both protocols until setProtocol is called
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.Wmsp.SetSerial(System.String,System.Int32)">
+            <summary>
+            Function that initializes the Serial port at a given speed
+            </summary>
+            <param name="port"></param>
+            <param name="speed"></param>
+            <returns></returns>
+        </member>
+        <member name="P:WideBoxLib.Wmsp.IsSerialOpened">
+            <summary>
+            Gets a value indicating whether this instance is serial opened.
+            </summary>
+            <value>
+            <c>true</c> if this instance is serial opened; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:WideBoxLib.Wmsp.IsSerialFree">
+            <summary>
+            Gets a value indicating whether this instance is serial free.
+            </summary>
+            <value>
+            <c>true</c> if this instance is serial free; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:WideBoxLib.Wmsp.PortName">
+            <summary>
+            Gets the name of the port.
+            </summary>
+            <value>
+            The name of the port.
+            </value>
+        </member>
+        <member name="M:WideBoxLib.Wmsp.SetPPWPacket">
+            <summary>
+            Get the buffer of current state machine and add to the ppw Incoming buffer and clean current state machine buffer
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.Wmsp.Dispose">
+            <summary>
+            Dispose current disposable objects from this object
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.Wmsp.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources.
+            </summary>
+            <param name="disposing"><c>true</c> to release both managed and unmanaged resources; <c>false</c> to release only unmanaged resources.</param>
+        </member>
+        <member name="T:WideBoxLib.DeviceMessageStrings">
+            <summary>
+            Current Device Message available strings
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.ACK">
+            <summary>
+            Acknowledge a received command
+            <para>
+            Message: "ACK"
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.NACK">
+            <summary>
+            Not Acknowledge a received command
+            <para>
+            Message: "NACK: {0}"
+            </para>
+            {0} : reason
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BREAK">
+            <summary>
+            Break received in the Wide Bus
+            <para>
+            Message: "&lt;BREAK&gt;"
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BUS_ACK">
+            <summary>
+            Ack received in the Win Bus
+            <para>
+            Message: "&lt;ACK&gt;"
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.NodeMode">
+            <summary>
+            Node Mode.
+            <para>
+            Message: "Node Mode: {0}, Func Mode: {1}, Address: {2}, Filter: {3}"
+            </para>
+            <para>
+            {0} : Current Node mode "Sniffer, Simple Node, Arbiter or Service"
+            {1} : Function Mode Byte, check FuncModeBits enum
+            {2} : Current Device Address
+            {3} : Filter - Extra info [obsolete]
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.Configuration">
+            <summary>
+            Configuration (Only in CCB2 Protocol)
+            <para>
+            Message: "Configuration: Protocol: {0}, Address: {1}, Node Mode: {2}, Poll List: {3}"
+            </para>
+            <para>
+            {0} : Current WBOX Protocol "NONE, WIDE, WIN or WMSP"
+            {1} : Current Device Address
+            {2} : Current Node mode "Sniffer, Simple Node, Arbiter or Service"
+            {3} : list of the Nodes in the Polling List in Hex and comma separated (ie. 01,0F)
+            </para>
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.DeviceMessageStrings.FuncModeBits">
+            <summary>
+            Func Mode bit position in the NodeMode message
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.FuncModeBits.FILTER_ON">
+            <summary>
+            Bit 0 true if Filter is on
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.FuncModeBits.CRC_ON">
+            <summary>
+            Bit 1 true if CRC check is on
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.FuncModeBits.RAW_ON">
+            <summary>
+            Bit 2 true if Data is on
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.FuncModeBits.TIMESTAMP_ON">
+            <summary>
+            Bit 3 true if Time Stamp is on (not used)
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.FuncModeBits.BROADCAST_FILTER_ON">
+            <summary>
+            Bit 4 true if Broadcast Filter is on
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.SoftwareVersion">
+            <summary>
+            Software Version
+            <para>
+            Message: "DLE Software Version: {0} {1}"
+            </para>
+            <para>
+            {0} : Device Software version string - Old versions only contains 1 number, new versions contains 3 (i.e. n1,n2,n3)
+            {1} : Device Hardware version string - CCB1 will be empty string, CCB2 versions contains 3 (i.e. n1,n2,n3)
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.NodeList">
+            <summary>
+            Current Node list set on the Device
+            <para>
+            Message: "Node List: {0}"
+            </para>
+            <para>
+            {0} : list of the Nodes in the Node List in Hex and comma separated (ie. 01,0F)
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.PollingList">
+            <summary>
+            Current Polling list set on the Device.
+            <para>
+            Message: "Polling List: {0}"
+            </para>
+            <para>
+            {0} : list of the Nodes in the Polling List in Hex and comma separated (ie. 01,0F)
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.Command">
+            <summary>
+            Command sent to Device
+            <para>
+            Message: "Command: {0}"
+            </para>
+            <para>
+            {0} : Command sent to the device, 0x(Byte) if the command does not exist
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BrokenMessage">
+            <summary>
+            Reported Broken Message
+            <para>
+            Message: "Broken Message Protocol: {0}, Message: {1}"
+            </para>
+            <para>
+            {0} : Protocol of the Broken Message (NONE, WIDE, WIN, WMSP)
+            {1} : Data Bytes of the broken message in Hex and comma separated (ie. 01,0F)
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.RepeatedMessage">
+            <summary>
+            Reported Repeated Message
+            <para>
+            Message: "Repeated Message: {0}"
+            </para>
+            <para>
+            {0} : Simple Whirlpool Packet in Hex and comma separated (SOURCE, DESTINATION, SAP, DATA0..N)
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.SerialResponseData">
+            <summary>
+            SerialResponse Data when the current port is Opened or closed
+            <para>
+            Message: "SerialResponseData: {0}"
+            </para>
+            <para>
+            {0} : COM# OPEN or COM# Port closed
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.DataFlowState">
+            <summary>
+            Current Data Flow State
+            <para>
+            Message: "Data Flow: {0}"
+            </para>
+            <para>
+            {0} : ON or OFF
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.DataFilterState">
+            <summary>
+            Current Data Filter State
+            <para>
+            Message: "Data Filter: {0}"
+            </para>
+            <para>
+            {0} : ON or OFF
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BusStatus">
+            <summary>
+            Current Bus Status
+            <para>
+            Message: "Bus Status: {0}"
+            </para>
+            <para>
+            {0} : list of the Nodes Statuses in <see cref="T:WideBoxLib.DeviceMessageStrings.NODE_STATUS"/> Enum string and comma separated (ie. PRESENT,PRESENT,NOT_PRESENT,...up to node14 )
+            </para>
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.DeviceMessageStrings.NODE_STATUS">
+            <summary>
+            Current enumeration of available node status
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.NODE_STATUS.NOT_PRESENT">
+            <summary>
+            Node not present in the bus.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.NODE_STATUS.PRESENT">
+            <summary>
+            Node present in the bus.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.KeyEvent">
+            <summary>
+            Key Event
+            <para>
+            Message: "Key Event: {0}"
+            </para>
+            <para>
+            {0} : One of the enum items of <see cref="T:WideBoxLib.DeviceMessageStrings.KEY_EVENT_LIST"/> enumeration. (i.e CLICK,HOLD,STUCK)
+            </para>
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.DeviceMessageStrings.KEY_EVENT_LIST">
+            <summary>
+            Current enumeration of available node status
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.KEY_EVENT_LIST.CLICK">
+            <summary>
+            Key was clicked (pressed and released)
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.KEY_EVENT_LIST.HOLD">
+            <summary>
+            Key Holded for 3 seconds.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.KEY_EVENT_LIST.STUCK">
+            <summary>
+            The key is stuck
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BusAttachmentState">
+            <summary>
+            Current Bus Attachment State
+            <para>
+            Message: "Bus Attachment State: {0}"
+            </para>
+            <para>
+            {0} : True or False (true meaning Attached)
+            </para>
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BusHardwareConnection">
+            <summary>
+            Current Bus Hardware Connection
+            <para>
+            Message: "Bus Hardware Connection: {0} Baud: {1}"
+            </para>
+            <para>
+            {0} : One of the enum items of <see cref="T:WideBoxLib.DeviceMessageStrings.HARDWARE_CONNECTION"/> enumeration (i.e. REGULAR_UART_TRANSLATOR, SERIAL_TX_RX_WITH_ECHO or SERIAL_TX_RX_WITHOUT_ECHO)
+            {1} : One of the enum items of <see cref="T:WideBoxLib.DeviceMessageStrings.HARDWARE_BAUDRATE"/> enumeration (i.e. B9600..)
+            </para>
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.DeviceMessageStrings.HARDWARE_CONNECTION">
+            <summary>
+            Current enumeration of available hardware connections
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_CONNECTION.REGULAR_UART_TRANSLATOR">
+            <summary>
+            Regular 1 wire uart translator (Wide/Win driver) output
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_CONNECTION.SERIAL_TX_RX_WITH_ECHO">
+            <summary>
+            Serial Tx/Rx output expecting echo
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_CONNECTION.SERIAL_TX_RX_WITHOUT_ECHO">
+            <summary>
+            Serial Tx/Rx output skipping the echo check (used for IR connection)
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_CONNECTION.INVALID_CONNECTION">
+            <summary>
+            Invalid Connection
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.DeviceMessageStrings.HARDWARE_BAUDRATE">
+            <summary>
+            Current enumeration of available hardware baud rate
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_BAUDRATE.B1200">
+            <summary>
+            1200 baud
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_BAUDRATE.B2400">
+            <summary>
+            2400 baud
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_BAUDRATE.B4800">
+            <summary>
+            4800 baud
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_BAUDRATE.B9600">
+            <summary>
+            9600 baud
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_BAUDRATE.B19200">
+            <summary>
+            19200 baud
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_BAUDRATE.B38400">
+            <summary>
+            38400 baud
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_BAUDRATE.B57600">
+            <summary>
+            57600 baud
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_BAUDRATE.B115200">
+            <summary>
+            115200 baud
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.HARDWARE_BAUDRATE.B230400">
+            <summary>
+            230400 baud
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BusHardwareTest">
+            <summary>
+            Current Bus Hardware Test State
+            <para>
+            Message: "Bus Hardware Test: {0} State: {1}"
+            </para>
+            <para>
+            {0} : One of the enum items of <see cref="T:WideBoxLib.DeviceMessageStrings.HARDWARE_CONNECTION"/> enumeration (i.e. REGULAR_UART_TRANSLATOR, SERIAL_TX_RX_WITH_ECHO or SERIAL_TX_RX_WITHOUT_ECHO)
+            {1} : One of the enum items of <see cref="T:WideBoxLib.DeviceMessageStrings.BUSHARDWARE_TEST_STATE_TYPE"/> enumeration (i.e. IDLE,SET_HIGH,...)
+            </para>
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.DeviceMessageStrings.BUSHARDWARE_TEST_STATE_TYPE">
+            <summary>
+            Current enumeration of available bus hardware test state
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BUSHARDWARE_TEST_STATE_TYPE.IDLE">
+            <summary>
+            The idle
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BUSHARDWARE_TEST_STATE_TYPE.SET_HIGH">
+            <summary>
+            The set high
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BUSHARDWARE_TEST_STATE_TYPE.TEST_HIGH">
+            <summary>
+            The test high
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BUSHARDWARE_TEST_STATE_TYPE.TEST_LOW">
+            <summary>
+            The test low
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BUSHARDWARE_TEST_STATE_TYPE.TEST_PASS">
+            <summary>
+            The test pass
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BUSHARDWARE_TEST_STATE_TYPE.TEST_FAIL">
+            <summary>
+            The test fail
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BusError">
+            <summary>
+            Bus Error. Reported when any error in the bus happen.
+            <para>
+            Message: "Bus Error: {0}"
+            </para>
+            <para>
+            {0} : One of the enum items of <see cref="T:WideBoxLib.DeviceMessageStrings.BUS_ERROR"/> enumeration.
+            </para>
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.DeviceMessageStrings.BUS_ERROR">
+            <summary>
+            Current enumeration of available Errors
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BUS_ERROR.NO_ERROR">
+            <summary>
+            No error.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BUS_ERROR.WIN_BUFFER_NOT_ALLOCATED">
+            <summary>
+            Win buffer not allocated.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BUS_ERROR.WIN_INVALID_SIZE">
+            <summary>
+            Win message with an invalid size.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BUS_ERROR.WIN_INVALID_ADDRESS">
+            <summary>
+            Win message with an invalid address.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.DeviceMessageStrings.BUS_ERROR.WIN_FAIL">
+            <summary>
+            Win failure.
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.DeviceMessageStrings.GetDeviceStringParameters(System.String,System.String)">
+            <summary>
+            Get the {#} from the Device Strings in a List of strings.
+            </summary>
+            <param name="devicestring">Device String Pattern (Constants from this class).</param>
+            <param name="received_msg">Received message.</param>
+            <returns>A list of strings with given parameters.</returns>
+        </member>
+        <member name="M:WideBoxLib.DeviceMessageStrings.CheckDeviceString(System.String,System.String)">
+            <summary>
+            Checks the if device string given match the device message received.
+            </summary>
+            <param name="devicestring">The device string to compare.</param>
+            <param name="received_msg">The received message to be compared.</param>
+            <returns><c>true</c> if the message is the given device string</returns>
+        </member>
+        <member name="T:WideBoxLib.LogStream">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.LogStream._file">
+            <summary>
+            The _file
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.LogStream._stream">
+            <summary>
+            The _stream
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.LogStream.logClosed">
+            <summary>
+            The log closed
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.LogStream.LogClosed">
+            <summary>
+            Gets a value indicating whether [log closed].
+            </summary>
+            <value>
+              <c>true</c> if [log closed]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:WideBoxLib.LogStream.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WideBoxLib.LogStream"/> class.
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.LogStream.OpenStream(System.String,System.String,System.String)">
+            <summary>
+            Opens the stream.
+            </summary>
+            <param name="file_prefix">The file_prefix.</param>
+            <param name="log_header">The log_header.</param>
+            <param name="extension">The extension.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.LogStream.CloseStream">
+            <summary>
+            Closes the stream.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.LogStream.WriteLine(System.String)">
+            <summary>
+            Append a new line into the log.
+            </summary>
+            <param name="line">The line.</param>
+        </member>
+        <member name="M:WideBoxLib.LogStream.Write(System.String)">
+            <summary>
+            Append the value string into the log.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="T:WideBoxLib.PPWStateMachine">
+            <summary>
+            PPW Parsing state machine
+            </summary>
+            <seealso cref="!:WideBoxLib.LowLevelParserStateMachine&lt;PPWStateMachine.PPWReceiveStates&gt;" />
+        </member>
+        <member name="M:WideBoxLib.PPWStateMachine.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WideBoxLib.PPWStateMachine"/> class.
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.PPWStateMachine.PPWReceiveStates">
+            <summary>
+            PPW state machine states.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.PPWStateMachine.PPWReceiveStates.WAITING_SOP">
+            <summary>
+            Waiting for sop
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.PPWStateMachine.PPWReceiveStates.WAITING_DATATYPE_SOURCEDEST">
+            <summary>
+            Waiting for datatype and sourcedest
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.PPWStateMachine.PPWReceiveStates.WAITING_SAP_AND_LENGHT">
+            <summary>
+            The waitin g_ sa p_ an d_ lenght
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.PPWStateMachine.PPWReceiveStates.WAITING_FRAME_ID">
+            <summary>
+            The waitin g_ fram e_ identifier
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.PPWStateMachine.PPWReceiveStates.WAITING_DLE_PKT_LENGTH">
+            <summary>
+            The waitin g_ dl e_ pk t_ length
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.PPWStateMachine.PPWReceiveStates.WAITING_PAYLOAD_BYTES">
+            <summary>
+            The waitin g_ payloa d_ bytes
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.PPWStateMachine.PPWReceiveStates.WAITING_FIRST_CRC_BYTE">
+            <summary>
+            The waitin g_ firs t_ cr c_ byte
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.PPWStateMachine.PPWReceiveStates.WAITING_LAST_CRC_BYTE">
+            <summary>
+            The waitin g_ las t_ cr c_ byte
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.PPWStateMachine.BreakMessageReceived">
+            <summary>
+            Gets or sets a value indicating whether [break message received].
+            </summary>
+            <value>
+            <c>true</c> if [break message received]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:WideBoxLib.WMSPStateMachine">
+            <summary>
+            WMSP Parsing state machine
+            </summary>
+            <seealso cref="!:WideBoxLib.LowLevelParserStateMachine&lt;WMSPStateMachine.WMSPReceiveStates&gt;" />
+        </member>
+        <member name="M:WideBoxLib.WMSPStateMachine.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WideBoxLib.WMSPStateMachine"/> class.
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.WMSPStateMachine.WMSPReceiveStates">
+            <summary>
+            WMSP state machine states.
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WMSPStateMachine.WMSPReceiveStates.WAITING_SOP">
+            <summary>
+            The waiting sop
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WMSPStateMachine.WMSPReceiveStates.WAITING_SOURCEDEST">
+            <summary>
+            The waiting sourcedest
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WMSPStateMachine.WMSPReceiveStates.WAITING_ID_SAP">
+            <summary>
+            The waiting id sap
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WMSPStateMachine.WMSPReceiveStates.WAITING_SIZE">
+            <summary>
+            The waiting size
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WMSPStateMachine.WMSPReceiveStates.WAITING_PAYLOAD_BYTES">
+            <summary>
+            The waiting payload bytes
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WMSPStateMachine.WMSPReceiveStates.WAITING_FIRST_CRC_BYTE">
+            <summary>
+            The waiting first crc byte
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WMSPStateMachine.WMSPReceiveStates.WAITING_LAST_CRC_BYTE">
+            <summary>
+            The waiting last crc byte
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.IWhirlpoolWiredBus">
+            <summary>
+            Provides the interface with Whirlpool's communication devices such as CCB and CCB2. Can handle all current implemented protocols (PPW and CCB2).
+            </summary>    
+            <example>
+            Full Example on How to Get message from the bus or from the device and send message back Using a Console Application.
+            <code lang="C#" source="Examples/GetMessageExample.cs" />
+            Full Example on How to Get message from the bus or from the device and send message back Using a Console Application.
+            This example is show a simple Flush Send Receive message more in a script manner.
+            First example is on using PPW protocol (only WIDE) that can be used in old wide box or CCB/Smart Cables
+            <code lang="C#" source="Examples/ScriptSendReceiveMessage.cs" region="Flush_Send_Wait_Receive_CCB1"/>
+            This second example is on using CCB2 protocol that CCB2 box uses to talk WIN/WIDE/...
+            <code lang="C#" source="Examples/ScriptSendReceiveMessage.cs" region="Flush_Send_Wait_Receive_CCB2"/>
+            </example>
+        </member>
+        <member name="M:WideBoxLib.IWhirlpoolWiredBus.EnableRawDataLog(System.Boolean)">
+            <summary>
+            Enable logging Raw state machine data into a log file
+            </summary>
+            <param name="enable">true to start logging into a file</param>
+        </member>
+        <member name="M:WideBoxLib.IWhirlpoolWiredBus.SetSerial(System.String,System.Int32,WideBoxLib.WideBox.PC_PROTOCOL)">
+            <summary>
+            Set the serial port to the widebox communication
+            </summary>
+            <param name="port">COM name</param>
+            <param name="txinterval">interval between sending messages on the TX buffer</param>
+            <param name="protocol">set the PC protocol to use</param>
+            <returns>Feedback of opening: "OPEN" or "Port Not Available"</returns>
+            <example>The following example shows how to a set serial port to communicate CCB2 protocol<code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="SetSerial"/></example>
+        </member>
+        <member name="P:WideBoxLib.IWhirlpoolWiredBus.PortName">
+            <summary>
+            Get Current Set port name
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.IWhirlpoolWiredBus.SendMessage(System.Byte,System.Byte,System.Byte[],System.Boolean,System.Double)">
+            <summary>
+            Send a message through the Device, uses the current selected Bus Protocol
+            Block the execution until receives an Ack from the device or timeout has occurred
+            </summary>
+            <param name="address">Destination Address</param>
+            <param name="sap">SAP (4 for Reveal)</param>
+            <param name="data">Simple Whirlpool Message Payload (use getMessagePayload from RevealPacket and TDDPacket)</param>
+            <param name="blockingExecution">set true to make it a blocking call and then allow return false if message is not out after timeout</param>
+            <param name="timeout">Time in milliseconds to wait for the message being out</param>
+            <returns>True if message was send successfully before the timeout or False if the timeout has occurred</returns>
+            <remarks>
+            If you are planning to use SendMessage with blockingExecution equals true make sure this is called from a different 
+            thread than <see cref="M:WideBoxLib.IWhirlpoolWiredBus.GetSimpleWhirlpoolMessage(System.Boolean)">GetSimpleWhirlpoolMessage()</see> and <see cref="M:WideBoxLib.IWhirlpoolWiredBus.GetDeviceMessage(System.Boolean)">GetDeviceMessage()</see> because the messages are only looked up when removed from the buffer.
+            </remarks>
+            <example>One example on How to send a message expecting the acknowledge. <code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="SendMessage"/>
+            Now using the RevealPacket to send a message response <code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="SendRevealMessage"/>
+            </example>
+        </member>
+        <member name="M:WideBoxLib.IWhirlpoolWiredBus.ClearMessagesBuffer">
+            <summary>
+            Clears the Simple Whirlpool messages buffer.
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.IWhirlpoolWiredBus.GetSimpleWhirlpoolMessage(System.Boolean)">
+            <summary>
+            Get received message as an ExtendedSimpleWhirlpoolPacket.
+            If it returns a null means that is no message in the buffer or is another type of a message in the buffer if the skipOtherTypes is not set to true.
+            </summary>
+            <param name="skipOtherTypes">Set true to skip other types and search for the next <see cref="!:WideBoxLib.ExtendedSimpleWhirlpoolPacket">ExtendedSimpleWhirlpoolPacket</see></param>
+            <returns>The Message from the bus or null if no message is in the buffer or is another type of a message in the buffer if the skipOtherTypes is not set to true</returns>
+            <example>How to get a Message from the bus. <code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="GetMessage"/>
+            </example>
+        </member>
+        <member name="P:WideBoxLib.IWhirlpoolWiredBus.IsNewMessagePresent">
+            <summary>
+            Get if new message is present in buffer.
+            If is true then you can call GetSimpleWhirlpoolMessage but it can still return null if the message was a Device Message
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.IWhirlpoolWiredBus.GetDeviceMessage(System.Boolean)">
+            <summary>
+            Get Device Messages from incoming buffer and returns null if the list is empty
+            </summary>
+            <returns>A DeviceMessage from incoming buffer, or null if buffer is empty</returns>
+            <example>Getting a device message needs to be called after a GetSimpleWhirlpoolMessage.
+            See <see cref="T:WideBoxLib.WideBox">WideBox</see> for a complete example.
+            <code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="GetDeviceMessage"/>
+            
+            </example>
+        </member>
+        <member name="M:WideBoxLib.IWhirlpoolWiredBus.SendCommand(System.Byte,System.Byte[],System.Boolean,System.Double)">
+            <summary>
+            Send a configuration command to the WideBox
+            <see cref="T:WideBoxLib.WideBoxConstants">WideBoxConstants</see> contains the list of available commands. Constant bytes that start with "CMD_".
+            </summary>
+            <param name="cmd">Current command to be sent: Use <see cref="T:WideBoxLib.WideBoxConstants">WideBoxConstants</see> to get the command list</param>
+            <param name="data">Data to the given command</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">
+            byte 0 in data for CMD_SET_WIDE_BOX_ADDR need to be present;data
+            or
+            byte 0 in data for CMD_SET_PROTOCOL need to be present;data
+            </exception>
+        </member>
+        <member name="M:WideBoxLib.IWhirlpoolWiredBus.IsComOpen">
+            <summary>
+            Return if the serial port selected is Open
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.IWhirlpoolWiredBus.Close">
+            <summary>
+            Closes the serial Port
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.IWhirlpoolWiredBus.ClearAllMessagesBuffer">
+            <summary>
+            Clears all message types in buffer.
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.WBConstants2CCB2Commands">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WBConstants2CCB2Commands.WBC2CCB2ConverterDictionary">
+            <summary>
+            The WideBox to CCB2 command converter dictionary
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.WideBox">
+            <summary>
+            Provides the interface with Whirlpool's communication devices such as CCB and CCB2. Can handle all current implemented protocols (PPW and CCB2).
+            </summary>    
+            <example>
+            Full Example on How to Get message from the bus or from the device and send message back Using a Console Application.
+            <code lang="C#" source="Examples/GetMessageExample.cs" />
+            </example>
+        </member>
+        <member name="M:WideBoxLib.WideBox.EnableRawDataLog(System.Boolean)">
+            <summary>
+            Enable logging Raw state machine data into a log file
+            </summary>
+            <param name="enable">true to start logging into a file</param>
+        </member>
+        <member name="T:WideBoxLib.WideBox.WideBoxVersion">
+            <summary>
+            Represents a Version information of the device firmware
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.WideBoxVersion.Major">
+            <summary>
+            Get or Set the Major version
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.WideBoxVersion.Minor">
+            <summary>
+            Get or Set the Minor version
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.WideBoxVersion.Increment">
+            <summary>
+            Get or Set the Increment version
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.WideBoxVersion.HWMajor">
+            <summary>
+            Get or Set the Major version
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.WideBoxVersion.HWMinor">
+            <summary>
+            Get or Set the Minor version
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.WideBoxVersion.HWIncrement">
+            <summary>
+            Get or Set the Increment version
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.WideBoxVersion.Updated">
+            <summary>
+            Get or Set if the version is updated
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.WideBox.Version">
+            <summary>
+            Get or Set the Device version. 
+            Check the Updated field is true to know if the Version has valid info.
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.WideBox.PC_PROTOCOL">
+            <summary>
+            Enum the Current supported PC protocols to WideBox/CCB2/SmartCables
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.PC_PROTOCOL.CCB2">
+            <summary>
+            CCB2 protocol only for CCB2
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.PC_PROTOCOL.PPW">
+            <summary>
+            PPW Protocol that supports old CCB, don't support WIN/WMSP
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.WideBox.PCProtocol">
+            <summary>
+            Get the current Set PCProtocol
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.WideBox.PCProtocolCallback">
+            <summary>
+            PCProtocol callback delegate
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WideBoxLib.WideBox.PCProtocolCallbackHandler">
+            <summary>
+            Get PCProtocol Callback Delegate handler. Set the callback function to this property.
+            Called when IsSetAndSendEventBased is true and PCProtocol function is get.
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.WideBox.BUS_PROTOCOL">
+            <summary>
+            Enum the Current supported Bus protocols to CCB2 Only
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.BUS_PROTOCOL.NONE">
+            <summary>
+            Set no protocol
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.BUS_PROTOCOL.WIDE">
+            <summary>
+            WIDE protocol
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.BUS_PROTOCOL.WIN">
+            <summary>
+            WIN protocol
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.BUS_PROTOCOL.WMSP">
+            <summary>
+            WMSP protocol
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WideBox.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WideBoxLib.WideBox"/> class.
+            </summary>
+        </member>
+        <member name="E:WideBoxLib.WideBox.IncomingMessage">
+            <summary>
+            Event raised when one or more message are ready to be pulled from the Queue
+            If the message is a Device message the GetSimpleWhirlpoolMessage will return null message and will raise the IncomingDeviceMessage event
+            </summary>
+        </member>
+        <member name="E:WideBoxLib.WideBox.IncomingDeviceMessage">
+            <summary>
+            Event raised when one or more device messages are ready to be pulled from Device Message Queue
+            This event is only raised if the client call getMsg and a device message was in the queue instead
+            Call GetDeviceMessage to pull from Device Messages Queue after this event is raised
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.WideBox.SerialResponseData">
+            <summary>
+            Enumeration of available SerialResponseData
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.SerialResponseData.OPEN">
+            <summary>
+            Port successfully opened
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.SerialResponseData.CLOSE">
+            <summary>
+            Port successfully closed
+            </summary>
+        </member>
+        <member name="F:WideBoxLib.WideBox.SerialResponseData.NOT_AVAILABLE">
+            <summary>
+            Port not available in this machine
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.WideBox.IsSetAndSendEventBased">
+            <summary>
+            Set or Get true if the SetSerial, Close, SendCommand, IsComOpen, PortName and SendMessage functions call their respective callbacks and don't pass down to serial port.
+            Callbacks will only be called if this property is true.
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WideBox.SetSerial(System.String,System.Int32,WideBoxLib.WideBox.PC_PROTOCOL)">
+            <summary>
+            Set the serial port to the widebox communication
+            </summary>
+            <param name="port">COM name</param>
+            <param name="txinterval">interval between sending messages on the TX buffer</param>
+            <param name="protocol">set the PC protocol to use</param>
+            <returns>Feedback of opening: "OPEN" or "Port Not Available"</returns>
+            <example>The following example shows how to a set serial port to communicate CCB2 protocol<code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="SetSerial"/></example>
+        </member>
+        <member name="T:WideBoxLib.WideBox.SetSerialCallback">
+            <summary>
+            Set Serial callback delegate
+            </summary>
+            <param name="port"></param>
+            <param name="txinterval"></param>
+            <param name="protocol"></param>
+            <returns></returns>
+        </member>
+        <member name="P:WideBoxLib.WideBox.SetSerialCallbackHandler">
+            <summary>
+            Set Serial Callback Delegate handler. Set the callback function to this property.
+            Called when IsSetAndSendEventBased is true and SetSerial function is called.
+            </summary>
+        </member>
+        <member name="P:WideBoxLib.WideBox.PortName">
+            <summary>
+            Get Current Set port name
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.WideBox.PortNameCallback">
+            <summary>
+            PortName callback delegate
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WideBoxLib.WideBox.PortNameCallbackHandler">
+            <summary>
+            Port Name Callback Delegate handler. Set the callback function to this property.
+            Called when IsSetAndSendEventBased is true and PortName property is get.
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WideBox.SendMessage(System.Byte,System.Byte,System.Byte[],System.Boolean,System.Double)">
+            <summary>
+            Send a message through the Device, uses the current selected Bus Protocol
+            Block the execution until receives an Ack from the device or timeout has occurred
+            </summary>
+            <param name="address">Destination Address</param>
+            <param name="sap">SAP (4 for Reveal)</param>
+            <param name="data">Simple Whirlpool Message Payload (use getMessagePayload from RevealPacket and TDDPacket)</param>
+            <param name="blockingExecution">set true to make it a blocking call and then allow return false if message is not out after timeout</param>
+            <param name="timeout">Time in milliseconds to wait for the message being out</param>
+            <returns>True if message was send successfully before the timeout or False if the timeout has occurred</returns>
+            <remarks>
+            If you are planning to use SendMessage with blockingExecution equals true make sure this is called from a different 
+            thread than <see cref="M:WideBoxLib.IWhirlpoolWiredBus.GetSimpleWhirlpoolMessage(System.Boolean)">GetSimpleWhirlpoolMessage()</see> and <see cref="M:WideBoxLib.IWhirlpoolWiredBus.GetDeviceMessage(System.Boolean)">GetDeviceMessage()</see> because the messages are only looked up when removed from the buffer.
+            </remarks>
+            <example>One example on How to send a message expecting the acknowledge. <code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="SendMessage"/>
+            Now using the RevealPacket to send a message response <code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="SendRevealMessage"/>
+            </example>
+        </member>
+        <member name="M:WideBoxLib.WideBox.SendMessage(System.Byte,System.Byte,System.Byte[]@,System.Boolean,System.Double)">
+            <summary>
+            COM friendly version of SendMessage
+            Send a message through the Device, uses the current selected Bus Protocol
+            Block the execution until receives an Ack from the device or timeout has occurred
+            </summary>
+            <param name="address">Destination Address</param>
+            <param name="sap">SAP (4 for Reveal)</param>
+            <param name="data">Simple Whirlpool Message Payload (use getMessagePayload from RevealPacket and TDDPacket) as reference, can be used in VB6</param>
+            <param name="blockingExecution">set true to make it a blocking call and then allow return false if message is not out after timeout</param>
+            <param name="timeout">Time in milliseconds to wait for the message being out</param>
+            <returns>True if message was send successfully before the timeout or False if the timeout has occurred</returns>
+            <remarks>
+            If you are planning to use SendMessage with blockingExecution equals true make sure this is called from a different 
+            thread than <see cref="M:WideBoxLib.IWhirlpoolWiredBus.GetSimpleWhirlpoolMessage(System.Boolean)">GetSimpleWhirlpoolMessage()</see> and <see cref="M:WideBoxLib.IWhirlpoolWiredBus.GetDeviceMessage(System.Boolean)">GetDeviceMessage()</see> because the messages are only looked up when removed from the buffer.
+            </remarks>
+            <example>One example on How to send a message expecting the acknowledge. <code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="SendMessage"/>
+            Now using the RevealPacket to send a message response <code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="SendRevealMessage"/>
+            </example>
+        </member>
+        <member name="T:WideBoxLib.WideBox.SendMessageCallback">
+            <summary>
+            SendMessageCallback delegate
+            </summary>
+            <param name="address">Destination Address</param>
+            <param name="sap">SAP (4 for Reveal)</param>
+            <param name="data">Simple Whirlpool Message Payload (use getMessagePayload from RevealPacket and TDDPacket)</param>
+            <param name="blockingExecution">set true to make it a blocking call and then allow return false if message is not out after timeout</param>
+            <param name="timeout">Time in milliseconds to wait for the message being out</param>
+        </member>
+        <member name="P:WideBoxLib.WideBox.SendMessageCallbackHandler">
+            <summary>
+            SendMessage Callback handler. Set the callback function to this property.
+            Called when IsSetAndSendEventBased is true and SendMessage function is called.
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WideBox.SendWideMsg(System.Byte,System.Byte,System.Byte[],System.Boolean,System.Double)">
+            <summary>
+            Send a wide message through  wide box
+            </summary>
+            <param name="address">Destination Address</param>
+            <param name="sap">SAP (4 for Reveal)</param>
+            <param name="data">Wide Payload (use getWidePayload from RevealPacket)</param>
+            <param name="blockingExecution">set true to make it a blocking call and then allow return false if message is not out after timeout</param>
+            <param name="timeout">Time in milliseconds to wait for the message being out</param>
+        </member>
+        <member name="M:WideBoxLib.WideBox.SendWideMsg(System.Byte,System.Byte,System.Byte[])">
+            <summary>
+            Wrapper to the old void SendWideMsg
+            </summary>
+            <param name="address">Destination Address</param>
+            <param name="sap">SAP (4 for Reveal)</param>
+            <param name="data">Wide Payload (use getWidePayload from RevealPacket)</param>
+        </member>
+        <member name="M:WideBoxLib.WideBox.getMsg">
+            <summary>
+            Get message from incoming buffer
+            If it returns an empty array (bytes.Lenght == 0) means that is no message in the buffer anymore.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WideBox.getMsg(System.DateTime@)">
+            <summary>
+            Get message from incoming buffer with the timestamp
+            If it returns an empty array (bytes.Lenght == 0) means that is no message in the buffer anymore.
+            </summary>
+            <param name="msgTime">Time Stamp of current Message</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WideBox.getMsg(System.DateTime@,System.Boolean@)">
+            <summary>
+            Get message from incoming buffer with the timestamp and if it's valid. (Only for WIDE messages).
+            If it returns an empty array (bytes.Lenght == 0) means that is no message in the buffer anymore.
+            <para>
+            If this function is called then the message is removed from the buffer
+            and will not show up when GetSimpleWhirlpoolMessage call.
+            </para>
+            </summary>
+            <param name="msgTime">Time Stamp of current Message</param>
+            <param name="valid">True if the message is valid</param>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WideBox.ClearMessagesBuffer">
+            <summary>
+            Clears the Simple Whirlpool messages buffer.
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WideBox.ClearDeviceMessagesBuffer">
+            <summary>
+            Clears the Device Messages buffer.
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WideBox.ClearAllMessagesBuffer">
+            <summary>
+            Clears all message types buffer.
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WideBox.GetSimpleWhirlpoolMessage(System.Boolean)">
+            <summary>
+            Get received message as an ExtendedSimpleWhirlpoolPacket.
+            If it returns a null means that is no message in the buffer or is another type of a message in the buffer if the skipOtherTypes is not set to true.
+            </summary>
+            <param name="skipOtherTypes">Set true to skip other types and search for the next <see cref="!:WideBoxLib.ExtendedSimpleWhirlpoolPacket">ExtendedSimpleWhirlpoolPacket</see></param>
+            <returns>
+            The Message from the bus or null if no message is in the buffer or is another type of a message in the buffer if the skipOtherTypes is not set to true
+            </returns>
+            <example>How to get a Message from the bus. <code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="GetMessage" /></example>
+        </member>
+        <member name="M:WideBoxLib.WideBox.getPCProtocolMessages(System.Object)">
+            <summary>
+            Get receives message as an ExtendedSimpleWhirlpoolPacket.
+            If it returns an null means that is no message in the buffer anymore.
+            </summary>
+            <returns>The Message from the bus or null if no message is in the buffer</returns>
+            <example>How to get a Message from the bus. <code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="GetMessage"/>
+            </example>
+        </member>
+        <member name="P:WideBoxLib.WideBox.ExceptionLog">
+            <summary>
+            Gets the exception log.
+            </summary>
+            <value>
+            The exception log.
+            </value>
+        </member>
+        <member name="P:WideBoxLib.WideBox.IsNewMessagePresent">
+            <summary>
+            Get if new message is present in buffer.
+            If is true then you can call GetSimpleWhirlpoolMessage but it can still return null if the message was a Device Message
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WideBox.getWideBoxDeviceMsg">
+            <summary>
+            Get wide box device messages from incoming buffer and returns null if the list is empty
+            </summary>
+            <returns>A DeviceMessage from incoming buffer, or null if buffer is empty</returns>
+        </member>
+        <member name="M:WideBoxLib.WideBox.GetDeviceMessage(System.Boolean)">
+            <summary>
+            Get Device Messages from incoming buffer and returns null if the list is empty or is another type of a message in the buffer if the skipOtherTypes is not set to true.
+            </summary>
+            <param name="skipOtherTypes">Set true to skip other types and search for the next <see cref="!:WideBoxLib.DeviceMessage">DeviceMessage</see></param>
+            <returns>
+            A DeviceMessage from incoming buffer, or null if buffer is empty or is another type of a message in the buffer if the skipOtherTypes is not set to true
+            </returns>
+            <example>Getting a device message needs to be called after a GetSimpleWhirlpoolMessage or skipOtherTypes must be set to true.
+            See <see cref="T:WideBoxLib.WideBox">WideBox</see> for a complete example.
+            <code lang="C#" title="C#" source="Examples/GetMessageExample.cs" region="GetDeviceMessage" /></example>
+        </member>
+        <member name="M:WideBoxLib.WideBox.GetMessage">
+            <summary>
+            Gets the last message on the internal buffer.
+            <para>Cast to the one of the Current IMessage implementers to check it's type.</para>
+            <para>
+            Current IMessage implementers:
+            <para><see cref="!:WideBoxLib.ExtendedSimpleWhirlpoolPacket"> - ExtendedSimpleWhirlpoolPacket;</see></para>
+            <para><see cref="!:WideBoxLib.SimpleWhirlpoolPacket"> - SimpleWhirlpoolPacket;</see></para>
+            <para><see cref="!:WideBoxLib.DeviceMessage"> - DeviceMessage.</see></para>
+            </para>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WideBoxLib.WideBox.SendCommand(System.Byte,System.Byte[])">
+            <summary>
+            Send a configuration command to the WideBox
+            <see cref="T:WideBoxLib.WideBoxConstants">WideBoxConstants</see> contains the list of available commands. Constant bytes that start with "CMD_".
+            </summary>
+            <param name="cmd">Current command to be sent: Use <see cref="T:WideBoxLib.WideBoxConstants">WideBoxConstants</see> to get the command list</param>
+            <param name="data">Data to the given command</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">
+            byte 0 in data for CMD_SET_WIDE_BOX_ADDR need to be present;data
+            or
+            byte 0 in data for CMD_SET_PROTOCOL need to be present;data
+            </exception>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:WideBoxLib.WideBox.SendCommand(System.Byte,System.Byte[],System.Boolean,System.Double)" -->
+        <member name="M:WideBoxLib.WideBox.SendCommand(System.Byte,System.Byte[]@,System.Boolean,System.Double)">
+            <summary>
+            COM friendly version of SendCommand
+            Send a configuration command to the WideBox
+            <see cref="T:WideBoxLib.WideBoxConstants">WideBoxConstants</see> contains the list of available commands. Constant bytes that start with "CMD_".
+            </summary>
+            <param name="cmd">Current command to be sent: Use <see cref="T:WideBoxLib.WideBoxConstants">WideBoxConstants</see> to get the command list</param>
+            <param name="data">Data to the given command</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentException">
+            byte 0 in data for CMD_SET_WIDE_BOX_ADDR need to be present;data
+            or
+            byte 0 in data for CMD_SET_PROTOCOL need to be present;data
+            </exception>
+        </member>
+        <member name="T:WideBoxLib.WideBox.SendCommandCallback">
+            <summary>
+            SendCommand callback delegate
+            </summary>
+            <param name="cmd">Current command to be sent: Use WideBoxConstants to get the command list</param>
+            <param name="data">Data to the given command</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="P:WideBoxLib.WideBox.SendCommandCallbackHandler">
+            <summary>
+            SendCommand Callback handler. Set the callback function to this property.
+            Called when IsSetAndSendEventBased is true and SendCommand function is called.
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WideBox.IsComOpen">
+            <summary>
+            Return if the serial port selected is Open
+            </summary>
+            <returns>True if the COM port is open</returns>
+        </member>
+        <member name="T:WideBoxLib.WideBox.IsComOpenCallback">
+            <summary>
+            IsComOpen Callback delegate
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WideBoxLib.WideBox.IsComOpenCallbackHandler">
+            <summary>
+            IsComOpen Callback handler. Set the callback function to this property.
+            </summary>
+        </member>
+        <member name="M:WideBoxLib.WideBox.Close">
+            <summary>
+            Closes the serial Port
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.WideBox.CloseCallback">
+            <summary>
+            Close callback delegate
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:WideBoxLib.WideBox.CloseCallbackHandler">
+            <summary>
+            Close Callback Delegate handler. Set the callback function to this property.
+            </summary>
+        </member>
+        <member name="T:WideBoxLib.NamespaceDoc">
+            <summary>
+            WideBoxLib namespace contains classes that provides support to connect with Whirlpool's communication devices like WideBox, CCB and CCB2.
+            Open IWhirlpoolWiredBus interface to see full examples.
+            </summary>
+        </member>
+    </members>
+</doc>

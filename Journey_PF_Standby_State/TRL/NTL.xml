@@ -1,0 +1,5296 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NTL</name>
+    </assembly>
+    <members>
+        <member name="T:NTL.APIWaitableMessages.API009WaitableMessages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NTL.APIWaitableMessages.API009WaitableMessages.GetPublishResetMessage(System.String)">
+            <summary>
+            Gets the publish reset message.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API10WaitableMessages.API010WaitableMessages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NTL.API10WaitableMessages.API010WaitableMessages.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NTL.API10WaitableMessages.API010WaitableMessages"/> class.
+            </summary>
+        </member>
+        <member name="M:NTL.API10WaitableMessages.API010WaitableMessages.RequestSpecificVariableWaitableMessage(System.String,System.Byte)">
+            <summary>
+            Requests the specific variable waitable message.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API10WaitableMessages.API010WaitableMessages.RequestFixedvariableWaitableMessage(System.String,System.Byte)">
+            <summary>
+            Requests the fixedvariable waitable message.
+            </summary>
+            <param name="id">The identifier.</param>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API10WaitableMessages.API010WaitableMessages.RequestAcquisitionConfigurationWaitableMessage(System.String)">
+            <summary>
+            Requests the acquisition configuration waitable message.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API10WaitableMessages.API010WaitableMessages.RequestNumberOfVariablesWaitableMessage(System.String)">
+            <summary>
+            Requests the number of variables waitable message.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="F:NTL.ResetMode.COLD">
+            <summary>
+            The cold
+            </summary>
+        </member>
+        <member name="F:NTL.ResetMode.WARM">
+            <summary>
+            The warm
+            </summary>
+        </member>
+        <member name="F:NTL.ResetMode.ENTER_IAP">
+            <summary>
+            The enter iap
+            </summary>
+        </member>
+        <member name="T:NTL.API001OpcodesData.RevealAck">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API001OpcodesData.RevealAck.ReasonCode">
+            <summary>
+            Gets or sets the reveal ack.
+            </summary>
+            <value>
+            The reveal ack.
+            </value>
+        </member>
+        <member name="P:NTL.API001OpcodesData.RevealAck.API">
+            <summary>
+            Gets or sets the API.
+            </summary>
+            <value>
+            The API.
+            </value>
+        </member>
+        <member name="P:NTL.API001OpcodesData.RevealAck.Opcode">
+            <summary>
+            Gets or sets the opcode.
+            </summary>
+            <value>
+            The opcode.
+            </value>
+        </member>
+        <member name="P:NTL.API001OpcodesData.RevealAck.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API001OpcodesData.RevealAck.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="M:NTL.API001OpcodesData.RevealAck.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API001OpcodesData.GetMaxmessageSize">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API001OpcodesData.GetMaxmessageSize.MaxMessageSize">
+            <summary>
+            Gets or sets the size of the get maximum message.
+            </summary>
+            <value>
+            The size of the get maximum message.
+            </value>
+        </member>
+        <member name="P:NTL.API001OpcodesData.GetMaxmessageSize.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API001OpcodesData.GetMaxmessageSize.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="M:NTL.API001OpcodesData.GetMaxmessageSize.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API003OpcodesData.RevealNodes">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="F:NTL.API003OpcodesData.RevealNodes.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API003OpcodesData.RevealNodes.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.RevealNodes.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.RevealNodes.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+            <value>
+            The password.
+            </value>
+        </member>
+        <member name="M:NTL.API003OpcodesData.RevealNodes.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API003OpcodesData.RevealApis">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="F:NTL.API003OpcodesData.RevealApis.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API003OpcodesData.RevealApis.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.RevealApis.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.RevealApis.Apis">
+            <summary>
+            Gets or sets the apis.
+            </summary>
+            <value>
+            The apis.
+            </value>
+        </member>
+        <member name="M:NTL.API003OpcodesData.RevealApis.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API003OpcodesData.ApiInfo">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="F:NTL.API003OpcodesData.ApiInfo.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API003OpcodesData.ApiInfo.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.ApiInfo.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.ApiInfo.ApiId">
+            <summary>
+            Gets or sets the API identifier.
+            </summary>
+            <value>
+            The API identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.ApiInfo.ApiType">
+            <summary>
+            Gets or sets the type of the API.
+            </summary>
+            <value>
+            The type of the API.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.ApiInfo.ApiVersion">
+            <summary>
+            Gets or sets the API version.
+            </summary>
+            <value>
+            The API version.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.ApiInfo.ApiInstances">
+            <summary>
+            Gets or sets the API instances.
+            </summary>
+            <value>
+            The API instances.
+            </value>
+        </member>
+        <member name="M:NTL.API003OpcodesData.ApiInfo.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API003OpcodesData.InstanceInfo">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="F:NTL.API003OpcodesData.InstanceInfo.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API003OpcodesData.InstanceInfo.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.InstanceInfo.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.InstanceInfo.InstanceId">
+            <summary>
+            Gets or sets the instance identifier.
+            </summary>
+            <value>
+            The instance identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.InstanceInfo.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.InstanceInfo.Version">
+            <summary>
+            Gets or sets the version.
+            </summary>
+            <value>
+            The version.
+            </value>
+        </member>
+        <member name="P:NTL.API003OpcodesData.InstanceInfo.DescrChar">
+            <summary>
+            Gets or sets the description character.
+            </summary>
+            <value>
+            The description character.
+            </value>
+        </member>
+        <member name="M:NTL.API003OpcodesData.InstanceInfo.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API03WaitableMessages.API003WaitableMessages">
+            <summary>
+            ]
+            
+            </summary>
+        </member>
+        <member name="M:NTL.API03WaitableMessages.API003WaitableMessages.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NTL.API03WaitableMessages.API003WaitableMessages"/> class.
+            </summary>
+        </member>
+        <member name="M:NTL.API03WaitableMessages.API003WaitableMessages.GetRevealNodesWaitableMessage(System.String)">
+            <summary>
+            Gets the reveal nodes waitable message.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API03WaitableMessages.API003WaitableMessages.GetRevealApisWaitableMessage(System.String)">
+            <summary>
+            Gets the reveal apis waitable message.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API03WaitableMessages.API003WaitableMessages.GetApiInfoWaitableMessage(System.Byte,System.String)">
+            <summary>
+            Gets the API information waitable message.
+            </summary>
+            <param name="apiId">The API identifier.</param>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API03WaitableMessages.API003WaitableMessages.GetInstanceInfoWaitableMessage(System.String)">
+            <summary>
+            Gets the instance information waitable message.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API005OpcodesData.LoadData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API005OpcodesData.LoadData.LoadId">
+            <summary>
+            Gets or sets the load identifier.
+            </summary>
+            <value>
+            The load identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.LoadData.Consistency">
+            <summary>
+            Gets or sets the consistency.
+            </summary>
+            <value>
+            The consistency.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.LoadData.Status">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.LoadData.DataSize">
+            <summary>
+            Gets or sets the size of the data.
+            </summary>
+            <value>
+            The size of the data.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.LoadData.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="F:NTL.API005OpcodesData.LoadData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API005OpcodesData.LoadData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.LoadData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API005OpcodesData.LoadData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API005OpcodesData.LLIData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API005OpcodesData.LLIData.Type">
+            <summary>
+            Gets or sets the type.
+            </summary>
+            <value>
+            The type.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.LLIData.Position">
+            <summary>
+            Gets or sets the position.
+            </summary>
+            <value>
+            The position.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.LLIData.Status">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.LLIData.DataSize">
+            <summary>
+            Gets or sets the size of the data.
+            </summary>
+            <value>
+            The size of the data.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.LLIData.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="F:NTL.API005OpcodesData.LLIData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API005OpcodesData.LLIData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.LLIData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API005OpcodesData.LLIData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API005OpcodesData.GIData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API005OpcodesData.GIData.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GIData.ConvertedData">
+            <summary>
+            Gets or sets the converted data.
+            </summary>
+            <value>
+            The converted data.
+            </value>
+        </member>
+        <member name="F:NTL.API005OpcodesData.GIData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GIData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GIData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API005OpcodesData.GIData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API005OpcodesData.GetAllLoadConfiguration">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllLoadConfiguration.NumOfLoads">
+            <summary>
+            Gets or sets the number of loads.
+            </summary>
+            <value>
+            The number of loads.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllLoadConfiguration.LoadIds">
+            <summary>
+            Gets or sets the load ids.
+            </summary>
+            <value>
+            The load ids.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllLoadConfiguration.LoadPilotTypes">
+            <summary>
+            Gets or sets the load pilot types.
+            </summary>
+            <value>
+            The load pilot types.
+            </value>
+        </member>
+        <member name="F:NTL.API005OpcodesData.GetAllLoadConfiguration.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllLoadConfiguration.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllLoadConfiguration.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API005OpcodesData.GetAllLoadConfiguration.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API005OpcodesData.GetAllLLIConfigurations">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllLLIConfigurations.NumOfLLIs">
+            <summary>
+            Gets or sets the number of ll is.
+            </summary>
+            <value>
+            The number of ll is.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllLLIConfigurations.LLIIds">
+            <summary>
+            Gets or sets the lli ids.
+            </summary>
+            <value>
+            The lli ids.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllLLIConfigurations.LLIPositions">
+            <summary>
+            Gets or sets the lli positions.
+            </summary>
+            <value>
+            The lli positions.
+            </value>
+        </member>
+        <member name="F:NTL.API005OpcodesData.GetAllLLIConfigurations.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllLLIConfigurations.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllLLIConfigurations.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API005OpcodesData.GetAllLLIConfigurations.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API005OpcodesData.GetAllGIConfigurations">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllGIConfigurations.NumOfGIs">
+            <summary>
+            Gets or sets the number of g is.
+            </summary>
+            <value>
+            The number of g is.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllGIConfigurations.GIIds">
+            <summary>
+            Gets or sets the gi ids.
+            </summary>
+            <value>
+            The gi ids.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllGIConfigurations.LLIIds">
+            <summary>
+            Gets or sets the lli ids.
+            </summary>
+            <value>
+            The lli ids.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllGIConfigurations.LLIPositions">
+            <summary>
+            Gets or sets the lli positions.
+            </summary>
+            <value>
+            The lli positions.
+            </value>
+        </member>
+        <member name="F:NTL.API005OpcodesData.GetAllGIConfigurations.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllGIConfigurations.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.GetAllGIConfigurations.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API005OpcodesData.GetAllGIConfigurations.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API005OpcodesData.AllLoadConfig">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllLoadConfig.LoadIds">
+            <summary>
+            Gets or sets the load identifier.
+            </summary>
+            <value>
+            The load identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllLoadConfig.PilotTypes">
+            <summary>
+            Gets or sets the consistency.
+            </summary>
+            <value>
+            The consistency.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllLoadConfig.NumberOfLoads">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="F:NTL.API005OpcodesData.AllLoadConfig.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllLoadConfig.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllLoadConfig.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API005OpcodesData.AllLoadConfig.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API005OpcodesData.AllLLIConfig">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllLLIConfig.LLiIds">
+            <summary>
+            Gets or sets the load identifier.
+            </summary>
+            <value>
+            The load identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllLLIConfig.LLiPositions">
+            <summary>
+            Gets or sets the consistency.
+            </summary>
+            <value>
+            The consistency.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllLLIConfig.NumberOfLLis">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="F:NTL.API005OpcodesData.AllLLIConfig.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllLLIConfig.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllLLIConfig.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API005OpcodesData.AllLLIConfig.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllGIConfig.GiIds">
+            <summary>
+            Gets or sets the load identifier.
+            </summary>
+            <value>
+            The load identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllGIConfig.LLiPositions">
+            <summary>
+            Gets or sets the consistency.
+            </summary>
+            <value>
+            The consistency.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllGIConfig.NumberOfGis">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="F:NTL.API005OpcodesData.AllGIConfig.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllGIConfig.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API005OpcodesData.AllGIConfig.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API005OpcodesData.AllGIConfig.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API05WaitableMessages.API005WaitableMessages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NTL.API05WaitableMessages.API005WaitableMessages.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NTL.API05WaitableMessages.API005WaitableMessages"/> class.
+            </summary>
+        </member>
+        <member name="M:NTL.API05WaitableMessages.API005WaitableMessages.GetLoadDataWaitableMessage(System.Byte,System.String)">
+            <summary>
+            Gets the load data waitable message.
+            </summary>
+            <param name="loadID">The load identifier.</param>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API05WaitableMessages.API005WaitableMessages.GetLLIDataWaitableMessage(System.Byte,System.Byte,System.String)">
+            <summary>
+            Gets the lli data waitable message.
+            </summary>
+            <param name="lliType">Type of the lli.</param>
+            <param name="lliPosition">The lli position.</param>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API05WaitableMessages.API005WaitableMessages.GetGIDataWaitableMessage(System.Byte,System.Byte,System.String)">
+            <summary>
+            Gets the gi data waitable message.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="giID">The gi identifier.</param>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API05WaitableMessages.API005WaitableMessages.GetAllLoadConfigurationWaitableMessage(System.Byte,System.String)">
+            <summary>
+            Gets all load configuration waitable message.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API05WaitableMessages.API005WaitableMessages.GetAllLLIConfigurationsWaitableMessage(System.Byte,System.String)">
+            <summary>
+            Gets all lli configurations waitable message.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API05WaitableMessages.API005WaitableMessages.GetAllGIConfigurationsWaitableMessage(System.Byte,System.String)">
+            <summary>
+            Gets all gi configurations waitable message.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API007OpcodesData.SettingFileInfo">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileInfo.acuCRC">
+            <summary>
+            Gets or sets the acu CRC.
+            </summary>
+            <value>
+            The acu CRC.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileInfo.hmiCRC">
+            <summary>
+            Gets or sets the hmi CRC.
+            </summary>
+            <value>
+            The hmi CRC.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileInfo.acuSFstart">
+            <summary>
+            Gets or sets the acu s fstart.
+            </summary>
+            <value>
+            The acu s fstart.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileInfo.acuSFsize">
+            <summary>
+            Gets or sets the acu s fsize.
+            </summary>
+            <value>
+            The acu s fsize.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileInfo.hmiSFstart">
+            <summary>
+            Gets or sets the hmi s fstart.
+            </summary>
+            <value>
+            The hmi s fstart.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileInfo.hmiSFsize">
+            <summary>
+            Gets or sets the hmi s fsize.
+            </summary>
+            <value>
+            The hmi s fsize.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileInfo.sfStart">
+            <summary>
+            Gets or sets the sf start.
+            </summary>
+            <value>
+            The sf start.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileInfo.sfSize">
+            <summary>
+            Gets or sets the size of the sf.
+            </summary>
+            <value>
+            The size of the sf.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileInfo.sfEnd">
+            <summary>
+            Gets or sets the sf end.
+            </summary>
+            <value>
+            The sf end.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileInfo.sfInfo">
+            <summary>
+            Gets or sets the sf information.
+            </summary>
+            <value>
+            The sf information.
+            </value>
+        </member>
+        <member name="F:NTL.API007OpcodesData.SettingFileInfo.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileInfo.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileInfo.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API007OpcodesData.SettingFileInfo.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="pkt">The PKT.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API007OpcodesData.SettingFileData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="F:NTL.API007OpcodesData.SettingFileData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileData.sfData">
+            <summary>
+            Gets or sets the sf data.
+            </summary>
+            <value>
+            The sf data.
+            </value>
+        </member>
+        <member name="M:NTL.API007OpcodesData.SettingFileData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API007OpcodesData.SettingFileFlashAlignment">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="F:NTL.API007OpcodesData.SettingFileFlashAlignment.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileFlashAlignment.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileFlashAlignment.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API007OpcodesData.SettingFileFlashAlignment.sfFlashAlignment">
+            <summary>
+            Gets or sets the sf flash alignment.
+            </summary>
+            <value>
+            The sf flash alignment.
+            </value>
+        </member>
+        <member name="M:NTL.API007OpcodesData.SettingFileFlashAlignment.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API07WaitableMessages.API007WaitableMessages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NTL.API07WaitableMessages.API007WaitableMessages.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NTL.API07WaitableMessages.API007WaitableMessages"/> class.
+            </summary>
+        </member>
+        <member name="M:NTL.API07WaitableMessages.API007WaitableMessages.GetSettingFileInfo(System.String)">
+            <summary>
+            Gets the setting file information.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API07WaitableMessages.API007WaitableMessages.GetSettingFileData(System.String)">
+            <summary>
+            Gets the setting file data.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.API07WaitableMessages.API007WaitableMessages.GetFlashAlignment(System.String)">
+            <summary>
+            Gets the flash alignment.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API010OpcodesResultData.VariableStreamData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.API010OpcodesResultData.VariableStreamData.applianceVariableInfoList">
+            <summary>
+            The appliance variable information list
+            </summary>
+        </member>
+        <member name="M:NTL.API010OpcodesResultData.VariableStreamData.GetValue(System.Byte[],System.UInt32)">
+            <summary>
+            Gets the value.
+            </summary>
+            <param name="payload">The payload.</param>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API010OpcodesResultData.VariableDataTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.API010OpcodesResultData.VariableDataTypes.Byte">
+            <summary>
+            The byte
+            </summary>
+        </member>
+        <member name="F:NTL.API010OpcodesResultData.VariableDataTypes.UInt16">
+            <summary>
+            The u int16
+            </summary>
+        </member>
+        <member name="F:NTL.API010OpcodesResultData.VariableDataTypes.UInt32">
+            <summary>
+            The u int32
+            </summary>
+        </member>
+        <member name="F:NTL.API010OpcodesResultData.VariableDataTypes.UInt64">
+            <summary>
+            The u int64
+            </summary>
+        </member>
+        <member name="F:NTL.API010OpcodesResultData.VariableDataTypes.SByte">
+            <summary>
+            The s byte
+            </summary>
+        </member>
+        <member name="F:NTL.API010OpcodesResultData.VariableDataTypes.Int16">
+            <summary>
+            The int16
+            </summary>
+        </member>
+        <member name="F:NTL.API010OpcodesResultData.VariableDataTypes.Int32">
+            <summary>
+            The int32
+            </summary>
+        </member>
+        <member name="F:NTL.API010OpcodesResultData.VariableDataTypes.Int64">
+            <summary>
+            The int64
+            </summary>
+        </member>
+        <member name="F:NTL.API010OpcodesResultData.VariableDataTypes.Single">
+            <summary>
+            The single
+            </summary>
+        </member>
+        <member name="F:NTL.API010OpcodesResultData.VariableDataTypes.Double">
+            <summary>
+            The double
+            </summary>
+        </member>
+        <member name="T:NTL.API010OpcodesResultData.VariableInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.VariableInfo.Index">
+            <summary>
+            Gets or sets the index.
+            </summary>
+            <value>
+            The index.
+            </value>
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.VariableInfo.ArraySize">
+            <summary>
+            Gets or sets the size of the array.
+            </summary>
+            <value>
+            The size of the array.
+            </value>
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.VariableInfo.DataType">
+            <summary>
+            Gets or sets the type of the data.
+            </summary>
+            <value>
+            The type of the data.
+            </value>
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.VariableInfo.VarSize">
+            <summary>
+            Gets the size of the variable.
+            </summary>
+            <value>
+            The size of the variable.
+            </value>
+        </member>
+        <member name="T:NTL.API010OpcodesResultData.SpecificVariable">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.SpecificVariable.Index">
+            <summary>
+            Gets or sets the index.
+            </summary>
+            <value>
+            The index.
+            </value>
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.SpecificVariable.ValueArray">
+            <summary>
+            Gets or sets the value array.
+            </summary>
+            <value>
+            The value array.
+            </value>
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.SpecificVariable.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+            <exception cref="T:System.NotImplementedException">
+            </exception>
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.SpecificVariable.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API010OpcodesResultData.SpecificVariable.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:NTL.API010OpcodesResultData.AcquisitionConfiguration">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:NTL.Reveal.IRevealData" />
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.AcquisitionConfiguration.method">
+            <summary>
+            Gets or sets the index.
+            </summary>
+            <value>
+            The index.
+            </value>
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.AcquisitionConfiguration.milliSecondperiod">
+            <summary>
+            Gets or sets the value array.
+            </summary>
+            <value>
+            The value array.
+            </value>
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.AcquisitionConfiguration.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+            <exception cref="T:System.NotImplementedException">
+            </exception>
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.AcquisitionConfiguration.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API010OpcodesResultData.AcquisitionConfiguration.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:NTL.API010OpcodesResultData.NumberOfVariables">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:NTL.Reveal.IRevealData" />
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.NumberOfVariables.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+            <exception cref="T:System.NotImplementedException">
+            </exception>
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.NumberOfVariables.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API010OpcodesResultData.NumberOfVariables.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API010OpcodesResultData.Fixedvariables">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:NTL.Reveal.IRevealData" />
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.Fixedvariables.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+            <exception cref="T:System.NotImplementedException">
+            </exception>
+        </member>
+        <member name="P:NTL.API010OpcodesResultData.Fixedvariables.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API010OpcodesResultData.Fixedvariables.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API011OpcodesData.CycleNumberData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="F:NTL.API011OpcodesData.CycleNumberData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API011OpcodesData.CycleNumberData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.CycleNumberData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.CycleNumberData.Number">
+            <summary>
+            Gets or sets the number.
+            </summary>
+            <value>
+            The number.
+            </value>
+        </member>
+        <member name="M:NTL.API011OpcodesData.CycleNumberData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API011OpcodesData.StatusData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="F:NTL.API011OpcodesData.StatusData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API011OpcodesData.StatusData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.StatusData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.StatusData.Status">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.StatusData.ProductType">
+            <summary>
+            Gets or sets the type of the product.
+            </summary>
+            <value>
+            The type of the product.
+            </value>
+        </member>
+        <member name="M:NTL.API011OpcodesData.StatusData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API011OpcodesData.RegulationsData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="F:NTL.API011OpcodesData.RegulationsData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API011OpcodesData.RegulationsData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.RegulationsData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.RegulationsData.Regulations">
+            <summary>
+            Gets or sets the regulations.
+            </summary>
+            <value>
+            The regulations.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.RegulationsData.ProductType">
+            <summary>
+            Gets or sets the type of the product.
+            </summary>
+            <value>
+            The type of the product.
+            </value>
+        </member>
+        <member name="M:NTL.API011OpcodesData.RegulationsData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API011OpcodesData.SystemMode">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="F:NTL.API011OpcodesData.SystemMode.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API011OpcodesData.SystemMode.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.SystemMode.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.SystemMode.Mode">
+            <summary>
+            Gets or sets the mode.
+            </summary>
+            <value>
+            The mode.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.SystemMode.SubMode">
+            <summary>
+            Gets or sets the sub mode.
+            </summary>
+            <value>
+            The sub mode.
+            </value>
+        </member>
+        <member name="M:NTL.API011OpcodesData.SystemMode.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API011OpcodesData.RegulationById">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="F:NTL.API011OpcodesData.RegulationById.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API011OpcodesData.RegulationById.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.RegulationById.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.RegulationById.FunctionId">
+            <summary>
+            Gets or sets the function identifier.
+            </summary>
+            <value>
+            The function identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.RegulationById.RegulationPosition">
+            <summary>
+            Gets or sets the regulation position.
+            </summary>
+            <value>
+            The regulation position.
+            </value>
+        </member>
+        <member name="M:NTL.API011OpcodesData.RegulationById.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API011OpcodesData.StatusStructure">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="F:NTL.API011OpcodesData.StatusStructure.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API011OpcodesData.StatusStructure.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.StatusStructure.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.StatusStructure.Structures">
+            <summary>
+            Gets or sets the structures.
+            </summary>
+            <value>
+            The structures.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.StatusStructure.StatusNoVaraibles">
+            <summary>
+            Gets or sets the status no varaibles.
+            </summary>
+            <value>
+            The status no varaibles.
+            </value>
+        </member>
+        <member name="P:NTL.API011OpcodesData.StatusStructure.RegulationPosition">
+            <summary>
+            Gets or sets the regulation position.
+            </summary>
+            <value>
+            The regulation position.
+            </value>
+        </member>
+        <member name="M:NTL.API011OpcodesData.StatusStructure.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API018OpcodesData.SavedFaultCode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NTL.API018OpcodesData.SavedFaultCode.FaultIndex">
+            <summary>
+            Gets or sets the index of the fault.
+            </summary>
+            <value>
+            The index of the fault.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.SavedFaultCode.Code">
+            <summary>
+            Gets or sets the code.
+            </summary>
+            <value>
+            The code.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.SavedFaultCode.SubCode">
+            <summary>
+            Gets or sets the sub code.
+            </summary>
+            <value>
+            The sub code.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.SavedFaultCode.EngineeringCode">
+            <summary>
+            Gets or sets the engineering code.
+            </summary>
+            <value>
+            The engineering code.
+            </value>
+        </member>
+        <member name="M:NTL.API018OpcodesData.SavedFaultCode.ParseSavedFaultCode(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the saved fault code.
+            </summary>
+            <param name="pkt">The PKT.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API018OpcodesData.StandardLifetimeData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NTL.API018OpcodesData.StandardLifetimeData.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="M:NTL.API018OpcodesData.StandardLifetimeData.ParseStandardLifetimeDataa(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the standard lifetime dataa.
+            </summary>
+            <param name="pkt">The PKT.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API018OpcodesData.DetailedLifetimeData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NTL.API018OpcodesData.DetailedLifetimeData.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="M:NTL.API018OpcodesData.DetailedLifetimeData.ParseDetailedLifetimeData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the detailed lifetime data.
+            </summary>
+            <param name="pkt">The PKT.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API018OpcodesData.StandardCycleRunData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NTL.API018OpcodesData.StandardCycleRunData.CycleIndex">
+            <summary>
+            Gets or sets the index of the cycle.
+            </summary>
+            <value>
+            The index of the cycle.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.StandardCycleRunData.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="M:NTL.API018OpcodesData.StandardCycleRunData.ParseStandardCycleRunData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the standard cycle run data.
+            </summary>
+            <param name="pkt">The PKT.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API018OpcodesData.DetailedCycleRunData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NTL.API018OpcodesData.DetailedCycleRunData.CycleIndex">
+            <summary>
+            Gets or sets the index of the cycle.
+            </summary>
+            <value>
+            The index of the cycle.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.DetailedCycleRunData.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="M:NTL.API018OpcodesData.DetailedCycleRunData.ParseDetailedCycleRunData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the detailed cycle run data.
+            </summary>
+            <param name="pkt">The PKT.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API018OpcodesData.StandardFaultData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NTL.API018OpcodesData.StandardFaultData.FaultIndex">
+            <summary>
+            Gets or sets the index of the fault.
+            </summary>
+            <value>
+            The index of the fault.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.StandardFaultData.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="M:NTL.API018OpcodesData.StandardFaultData.ParseStandardFaultData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the standard fault data.
+            </summary>
+            <param name="pkt">The PKT.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API018OpcodesData.DetailedFaultData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NTL.API018OpcodesData.DetailedFaultData.FaultIndex">
+            <summary>
+            Gets or sets the index of the fault.
+            </summary>
+            <value>
+            The index of the fault.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.DetailedFaultData.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="M:NTL.API018OpcodesData.DetailedFaultData.ParseDetailedFaultData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the detailed fault data.
+            </summary>
+            <param name="pkt">The PKT.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API018OpcodesData.StandardPreFaultData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NTL.API018OpcodesData.StandardPreFaultData.PreFaultIndex">
+            <summary>
+            Gets or sets the index of the pre fault.
+            </summary>
+            <value>
+            The index of the pre fault.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.StandardPreFaultData.Data">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="M:NTL.API018OpcodesData.StandardPreFaultData.ParseStandardPreFaultData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the standard pre fault data.
+            </summary>
+            <param name="pkt">The PKT.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API018OpcodesData.DetailedPrefaultData">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NTL.API018OpcodesData.DetailedPrefaultData.LifeTimeDataSize">
+            <summary>
+            Gets or sets the size of the life time data.
+            </summary>
+            <value>
+            The size of the life time data.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.DetailedPrefaultData.MaxNumOfStoredCycleRunData">
+            <summary>
+            Gets or sets the maximum number of stored cycle run data.
+            </summary>
+            <value>
+            The maximum number of stored cycle run data.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.DetailedPrefaultData.SizeOfCycleRunData">
+            <summary>
+            Gets or sets the size of cycle run data.
+            </summary>
+            <value>
+            The size of cycle run data.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.DetailedPrefaultData.MaxNumOfStoredFaultData">
+            <summary>
+            Gets or sets the maximum number of stored fault data.
+            </summary>
+            <value>
+            The maximum number of stored fault data.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.DetailedPrefaultData.SizeOfFaultData">
+            <summary>
+            Gets or sets the size of fault data.
+            </summary>
+            <value>
+            The size of fault data.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.DetailedPrefaultData.MaxNumOfStoredPreFaultData">
+            <summary>
+            Gets or sets the maximum number of stored pre fault data.
+            </summary>
+            <value>
+            The maximum number of stored pre fault data.
+            </value>
+        </member>
+        <member name="P:NTL.API018OpcodesData.DetailedPrefaultData.SizeOfPreFaultData">
+            <summary>
+            Gets or sets the size of pre fault data.
+            </summary>
+            <value>
+            The size of pre fault data.
+            </value>
+        </member>
+        <member name="M:NTL.API018OpcodesData.DetailedPrefaultData.ParseDetailedPrefaultData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the detailed prefault data.
+            </summary>
+            <param name="pkt">The PKT.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API019OpcodesData.Appliancedata">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API019OpcodesData.Appliancedata.ApplianceModelNumber">
+            <summary>
+            Gets or sets the appliance model number.
+            </summary>
+            <value>
+            The appliance model number.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.Appliancedata.ApplianceSerialNumber">
+            <summary>
+            Gets or sets the appliance serial number.
+            </summary>
+            <value>
+            The appliance serial number.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.Appliancedata.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.Appliancedata.NumberOfBoards">
+            <summary>
+            Gets or sets the number of boards.
+            </summary>
+            <value>
+            The number of boards.
+            </value>
+        </member>
+        <member name="F:NTL.API019OpcodesData.Appliancedata.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API019OpcodesData.Appliancedata.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="M:NTL.API019OpcodesData.Appliancedata.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API019OpcodesData.BoardData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API019OpcodesData.BoardData.BoardIndex">
+            <summary>
+            Gets or sets the index of the board.
+            </summary>
+            <value>
+            The index of the board.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.BoardData.PartNumber">
+            <summary>
+            Gets or sets the part number.
+            </summary>
+            <value>
+            The part number.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.BoardData.Revision">
+            <summary>
+            Gets or sets the revision.
+            </summary>
+            <value>
+            The revision.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.BoardData.SerialNumber">
+            <summary>
+            Gets or sets the serial number.
+            </summary>
+            <value>
+            The serial number.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.BoardData.BoardReplacement">
+            <summary>
+            Gets or sets the board replacement.
+            </summary>
+            <value>
+            The board replacement.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.BoardData.BoardNumberofprojects">
+            <summary>
+            Gets or sets the board numberofprojects.
+            </summary>
+            <value>
+            The board numberofprojects.
+            </value>
+        </member>
+        <member name="F:NTL.API019OpcodesData.BoardData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API019OpcodesData.BoardData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.BoardData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API019OpcodesData.BoardData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API019OpcodesData.ProjectData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.BoardIndex">
+            <summary>
+            Gets or sets the index of the board.
+            </summary>
+            <value>
+            The index of the board.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.ProjectIndex">
+            <summary>
+            Gets or sets the index of the project.
+            </summary>
+            <value>
+            The index of the project.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.ProjectName">
+            <summary>
+            Gets or sets the name of the project.
+            </summary>
+            <value>
+            The name of the project.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.ProjectReleaseNumber">
+            <summary>
+            Gets or sets the project release number.
+            </summary>
+            <value>
+            The project release number.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.ProjectReleaseDate">
+            <summary>
+            Gets or sets the project release date.
+            </summary>
+            <value>
+            The project release date.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.ProjectReleaseRevision">
+            <summary>
+            Gets or sets the project release revision.
+            </summary>
+            <value>
+            The project release revision.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.MicroVendor">
+            <summary>
+            Gets or sets the micro vendor.
+            </summary>
+            <value>
+            The micro vendor.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.MicroSpecific">
+            <summary>
+            Gets or sets the micro specific.
+            </summary>
+            <value>
+            The micro specific.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.PlatformType">
+            <summary>
+            Gets or sets the type of the platform.
+            </summary>
+            <value>
+            The type of the platform.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.DeviceType">
+            <summary>
+            Gets or sets the type of the device.
+            </summary>
+            <value>
+            The type of the device.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.ProductConfigurationBitmap">
+            <summary>
+            Gets or sets the product configuration bitmap.
+            </summary>
+            <value>
+            The product configuration bitmap.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.ProductType">
+            <summary>
+            Gets or sets the type of the product.
+            </summary>
+            <value>
+            The type of the product.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.ClassBCRC">
+            <summary>
+            Gets or sets the class BCRC.
+            </summary>
+            <value>
+            The class BCRC.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.ClassBID">
+            <summary>
+            Gets or sets the class bid.
+            </summary>
+            <value>
+            The class bid.
+            </value>
+        </member>
+        <member name="F:NTL.API019OpcodesData.ProjectData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ProjectData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API019OpcodesData.ProjectData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API019OpcodesData.ServiceData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API019OpcodesData.ServiceData.TestID">
+            <summary>
+            Gets or sets the test identifier.
+            </summary>
+            <value>
+            The test identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ServiceData.Testerversion">
+            <summary>
+            Gets or sets the testerversion.
+            </summary>
+            <value>
+            The testerversion.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ServiceData.TestDate">
+            <summary>
+            Gets or sets the test date.
+            </summary>
+            <value>
+            The test date.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ServiceData.TestAge">
+            <summary>
+            Gets or sets the test age.
+            </summary>
+            <value>
+            The test age.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ServiceData.TestDuration">
+            <summary>
+            Gets or sets the duration of the test.
+            </summary>
+            <value>
+            The duration of the test.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ServiceData.TestResult">
+            <summary>
+            Gets or sets the test result.
+            </summary>
+            <value>
+            The test result.
+            </value>
+        </member>
+        <member name="F:NTL.API019OpcodesData.ServiceData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ServiceData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ServiceData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API019OpcodesData.ServiceData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API019OpcodesData.FVTData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API019OpcodesData.FVTData.FVTIndex">
+            <summary>
+            Gets or sets the index of the FVT.
+            </summary>
+            <value>
+            The index of the FVT.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.FVTData.TesterID">
+            <summary>
+            Gets or sets the tester identifier.
+            </summary>
+            <value>
+            The tester identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.FVTData.TestVersion">
+            <summary>
+            Gets or sets the test version.
+            </summary>
+            <value>
+            The test version.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.FVTData.Testdate">
+            <summary>
+            Gets or sets the testdate.
+            </summary>
+            <value>
+            The testdate.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.FVTData.TestResult">
+            <summary>
+            Gets or sets the test result.
+            </summary>
+            <value>
+            The test result.
+            </value>
+        </member>
+        <member name="F:NTL.API019OpcodesData.FVTData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API019OpcodesData.FVTData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.FVTData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API019OpcodesData.FVTData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API019OpcodesData.EOLData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API019OpcodesData.EOLData.EOLIndex">
+            <summary>
+            Gets or sets the index of the eol.
+            </summary>
+            <value>
+            The index of the eol.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.EOLData.TesterID">
+            <summary>
+            Gets or sets the tester identifier.
+            </summary>
+            <value>
+            The tester identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.EOLData.TestVersion">
+            <summary>
+            Gets or sets the test version.
+            </summary>
+            <value>
+            The test version.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.EOLData.Testdate">
+            <summary>
+            Gets or sets the testdate.
+            </summary>
+            <value>
+            The testdate.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.EOLData.TestResult">
+            <summary>
+            Gets or sets the test result.
+            </summary>
+            <value>
+            The test result.
+            </value>
+        </member>
+        <member name="F:NTL.API019OpcodesData.EOLData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API019OpcodesData.EOLData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.EOLData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API019OpcodesData.EOLData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API019OpcodesData.CalibrationdData">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API019OpcodesData.CalibrationdData.CalibrationDataId">
+            <summary>
+            Gets or sets the calibration data identifier.
+            </summary>
+            <value>
+            The calibration data identifier.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.CalibrationdData.CalibrationData">
+            <summary>
+            Gets or sets the calibration data.
+            </summary>
+            <value>
+            The calibration data.
+            </value>
+        </member>
+        <member name="F:NTL.API019OpcodesData.CalibrationdData.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API019OpcodesData.CalibrationdData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.CalibrationdData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API019OpcodesData.CalibrationdData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API019OpcodesData.ClassBSignature">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.IRevealData" />
+        </member>
+        <member name="P:NTL.API019OpcodesData.ClassBSignature.ClassBSignatureData">
+            <summary>
+            Gets or sets the class b signature data.
+            </summary>
+            <value>
+            The class b signature data.
+            </value>
+        </member>
+        <member name="F:NTL.API019OpcodesData.ClassBSignature.requestResult">
+            <summary>
+            The request result
+            </summary>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ClassBSignature.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.API019OpcodesData.ClassBSignature.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.API019OpcodesData.ClassBSignature.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.API_NUMBER">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.NOAPI">
+            <summary>
+            NO APIs
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.AP001">
+            <summary>
+            api001: Core
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.API002">
+            <summary>
+            api002:
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.API003">
+            <summary>
+            api003: Discovery
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.API004">
+            <summary>
+            api004: Debug
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.API005">
+            <summary>
+            api005: Low Level
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.API007">
+            <summary>
+            api007: Data
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.API009">
+            <summary>
+            api009: System
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.API010">
+            <summary>
+            api010: Poll Var
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.API011">
+            <summary>
+            api011: Application Control
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.API012">
+            <summary>
+            api012: Expansion Board
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.API018">
+            <summary>
+            api018: Diagnostic
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.API019">
+            <summary>
+            api019: Product Info
+            </summary>
+        </member>
+        <member name="F:NTL.API_NUMBER.API_MAX">
+            <summary>
+            The api maximum
+            </summary>
+        </member>
+        <member name="T:NTL.OPCODES_API001">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.PUBLISH_ACK">
+            <summary>
+            Publish ack
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.PUBLISH_HEARTBEAT">
+            <summary>
+            Publish heartbeat
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.SET_HEARTBEAT">
+            <summary>
+            Set heartbeat
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.PUBLISH_MEM">
+            <summary>
+            Publish memory
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.READ_MEM_24B">
+            <summary>
+            Read memory 24 b
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.READ_EE">
+            <summary>
+            Read ee
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.SEND_EVENTS">
+            <summary>
+            Send events
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.PUBLISH_EE">
+            <summary>
+            Publish ee
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.READ_MEM_32B">
+            <summary>
+            Read memory 32 b
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.PUBLISH_HEARTBEAT_PERIOD">
+            <summary>
+            Publish heartbeat period
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.MAX_MESSAGE_SIZE">
+            <summary>
+            Max message size
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.PUBLISH_WAKEUP">
+            <summary>
+            Publish wakeup
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API001.PUBLISH_ACK_WAKEUP">
+            <summary>
+            Publish ack wakeup
+            </summary>
+        </member>
+        <member name="T:NTL.OPCODES_API003">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API003.FIND_REVEAL_NODES">
+            <summary>
+            Find reveal nodes
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API003.PUBLISH_REVEAL_NODES">
+            <summary>
+            Publish reveal nodes
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API003.GET_REVEAL_APIS">
+            <summary>
+            Get reveal apis
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API003.PUBLISH_REVEAL_APIS">
+            <summary>
+            Publish reveal apis
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API003.GET_API_INFO">
+            <summary>
+            Get api info
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API003.PUBLISH_API_INFO">
+            <summary>
+            Publish api info
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API003.GET_INSTANCE_INFO">
+            <summary>
+            Get instance info
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API003.PUBLISH_INSTANCE_INFO">
+            <summary>
+            Publish instance info
+            </summary>
+        </member>
+        <member name="T:NTL.OPCODES_API005">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.SET_LOAD">
+            <summary>
+            Set load
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.GET_PUB_LOAD_DATA">
+            <summary>
+            Get and publish load data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.GET_PUB_LLI_DATA">
+            <summary>
+            Get and publish Low Level Input Data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.GET_PUB_GI_CONVERTED_DATA">
+            <summary>
+            Get and publish Generic Input converted data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.GET_PUB_ALL_LOAD_CONFIGURATION">
+            <summary>
+            Get and publish all load configuration
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.GET_PUB_ALL_LLI_CONFIGURATION">
+            <summary>
+            Get and publish all LLI configuration
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.GET_PUB_ALL_GI_CONFIGURATION">
+            <summary>
+            Get and publish all GI configuration
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.PUB_EVENT">
+            <summary>
+            Publish event
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.CALL_DEBUG_FUNCTION">
+            <summary>
+            Call debug function
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.DEBUG_LABEL">
+            <summary>
+            Debug label
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.SET_DEBUG_VARIABLE">
+            <summary>
+            Set debug variable
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.HMI_SET_OBJECT">
+            <summary>
+            HMI set object
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.HMI_PLAY_SOUND">
+            <summary>
+            HMI play sound
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.SET_TEST_STORAGE">
+            <summary>
+            Set test storage
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.ENGAGE_TEST_CYCLE">
+            <summary>
+            Engage test cycle
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.PHASE_TEST_CYCLE">
+            <summary>
+            Phase test cycle
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.EXTRACT_LOADS">
+            <summary>
+            Extract loads
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API005.EXTRACT_GIS">
+            <summary>
+            Extract gis
+            </summary>
+        </member>
+        <member name="T:NTL.OPCODES_API007">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.MEM_WRITE_RAM_24BIT">
+            <summary>
+            Write RAM 24 bit
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.MEM_WRITE_RAM_32BIT">
+            <summary>
+            Write RAM 32 bit
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.REQ_PUB_SETTING_FILE_INFO">
+            <summary>
+            Request and publish setting file information
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.REQ_PUB_SETTING_FILE_DATA">
+            <summary>
+            Request and publish setting file data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.REQ_PUB_SETTING_FILE_TABLE_SIZE">
+            <summary>
+            Request and publish setting file table size
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.REQ_PUB_SETTING_FILE_TABLE">
+            <summary>
+            Request and publish setting file table
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.ERASE_FLASH">
+            <summary>
+            Erase flash
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.WRITE_FLASH">
+            <summary>
+            Write flash
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.FLASH_PROCESS_DONE">
+            <summary>
+            Flash process done
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.REQ_PUB_FLASH_ALIGNMENT">
+            <summary>
+            Request and publish flash alignment
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.REQ_PUB_SETTINGS_FILE_ID_INFO">
+            <summary>
+            Request and publish setting file id info
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.REQ_PUB_SETTINGS_FILE_ID_DATA">
+            <summary>
+            Request and publish setting file id data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.REQ_PUB_SETTINGS_FILE_DISPLACEMENT_INFO">
+            <summary>
+            Request and publish setting file displacement info
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.REQ_PUB_SETTINGS_FILE_DISPLACEMENT_DATA">
+            <summary>
+            Request and publish setting file displacement data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.DEBUG">
+            <summary>
+            Debug
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API007.ERROR">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="T:NTL.OPCODES_API009">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API009.FORCE_RESET">
+            <summary>
+            The forc e_ reset
+            </summary>
+        </member>
+        <member name="T:NTL.OPCODES_API010">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.REQUEST_SPECIFIC_VARIABLE">
+            <summary>
+            Read specific
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.PUBLISH_SPECIFIC_VARIABLE">
+            <summary>
+            Publish one data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.ENABLE_PERIODIC_DATA">
+            <summary>
+            Set extraction engine state
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.PUBLISH_STREAM_DATA">
+            <summary>
+            publish stream
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.DESELECT_ALL_VARIABLES">
+            <summary>
+            Disable all extractions
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.SELECT_ALL_VARIABLES">
+            <summary>
+            Enable all extractions
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.DESELECT_SPECIFIC_VARIABLES">
+            <summary>
+            Disable specific extraction
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.SELECT_SPECIFIC_VARIABLES">
+            <summary>
+            Enable specific extraction
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.SETUP_PERIODIC_PUBLICATION">
+            <summary>
+            Set extraction engine state
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.DEFINE_MEMORY_MAPPED_VARIABLE">
+            <summary>
+            Set dynamic vars
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.UNDEFINE_MEMORY_MAPPED_VARIABLE">
+            <summary>
+            Clear dynamic vars
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.CONFIGURE_ONCHANGE_BEHAVIOR">
+            <summary>
+            Set on change
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.REQUEST_FIXED_VARIABLE_METADATA">
+            <summary>
+            Request system index config
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.PUBLISH_FIXED_VARIABLE_METADATA">
+            <summary>
+            Publish system index config
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.REQUEST_ACQUISITION_CONFIGURATION">
+            <summary>
+            The request acquisition configuration
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.PUBLISH_ACQUISITION_CONFIGURATION">
+            <summary>
+            The publish acquisition configuration
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.REQUEST_NUMBER_OF_VARIABLES">
+            <summary>
+            The request number of variables
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.PUBLISH_NUMBER_OF_VARIABLES">
+            <summary>
+            The publish number of variables
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API010.WRITE_FIXED_VARIABLE">
+            <summary>
+            The write fixed variable
+            </summary>
+        </member>
+        <member name="T:NTL.OPCODES_API011">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API011.REQ_PUB_IDENT_TABLE">
+            <summary>
+            Request and publish ident table (obsolete)
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API011.REQ_PUB_IDENT_TABLE16B">
+            <summary>
+            Request and publish ident table 16 b (obsolete)
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API011.REQ_PUB_STATUS">
+            <summary>
+            Request and publish status
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API011.REQ_PUB_REGULATIONS">
+            <summary>
+            Request and publish regulations
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API011.SET_REGULATIONS">
+            <summary>
+            Set Regulations
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API011.REQ_PUB_MODE">
+            <summary>
+            Request and publish system mode
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API011.SET_MODE">
+            <summary>
+            Set system mode
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API011.MODE_HEARTBEAT">
+            <summary>
+            Mode Hearbeat
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API011.REG_POSITION_BY_ID">
+            <summary>
+            Request and publish regulation by id
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API011.REG_NUM_CYCLES">
+            <summary>
+            Request and publish number of cycles
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API011.REG_PUB_STATUS_STRUCTURE">
+            <summary>
+            Request and publish status structure
+            </summary>
+        </member>
+        <member name="T:NTL.OPCODES_API012">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API012.REQ_PUB_LOAD_INFO">
+            <summary>
+            Request and publish load information
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API012.REQ_PUB_GI_INFO">
+            <summary>
+            Request and publish GI information
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API012.REQ_PUB_LOADS">
+            <summary>
+            Request and publish loads
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API012.SET_LOADS">
+            <summary>
+            Set loads
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API012.REQ_PUB_GIS">
+            <summary>
+            Request and publish gis
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API012.SET_VIEW_ELEMENTS">
+            <summary>
+            Set view elements
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API012.PUBLISH_KEY_STATUS">
+            <summary>
+            Publish key status
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API012.PLAY_SOUND">
+            <summary>
+            Play sound
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API012.SET_VOLUME">
+            <summary>
+            Set volume
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API012.STOP_SOUND">
+            <summary>
+            Stop sound
+            </summary>
+        </member>
+        <member name="T:NTL.OPCODES_API018">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API018.SAVE_FAULT">
+            <summary>
+            Save fault
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API018.CLEAR_SAVED_FAULT">
+            <summary>
+            Clear saved fault
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API018.REQ_PUB_SAVED_FAULT_CODE">
+            <summary>
+            Request and publish saved fault code
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API018.REQ_PUB_STANDARD_LIFETIME_DATA">
+            <summary>
+            Request and publish standard lifetime data
+            RESERVED 6 to 15
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API018.REQ_PUB_DETAIL_LIFETIME_DATA">
+            <summary>
+            Request and publish detail lifetime data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API018.REQ_PUB_STANDARD_RUN_DATA">
+            <summary>
+            Request and publish standard run data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API018.REQ_PUB_DETAIL_RUN_DATA">
+            <summary>
+            Request and publish detail run data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API018.REQ_PUB_STANDARD_FAULT_DATA">
+            <summary>
+            Request and publish standard fault data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API018.REQ_PUB_DETAIL_FAULT_DATA">
+            <summary>
+            Request and publish detail fault data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API018.REQ_PUB_STANDARD_PREFAULT_DATA">
+            <summary>
+            Request and publish standard prefault data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API018.REQ_PUB_DETAIL_PREFAULT_DATA">
+            <summary>
+            Request and publish detail prefault data
+            </summary>
+        </member>
+        <member name="T:NTL.OPCODES_API019">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.REQ_PUB_APPLIANCE_DATA">
+            <summary>
+            Request and Publish Appliance Data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.SET_APPLIANCE_DATA">
+            <summary>
+            Set Appliance Data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.REQ_PUB_BOARD_DATA">
+            <summary>
+            Request and Publish Board Data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.SET_BOARD_DATA">
+            <summary>
+            Set Board Data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.REQ_PUB_PROJECT_DATA">
+            <summary>
+            Request and publish project
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.REQ_PUB_SERVICE_DATA">
+            <summary>
+            Request and publish service data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.SET_SERVICE_DATA">
+            <summary>
+            Set Service Data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.REQ_PUB_FVT_DATA">
+            <summary>
+            Request and publish fvt data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.SET_FVT_DATA">
+            <summary>
+            Set fvt Data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.SET_FVT_DATA_BYTES_RESULT">
+            <summary>
+            Set fvt Data bytes result
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.REQ_PUB_EOL_DATA">
+            <summary>
+            Request and publish eol data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.SET_EOL_DATA">
+            <summary>
+            Set eol Data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.SET_EOL_DATA_BYTES_RESULT">
+            <summary>
+            Set eol Data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.STORE_STATIC_DATA">
+            <summary>
+            Store static data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.REQ_CALIBRATION_DATA">
+            <summary>
+            The req calibration data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.SET_CALIBRATION_DATA">
+            <summary>
+            The set calibration data
+            </summary>
+        </member>
+        <member name="F:NTL.OPCODES_API019.REQ_CLASSB_SIGNATURE_DATA">
+            <summary>
+            The req classb signature data
+            </summary>
+        </member>
+        <member name="F:NTL.EnumModeType.MODE_NORMAL">
+            <summary>
+            The mode normal
+            </summary>
+        </member>
+        <member name="F:NTL.EnumModeType.MODE_PROGRAMMING">
+            <summary>
+            The mode programming
+            </summary>
+        </member>
+        <member name="F:NTL.EnumModeType.MODE_BAD_SETTING_FILE">
+            <summary>
+            The mode bad setting file
+            </summary>
+        </member>
+        <member name="F:NTL.EnumModeType.MODE_LOWPOWER">
+            <summary>
+            The mode lowpower
+            </summary>
+        </member>
+        <member name="T:NTL.EnumSubModeType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.EnumSubModeType.SUBMODE_NORMAL_INITIALIZE">
+            <summary>
+            for the first time in NORMAL SYSTEM MODE
+            </summary>
+        </member>
+        <member name="F:NTL.EnumSubModeType.SUBMODE_NORMAL_SUPERVISOR">
+            <summary>
+            Supervisor in control
+            </summary>
+        </member>
+        <member name="F:NTL.EnumSubModeType.SUBMODE_NORMAL_ERROR">
+            <summary>
+            The submode normal error
+            </summary>
+        </member>
+        <member name="F:NTL.EnumSubModeType.SUBMODE_NORMAL_EXT_CONTROL_ENTERING">
+            <summary>
+            change from PC To EXT
+            </summary>
+        </member>
+        <member name="F:NTL.EnumSubModeType.SUBMODE_NORMAL_EXT_CONTROL_ENGAGED">
+            <summary>
+            The submode normal ext control engaged
+            </summary>
+        </member>
+        <member name="T:NTL.FlashAgent">
+            <summary>
+            
+            1. Load s19: it is the most time-consuming part, then must be executed before everything
+            2. Start Record
+            3. API 9, OP CODE 1 -> From this point the procedure must start in max 2 seconds
+            4. wait for ...
+            5. Start Programming
+            </summary>
+            <seealso cref="T:System.IDisposable" />
+        </member>
+        <member name="M:NTL.FlashAgent.#ctor(WhirlpoolCommunication.IDevice)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NTL.FlashAgent"/> class.
+            </summary>
+            <param name="sendCommand">The send command.</param>
+            <param name="sendMessage">The send message.</param>
+        </member>
+        <member name="M:NTL.FlashAgent.ParseMessage(WhirlpoolCommunication.Packets.ExtendedSimpleWhirlpoolPacket)">
+            <summary>
+            Parses the message.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:NTL.FlashAgent.SetFlashProgramming(System.Byte)">
+            <summary>
+            Sets the flash programming.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.FlashAgent.FlashFirmware(ProgramAgentLib.IPAEngineProgress,System.IO.Stream,System.Byte,System.UInt16)">
+            <summary>
+            Flashes the firmware.
+            </summary>
+            <param name="progress">The progress.</param>
+            <param name="stream">The stream.</param>
+            <param name="target">The target.</param>
+            <param name="timerReset">The timer reset.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.FlashAgent.SetLogger(WhirlpoolCommunication.Utilities.Logger.ILogger)">
+            <summary>
+            Sets the logger.
+            </summary>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="P:NTL.Reveal.IRevealData.RequestResult">
+            <summary>
+            Gets or sets the request result.
+            </summary>
+            <value>
+            The request result.
+            </value>
+        </member>
+        <member name="P:NTL.Reveal.IRevealData.MessageId">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="M:NTL.Reveal.IRevealData.ParseData(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Parses the data.
+            </summary>
+            <param name="incomingData">The incoming data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.Reveal.WaitableRevealMessage">
+            <summary>
+            
+            </summary>
+            <seealso cref="!:NTL.WaitableMessage&lt;WhirlpoolCommunication.Packets.RevealPacket&gt;" />
+            <seealso cref="!:NTL.WaitableMessage&lt;WideBoxLib.RevealPacket&gt;" />
+        </member>
+        <member name="F:NTL.Reveal.WaitableRevealMessage.source">
+            <summary>
+            The source
+            </summary>
+        </member>
+        <member name="P:NTL.Reveal.WaitableRevealMessage.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="F:NTL.Reveal.WaitableRevealMessage.destination">
+            <summary>
+            The destination
+            </summary>
+        </member>
+        <member name="P:NTL.Reveal.WaitableRevealMessage.Destination">
+            <summary>
+            Gets or sets the destination.
+            </summary>
+            <value>
+            The destination.
+            </value>
+        </member>
+        <member name="P:NTL.Reveal.WaitableRevealMessage.API">
+            <summary>
+            Gets or sets the API.
+            </summary>
+            <value>
+            The API.
+            </value>
+        </member>
+        <member name="P:NTL.Reveal.WaitableRevealMessage.IsFeedback">
+            <summary>
+            Get and Set if this message is a Feedback message (Cmd/fb = 1 set it true)
+            Set null to ignore
+            </summary>
+            <value>
+            <c>true</c> if this instance is feedback; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NTL.Reveal.WaitableRevealMessage.IsFragmented">
+            <summary>
+            Get and Set if this message is a Fragmented message (frag = 1 set it true)
+            Set null to ignore
+            </summary>
+            <value>
+            <c>true</c> if this instance is fragmented; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NTL.Reveal.WaitableRevealMessage.MoreMessagePending">
+            <summary>
+            Get and Set if this packet has more messages pending (MMP = 1 set it true)
+            Set null to ignore
+            </summary>
+            <value>
+              <c>true</c> if [more message pending]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:NTL.Reveal.WaitableRevealMessage.OpCode">
+            <summary>
+            Gets or sets the op code.
+            Set null to ignore
+            </summary>
+            <value>
+            The op code.
+            </value>
+        </member>
+        <member name="F:NTL.Reveal.WaitableRevealMessage.payload">
+            <summary>
+            The payload
+            </summary>
+        </member>
+        <member name="P:NTL.Reveal.WaitableRevealMessage.PayLoad">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="F:NTL.Reveal.WaitableRevealMessage.payloadmask">
+            <summary>
+            The payloadmask
+            </summary>
+        </member>
+        <member name="P:NTL.Reveal.WaitableRevealMessage.PayloadMask">
+            <summary>
+            Gets or sets the data mask.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="M:NTL.Reveal.WaitableRevealMessage.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NTL.Reveal.WaitableRevealMessage" /> class.
+            </summary>
+            <param name="id">The identifier.</param>
+        </member>
+        <member name="M:NTL.Reveal.WaitableRevealMessage.CompareTo(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Compares to the message incoming to the waitable message
+            </summary>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.Reveal.WaitableRevealMessage.FixBinaryMask">
+            <summary>
+            Fixes the binary mask.
+            </summary>
+        </member>
+        <member name="P:NTL.Reveal.WaitableRevealMessageQueue.RevealAck">
+            <summary>
+            Gets or sets the reveal ack.
+            It's set if there is a API 1 Opcode 1 response in the queue.
+            </summary>
+            <value>
+            The reveal ack.
+            </value>
+        </member>
+        <member name="M:NTL.Reveal.WaitableRevealMessageQueue.CompareTo(WhirlpoolCommunication.Packets.RevealPacket)">
+            <summary>
+            Compares the incoming message against the queue.
+            Returns true if the message
+            </summary>
+            <param name="incomingMessage">The incoming message.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.NTLGlobal">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.NTLGlobal.DEFAULT_TIMEOUT">
+            <summary>
+            The default timeout
+            </summary>
+        </member>
+        <member name="F:NTL.NTLGlobal.DELAY_HEARTBEAT">
+            <summary>
+            The delay heartbeat
+            </summary>
+        </member>
+        <member name="F:NTL.NTLGlobal.idCount">
+            <summary>
+            The identifier count
+            </summary>
+        </member>
+        <member name="F:NTL.NTLGlobal.acuDownloadSFIndex">
+            <summary>
+            The acu download sf index
+            </summary>
+        </member>
+        <member name="F:NTL.NTLGlobal.Reveal_Max_Size">
+            <summary>
+            The reveal maximum size
+            </summary>
+        </member>
+        <member name="F:NTL.NTLGlobal.api007DataFlashAlignment">
+            <summary>
+            The api007 data flash alignment
+            </summary>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetLogger(WhirlpoolCommunication.Utilities.Logger.ILogger)">
+            <summary>
+            Sets the logger.
+            </summary>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:NTL.NTLGlobal.#ctor(WhirlpoolCommunication.IDevice,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="!:NTLWired" /> class.
+            </summary>
+            <param name="device">The device.</param>
+            <param name="disableGetMessage">if set to <c>true</c> [disable get message].</param>
+        </member>
+        <member name="M:NTL.NTLGlobal.RXTask">
+            <summary>
+            Rx the task.
+            </summary>
+        </member>
+        <member name="M:NTL.NTLGlobal.ParseMessage(WhirlpoolCommunication.Packets.IMessage)">
+            <summary>
+            Parses the message.
+            </summary>
+            <param name="msg">The MSG.</param>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetMaxPackageSize(System.Byte)">
+            <summary>
+            Gets the maximum size of the package.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetRevealNodes(System.Byte)">
+            <summary>
+            Gets the reveal nodes.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetRevealApis(System.Byte)">
+            <summary>
+            Gets the reveal apis.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetApiInfo(System.Byte,System.Byte)">
+            <summary>
+            Gets the API information.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="apiId">The API identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetInstanceInfo(System.Byte)">
+            <summary>
+            Instances the information.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetLoadData(System.Byte,System.Byte)">
+            <summary>
+            Aps the i005 get load data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="loadID">The load identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SubscribeToVariableData(System.Byte,System.UInt32,System.Action{System.Threading.Tasks.Task{NTL.API005OpcodesData.LoadData}})">
+            <summary>
+            Aps the i005 get load data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="loadID">The load identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetLLIData(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Gets the lli data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="lliType">Type of the lli.</param>
+            <param name="lliPosition">The lli position.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetGIData(System.Byte,System.Byte)">
+            <summary>
+            Gets the gi data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="giID">The gi identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetAllLoadConfiguration(System.Byte)">
+            <summary>
+            Gets all load configuration.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetAllLLIConfiguration(System.Byte)">
+            <summary>
+            Gets all lli configuration.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetAllGIConfiguration(System.Byte)">
+            <summary>
+            Gets all gi configuration.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetNumberOfCycle(System.Byte)">
+            <summary>
+            Gets the number of cycle.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetStatusData(System.Byte)">
+            <summary>
+            Gets the status data.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetRegulationsData(System.Byte)">
+            <summary>
+            Gets the regulations data.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetSystemMode(System.Byte)">
+            <summary>
+            Gets the system mode.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetRegulationById(System.Byte,System.Byte)">
+            <summary>
+            Gets the regulation by identifier.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="functionId">The function identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetStatusStructure(System.Byte)">
+            <summary>
+            Gets the status structure.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetSavedFaultCode(System.Byte,System.Byte)">
+            <summary>
+            Gets the saved fault code.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="faultRef">The fault reference.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetStandardLifetimeData(System.Byte)">
+            <summary>
+            Gets the standard lifetime data.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetDetailedLifetimeData(System.Byte)">
+            <summary>
+            Gets the detailed lifetime data.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetStandardCycleRunData(System.Byte,System.Byte)">
+            <summary>
+            Gets the standard cycle run data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="runRef">The run reference.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetDetailedCycleRunData(System.Byte,System.Byte)">
+            <summary>
+            Gets the detailed cycle run data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="runRef">The run reference.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetStandardFaultData(System.Byte,System.Byte)">
+            <summary>
+            Gets the standard fault data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="faultRef">The fault reference.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetDetailedFaultData(System.Byte,System.Byte)">
+            <summary>
+            Gets the detailed fault data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="faultRef">The fault reference.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetStandardPreFaultData(System.Byte,System.Byte)">
+            <summary>
+            Gets the standard pre fault data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="preFaultRef">The pre fault reference.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetDetailedPrefaultData(System.Byte,System.Byte)">
+            <summary>
+            Gets the detailed prefault data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="preFaultRef">The pre fault reference.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetAppliancedata(System.Byte)">
+            <summary>
+            Gets the appliancedata.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetBoardData(System.Byte,System.Byte)">
+            <summary>
+            Gets the board data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="boardIndex">Index of the board.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetProjectData(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Gets the project data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="boardIndex">Index of the board.</param>
+            <param name="projectIndex">Index of the project.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetServiceData(System.Byte)">
+            <summary>
+            Gets the service data.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetFVTData(System.Byte,System.Byte)">
+            <summary>
+            Gets the FVT data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="fvtIndex">Index of the FVT.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetEOLData(System.Byte,System.Byte)">
+            <summary>
+            Gets the eol data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="eolIndex">Index of the eol.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.CalibrationdData(System.Byte,System.Byte)">
+            <summary>
+            Calibrationds the data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="calibrationDataId">The calibration data identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetClassBSignature(System.Byte)">
+            <summary>
+            Gets the class b signature.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetSettingFileInfo(System.Byte)">
+            <summary>
+            Gets the setting file information.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GetSettingFileFlashAlignment(System.Byte)">
+            <summary>
+            Gets the setting file flash alignment.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.RequestSpecificVariable(System.Byte,System.Byte)">
+            <summary>
+            Requests the specific variable.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="variableid">The variableid.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.RequestFixedvariables(System.Byte,System.Byte)">
+            <summary>
+            Requests the fixedvariables.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="index">The index.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.RequestAcquisitionConfiguration(System.Byte)">
+            <summary>
+            Requests the acquisition configuration.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.RequestNumberOfVariables(System.Byte)">
+            <summary>
+            Requests the number of variables.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetLoad(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Sets the load.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="loadId">The load identifier.</param>
+            <param name="loadSize">Size of the load.</param>
+            <param name="loadData">The load data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetAllLoadOff(System.Byte)">
+            <summary>
+            Sets all load off.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetDebugLabel(System.Byte,System.Byte,System.String)">
+            <summary>
+            Sets the debuglabel.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="debugFunctionIndex">Index of the debug function.</param>
+            <param name="label">The label.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetDebugVariable(System.Byte,System.Byte,System.Byte[])">
+            <summary>
+            Sets the debug variable.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="debugFunctionIndex">Index of the debug function.</param>
+            <param name="varaiableValue">The varaiable value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetHMIObject(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Sets the hmi object.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="objectType">Type of the object.</param>
+            <param name="objectIndex">Index of the object.</param>
+            <param name="objectValue">The object value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.PlayHMISound(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Plays the hmi sound.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="soundIndex">Index of the sound.</param>
+            <param name="volume">The volume.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetTestStorage(System.Byte,System.Byte)">
+            <summary>
+            Sets the test storage.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="storage">The storage.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.EngageTestCycle(System.Byte,System.Byte)">
+            <summary>
+            Engages the test cycle.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="testCycle">The test cycle.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.PhaseTestCycle(System.Byte,System.Byte)">
+            <summary>
+            Phases the test cycle.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="testPhaseCycle">The test phase cycle.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetExtractLoad(System.Byte,System.Byte)">
+            <summary>
+            Sets the extract load.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="extractLoadState">State of the extract load.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetExtractGIs(System.Byte,System.Byte)">
+            <summary>
+            Sets the extract g is.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="extractGIsState">State of the extract g is.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetSystemMode(System.Byte,NTL.EnumModeType,NTL.EnumSubModeType)">
+            <summary>
+            Sets the system mode.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="mode">The mode.</param>
+            <param name="subMode">The sub mode.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetRegulations(System.Byte,System.Byte[])">
+            <summary>
+            Sets the regulations.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="regulations">The regulations.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetApplianceData(System.Byte,System.String,System.String,System.Byte)">
+            <summary>
+            Sets the appliance data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="modelNumber">The model number.</param>
+            <param name="serialNumber">The serial number.</param>
+            <param name="numberOfBoards">The number of boards.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetBoardData(System.Byte,System.Byte,System.String,System.String,System.String,System.Byte,System.Byte)">
+            <summary>
+            Sets the board data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="boardIndex">Index of the board.</param>
+            <param name="boardPartNumber">The board part number.</param>
+            <param name="boardRevision">The board revision.</param>
+            <param name="boardSerialNumber">The board serial number.</param>
+            <param name="boardReplacment">The board replacment.</param>
+            <param name="boardNumberOfProjects">The board number of projects.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetSericeData(System.Byte,System.Byte,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Sets the serice data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="serviceTesterId">The service tester identifier.</param>
+            <param name="serviceTesterVersion">The service tester version.</param>
+            <param name="serviceTestDate">The service test date.</param>
+            <param name="serviceTestAge">The service test age.</param>
+            <param name="serviceTestDuration">Duration of the service test.</param>
+            <param name="serviceTestResult">The service test result.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetFVTData(System.Byte,System.Byte,System.Byte,System.String,System.String,System.String)">
+            <summary>
+            Sets the FVT data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="fvtIndex">Index of the FVT.</param>
+            <param name="fvtId">The FVT identifier.</param>
+            <param name="fvtTesterVersion">The FVT tester version.</param>
+            <param name="fvtTestDate">The FVT test date.</param>
+            <param name="fvtTestResult">The FVT test result.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetFVTDataBytes(System.Byte,System.Byte,System.String,System.String)">
+            <summary>
+            Sets the FVT data bytes.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="fvtIndex">Index of the FVT.</param>
+            <param name="fvtTestResult">The FVT test result.</param>
+            <param name="fvtTestResultMask">The FVT test result mask.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetEOLData(System.Byte,System.Byte,System.Byte,System.String,System.String,System.String)">
+            <summary>
+            Sets the eol data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="eolIndex">Index of the eol.</param>
+            <param name="eolId">The eol identifier.</param>
+            <param name="eolTesterVersion">The eol tester version.</param>
+            <param name="eolTestDate">The eol test date.</param>
+            <param name="eolTestResult">The eol test result.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetEOLDataBytes(System.Byte,System.Byte,System.String,System.String)">
+            <summary>
+            Sets the eol data bytes.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="eolIndex">Index of the eol.</param>
+            <param name="eolTestResult">The eol test result.</param>
+            <param name="eolTestResultMask">The eol test result mask.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.StoreStaticdata(System.Byte)">
+            <summary>
+            Stores the staticdata.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetEraseFlash(System.Byte,System.Byte[])">
+            <summary>
+            Sets the erase flash.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="addressRange">The address range.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetWriteFlash(System.Byte,System.Byte[])">
+            <summary>
+            Sets the write flash.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="addressRange">The address range.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetForceReset(System.Byte,System.Int32,NTL.ResetMode,System.Boolean)">
+            <summary>
+            Sets the force reset.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="millisecondsTimeout">The milliseconds timeout.</param>
+            <param name="resetMode">The reset mode.</param>
+            <param name="waitForReset">if set to <c>true</c> [wait for reset].</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.EnablePeriodicData(System.Byte,System.Byte)">
+            <summary>
+            Enables the periodic data.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="startOrStop">The start or stop.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.DeselectAllVariables(System.Byte)">
+            <summary>
+            Deselects all variables.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SelectAllVariables(System.Byte)">
+            <summary>
+            Selects all variables.
+            </summary>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.DeselectSpecificvariables(System.Byte,System.Byte[])">
+            <summary>
+            Deselects the specificvariables.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="indices">The indices.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SelectSpecificvariables(System.Byte,System.Byte[])">
+            <summary>
+            Selects the specificvariables.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="indices">The indices.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.SetupPeriodicPublication(System.Byte,System.Byte,System.Byte[])">
+            <summary>
+            Setups the periodic publication.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="method">The method.</param>
+            <param name="milliSecondPeriod">The milli second period.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.DefineMemoryMappedvariable(System.Byte,System.Byte,System.Byte,System.Byte[])">
+            <summary>
+            Defines the memorymappedvariable.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="index">The index.</param>
+            <param name="size">The size.</param>
+            <param name="address">The address.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.UndefineMemoryMappedvariable(System.Byte,System.Byte[])">
+            <summary>
+            Undefines the memorymappedvariable.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="indices">The indices.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.ConfigureOnChangeBehavior(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Configures the on change behavior.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="index">The index.</param>
+            <param name="onChangeBehavior">The on change behavior.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.WriteFixedbehavior(System.Byte,System.Byte,System.Byte,System.Byte[])">
+            <summary>
+            Writes the fixedbehavior.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="index">The index.</param>
+            <param name="arrayposition">The arrayposition.</param>
+            <param name="value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.FlashAgent(ProgramAgentLib.IPAEngineProgress,System.IO.Stream,System.Byte,System.UInt16)">
+            <summary>
+            Flashes the agent.
+            </summary>
+            <param name="progress">The progress.</param>
+            <param name="filePath">The file path.</param>
+            <param name="target">The target.</param>
+            <param name="cpuName">Name of the cpu.</param>
+            <param name="timerReset">The timer reset.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.API007SettingFileDownload(NTL.ISettingFileProgress,System.IO.Stream,System.Byte)">
+            <summary>
+            Aps the i007 setting file download.
+            </summary>
+            <param name="progress">The progress.</param>
+            <param name="stream">The stream.</param>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.DownloadSettingFile(NTL.ISettingFileProgress,System.IO.Stream,System.Byte)">
+            <summary>
+            Downloads the setting file.
+            </summary>
+            <param name="progress">The progress.</param>
+            <param name="stream">The stream.</param>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.AcuWriteSettingFileTableData(NTL.ISettingFileProgress,System.Byte,System.Int64)">
+            <summary>
+            Acus the write setting file table data.
+            </summary>
+            <param name="progress">The progress.</param>
+            <param name="target">The target.</param>
+            <param name="elapsedTime">The elapsed time.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.FromBitConverterToRevealBytes(System.Byte[])">
+            <summary>
+            Froms the bit converter to reveal bytes.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.ProductTypes(System.IO.Stream)">
+            <summary>
+            Products the types.
+            </summary>
+            <param name="XMLstream">The xm lstream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.PilotTypes(System.IO.Stream)">
+            <summary>
+            Pilots the types.
+            </summary>
+            <param name="XMLstream">The xm lstream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.LoadsList(System.IO.Stream)">
+            <summary>
+            Loads the identifier list.
+            </summary>
+            <param name="XMLstream">The xm lstream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.LowlevelInputsList(System.IO.Stream)">
+            <summary>
+            Lowlevels the inputs list.
+            </summary>
+            <param name="XMLstream">The xm lstream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.GenericInputsList(System.IO.Stream)">
+            <summary>
+            Generics the inputs list.
+            </summary>
+            <param name="XMLstream">The xm lstream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.RegulationsList(System.IO.Stream)">
+            <summary>
+            Lists the fault ids and names.
+            </summary>
+            <param name="XMLstream">The xm lstream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.CyclesList(System.IO.Stream)">
+            <summary>
+            Lists the cycle ids and names.
+            </summary>
+            <param name="XMLstream">The xm lstream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.NTLGlobal.FaultsList(System.IO.Stream)">
+            <summary>
+            Faultses the list.
+            </summary>
+            <param name="XMLstream">The xm lstream.</param>
+            <returns></returns>
+        </member>
+        <member name="F:NTL.PlatformType.HAwasher">
+            <summary>
+            The HA washer
+            </summary>
+        </member>
+        <member name="F:NTL.PlatformType.VAwasher">
+            <summary>
+            The VA washer
+            </summary>
+        </member>
+        <member name="F:NTL.PlatformType.Refrigeration">
+            <summary>
+            The refrigeration
+            </summary>
+        </member>
+        <member name="F:NTL.PlatformType.Cooking">
+            <summary>
+            The cooking
+            </summary>
+        </member>
+        <member name="F:NTL.PlatformType.Dryer">
+            <summary>
+            The dryer
+            </summary>
+        </member>
+        <member name="F:NTL.PlatformType.Dishwasher">
+            <summary>
+            The dishwasher
+            </summary>
+        </member>
+        <member name="F:NTL.PlatformType.NotAvailable">
+            <summary>
+            The not available
+            </summary>
+        </member>
+        <member name="F:NTL.DeviceType.ACU">
+            <summary>
+            The acu
+            </summary>
+        </member>
+        <member name="F:NTL.DeviceType.HMI">
+            <summary>
+            The hmi
+            </summary>
+        </member>
+        <member name="F:NTL.DeviceType.MCU">
+            <summary>
+            The mcu
+            </summary>
+        </member>
+        <member name="F:NTL.DeviceType.ExpansionACu">
+            <summary>
+            The expansion a cu
+            </summary>
+        </member>
+        <member name="F:NTL.DeviceType.ExpansionHMI">
+            <summary>
+            The expansion hmi
+            </summary>
+        </member>
+        <member name="F:NTL.DeviceType.ExpansionMCU">
+            <summary>
+            The expansion mcu
+            </summary>
+        </member>
+        <member name="F:NTL.DeviceType.SettingFile">
+            <summary>
+            The setting file
+            </summary>
+        </member>
+        <member name="F:NTL.DeviceType.NotAvailable">
+            <summary>
+            The not available
+            </summary>
+        </member>
+        <member name="F:NTL.MicroVendorname.Atmel">
+            <summary>
+            The atmel
+            </summary>
+        </member>
+        <member name="F:NTL.MicroVendorname.Cypress">
+            <summary>
+            The cypress
+            </summary>
+        </member>
+        <member name="F:NTL.MicroVendorname.FreeScale">
+            <summary>
+            The free scale
+            </summary>
+        </member>
+        <member name="F:NTL.MicroVendorname.NXp">
+            <summary>
+            The n xp
+            </summary>
+        </member>
+        <member name="F:NTL.MicroVendorname.Renesas">
+            <summary>
+            The renesas
+            </summary>
+        </member>
+        <member name="F:NTL.MicroVendorname.ST">
+            <summary>
+            The st
+            </summary>
+        </member>
+        <member name="F:NTL.MicroVendorname.NotDefined">
+            <summary>
+            The not defined
+            </summary>
+        </member>
+        <member name="F:NTL.ProductType.NotDefined">
+            <summary>
+            The not defined
+            </summary>
+        </member>
+        <member name="T:NTL.SettingFileHelper">
+            <summary>
+            
+            
+            </summary>
+        </member>
+        <member name="M:NTL.SettingFileHelper.ConvertLongToArray(System.UInt32)">
+            <summary>
+            Converts the long to array.
+            </summary>
+            <param name="data">The data.</param>
+            <returns>
+            Byte Array
+            </returns>
+        </member>
+        <member name="M:NTL.SettingFileHelper.ConvertIntToArray(System.Int32)">
+            <summary>
+            Converts the int to array.
+            </summary>
+            <param name="data">The data.</param>
+            <returns>
+            Byte Array
+            </returns>
+        </member>
+        <member name="M:NTL.SettingFileHelper.ConvertArrayToLong(System.Collections.Generic.List{System.Byte},System.Int32)">
+            <summary>
+            Convert a byte array into a long
+            </summary>
+            <param name="all_payload">The all_payload.</param>
+            <param name="startIndex">The start index.</param>
+            <returns>
+            UInt32
+            </returns>
+        </member>
+        <member name="M:NTL.SettingFileHelper.ConvertToUint(System.Byte,System.Byte)">
+            <summary>
+            Converts 2 bytes to uint.
+            </summary>
+            <param name="MSB">The MSB.</param>
+            <param name="LSB">The LSB.</param>
+            <returns>
+            unsigned integer
+            </returns>
+        </member>
+        <member name="F:NTL.SFDownloadState.IDLE">
+            <summary>
+            The idle
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.STARTING">
+            <summary>
+            start the process
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.LOAD_FILE">
+            <summary>
+            The load file
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.REQUEST_REVEAL_MSG_SIZE">
+            <summary>
+            The request reveal msg size
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.REQUEST_SF_INFOR">
+            <summary>
+            The request sf information
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.SET_MODE">
+            <summary>
+            The set mode
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.REQUEST_FLASH_ALIGNMENT">
+            <summary>
+            The request flash alignment
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.ERASE_FLASH">
+            <summary>
+            The erase flash
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.WRITE_DATA">
+            <summary>
+            The write data
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.DOWNLOAD_COMPLETE">
+            <summary>
+            The end process
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.WRITE_DATA_EXT">
+            <summary>
+            The write data
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.WRITE_DATA_EXTRA">
+            <summary>
+            The write data
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.VERIFYING">
+            <summary>
+            Verifying
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.DOWNLOAD_CANCELED">
+            <summary>
+            The cancel download
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.DOWNLOAD_ERROR">
+            <summary>
+            Process Stopped for error
+            </summary>
+        </member>
+        <member name="F:NTL.SFDownloadState.END_PROCESS">
+            <summary>
+            The end process
+            </summary>
+        </member>
+        <member name="T:NTL.AcuDownloadSFEVENTS">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NTL.AcuDownloadSFEVENTS.START_PROCESS">
+            <summary>
+            The start process
+            </summary>
+        </member>
+        <member name="F:NTL.AcuDownloadSFEVENTS.CANCEL_PROCESS">
+            <summary>
+            The cancel process
+            </summary>
+        </member>
+        <member name="F:NTL.AcuDownloadSFEVENTS.REVEAL_MAX_SIZE">
+            <summary>
+            The reveal maximum size
+            </summary>
+        </member>
+        <member name="F:NTL.AcuDownloadSFEVENTS.SF_INFO">
+            <summary>
+            The sf information
+            </summary>
+        </member>
+        <member name="F:NTL.AcuDownloadSFEVENTS.FLASH_ALIGNMENT">
+            <summary>
+            The flash alignment
+            </summary>
+        </member>
+        <member name="F:NTL.AcuDownloadSFEVENTS.FLASH_ERASE">
+            <summary>
+            The flash erase
+            </summary>
+        </member>
+        <member name="F:NTL.AcuDownloadSFEVENTS.SF_DATA">
+            <summary>
+            The sf data
+            </summary>
+        </member>
+        <member name="T:NTL.SettingFileProgressArgs">
+            <summary>
+            
+            
+            </summary>
+        </member>
+        <member name="M:NTL.SettingFileProgressArgs.#ctor(System.Int32,System.String,System.Int64)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NTL.SettingFileProgressArgs"/> class.
+            </summary>
+            <param name="completion">The completion.</param>
+            <param name="status">The status.</param>
+            <param name="ellapsedTime">The ellapsed time.</param>
+        </member>
+        <member name="P:NTL.SettingFileProgressArgs.Completion">
+            <summary>
+            Gets the completion percentage.
+            </summary>
+            <value>
+            The completion percentage.
+            </value>
+        </member>
+        <member name="P:NTL.SettingFileProgressArgs.Status">
+            <summary>
+            Gets the status.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="P:NTL.SettingFileProgressArgs.EllapsedTime">
+            <summary>
+            Gets the ellapsed time.
+            </summary>
+            <value>
+            The ellapsed time.
+            </value>
+        </member>
+        <member name="T:NTL.ISettingFileProgress">
+            <summary>
+            Interface to implement the report progress.
+            </summary>
+            <seealso cref="!:System.IProgress&lt;NTL.SettingFileProgressArgs&gt;" />
+            <seealso cref="!:IProgress&lt;ProgramAgentLib.PAEngineProgressArgs&gt;" />
+        </member>
+        <member name="M:NTL.UnitConverter.ConvertIntToArray(System.Int32)">
+            <summary>
+            Converts the int to array.
+            </summary>
+            <param name="data">The data.</param>
+            <returns>Byte Array</returns>
+        </member>
+        <member name="M:NTL.UnitConverter.ConvertArrayToLong(System.Collections.Generic.List{System.Byte},System.Int32)">
+            <summary>
+            Convert a byte array into a long
+            </summary>
+            <param name="all_payload">The all_payload.</param>
+            <param name="startIndex">The start index.</param>
+            <returns>UInt32</returns>
+        </member>
+        <member name="M:NTL.UnitConverter.ConvertToUint(System.Byte,System.Byte)">
+            <summary>
+            Converts 2 bytes to uint.
+            </summary>
+            <param name="MSB">The MSB.</param>
+            <param name="LSB">The LSB.</param>
+            <returns>unsigned integer</returns>
+        </member>
+        <member name="M:NTL.WaitableMessage`1.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NTL.WaitableMessage`1"/> class.
+            </summary>
+            <param name="id">The identifier.</param>
+        </member>
+        <member name="M:NTL.WaitableMessage`1.Wait(System.Int32)">
+            <summary>
+            Waits the specified timeout for this message to arrive.
+            </summary>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.WaitableMessage`1.ReleaseWait">
+            <summary>
+            Releases the wait.
+            Signal that this message has arrived.
+            </summary>
+        </member>
+        <member name="P:NTL.WaitableMessage`1.ID">
+            <summary>
+            Gets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:NTL.WaitableMessage`1.IgnoreLength">
+            <summary>
+            Gets or sets a value indicating whether [ignore length].
+            </summary>
+            <value>
+              <c>true</c> if [ignore length]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:NTL.WaitableMessage`1.messageMatch">
+            <summary>
+            The message match
+            </summary>
+        </member>
+        <member name="P:NTL.WaitableMessage`1.MessageMatch">
+            <summary>
+            Gets the message match.
+            If the CompareTo returns true this is the data compared against else is null;
+            </summary>
+            <value>
+            The message match.
+            </value>
+        </member>
+        <member name="M:NTL.WaitableMessage`1.CompareTo(`0)">
+            <summary>
+            Compares to the message incoming to the waitable message
+            </summary>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="T:NTL.WaitableMessageQueue`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:NTL.WaitableMessageQueue`1.waitMessageQueueMutex">
+            <summary>
+            The wait message queue mutex
+            </summary>
+        </member>
+        <member name="F:NTL.WaitableMessageQueue`1.messageQueue">
+            <summary>
+            The message queue
+            </summary>
+        </member>
+        <member name="F:NTL.WaitableMessageQueue`1.messageQueueHandle">
+            <summary>
+            The message queue handle
+            Can be used to lock handles.
+            </summary>
+        </member>
+        <member name="F:NTL.WaitableMessageQueue`1.receivedMessages">
+            <summary>
+            The received message queue
+            </summary>
+        </member>
+        <member name="P:NTL.WaitableMessageQueue`1.ReceivedMessages">
+            <summary>
+            Gets or sets the received message.
+            </summary>
+            <value>
+            The received message.
+            </value>
+        </member>
+        <member name="P:NTL.WaitableMessageQueue`1.MissedMessagesIDs">
+            <summary>
+            Gets the missed messages ids.
+            </summary>
+            <value>
+            The missed messages i ds.
+            </value>
+        </member>
+        <member name="M:NTL.WaitableMessageQueue`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NTL.WaitableMessageQueue`1"/> class.
+            </summary>
+        </member>
+        <member name="M:NTL.WaitableMessageQueue`1.AddToMessageQueue(NTL.WaitableMessage{`0},System.Boolean)">
+            <summary>
+            Adds to message queue.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:NTL.WaitableMessageQueue`1.CompareTo(`0)">
+            <summary>
+            Compares the incoming message against the queue.
+            Returns true if the message
+            </summary>
+            <param name="incomingMessage">The incoming message.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.WaitableMessageQueue`1.Wait(System.Int32,System.String)">
+            <summary>
+            Waits the specified timeout.
+            </summary>
+            <param name="timeout">The timeout.</param>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.WaitableMessageQueue`1.DequeueReceivedMessage(System.String)">
+            <summary>
+            Dequeues the received message.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.WaitableMessageQueue`1.Wait(System.Int32)">
+            <summary>
+            Waits the specified timeout for this message queue to arrive.
+            </summary>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.WaitableMessageQueue`1.ReleaseWait">
+            <summary>
+            Releases the wait.
+            Signal that this message has arrived.
+            </summary>
+        </member>
+        <member name="F:NTL.WaitableSimpleWhirlpoolMessage.source">
+            <summary>
+            The source
+            </summary>
+        </member>
+        <member name="P:NTL.WaitableSimpleWhirlpoolMessage.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="F:NTL.WaitableSimpleWhirlpoolMessage.destination">
+            <summary>
+            The destination
+            </summary>
+        </member>
+        <member name="P:NTL.WaitableSimpleWhirlpoolMessage.Destination">
+            <summary>
+            Gets or sets the destination.
+            </summary>
+            <value>
+            The destination.
+            </value>
+        </member>
+        <member name="F:NTL.WaitableSimpleWhirlpoolMessage.sap">
+            <summary>
+            The sap
+            </summary>
+        </member>
+        <member name="P:NTL.WaitableSimpleWhirlpoolMessage.SAP">
+            <summary>
+            Gets or sets the sap.
+            </summary>
+            <value>
+            The sap.
+            </value>
+        </member>
+        <member name="P:NTL.WaitableSimpleWhirlpoolMessage.Payload">
+            <summary>
+            Gets or sets the data.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:NTL.WaitableSimpleWhirlpoolMessage.PayloadMask">
+            <summary>
+            Gets or sets the data mask.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="M:NTL.WaitableSimpleWhirlpoolMessage.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NTL.WaitableSimpleWhirlpoolMessage"/> class.
+            </summary>
+            <param name="id">The identifier.</param>
+        </member>
+        <member name="M:NTL.WaitableSimpleWhirlpoolMessage.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:NTL.WaitableSimpleWhirlpoolMessage.CompareTo(WhirlpoolCommunication.Packets.ExtendedSimpleWhirlpoolPacket)">
+            <summary>
+            Compares to another message.
+            </summary>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:NTL.WaitableSimpleWhirlpoolMessage.FixBinaryMask">
+            <summary>
+            Fixes the binary mask.
+            </summary>
+        </member>
+        <member name="T:NKMparser.LoadInfo">
+            <summary>
+            
+            </summary>   
+        </member>
+        <member name="P:NKMparser.LoadInfo.Names">
+            <summary>
+            Gets or sets the load names.
+            </summary>
+            <value>
+            The load names.
+            </value>
+        </member>
+        <member name="P:NKMparser.LoadInfo.ReferenceIds">
+            <summary>
+            Gets or sets the load ids.
+            </summary>
+            <value>
+            The load ids.
+            </value>
+        </member>
+        <member name="P:NKMparser.LoadInfo.PilotTypes">
+            <summary>
+            Gets or sets the pilot types.
+            </summary>
+            <value>
+            The pilot types.
+            </value>
+        </member>
+        <member name="T:NKMparser.LLiInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NKMparser.LLiInfo.Names">
+            <summary>
+            Gets or sets the l li names.
+            </summary>
+            <value>
+            The l li names.
+            </value>
+        </member>
+        <member name="P:NKMparser.LLiInfo.ReferenceIds">
+            <summary>
+            Gets or sets the l li ids.
+            </summary>
+            <value>
+            The l li ids.
+            </value>
+        </member>
+        <member name="T:NKMparser.GiInfo">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NKMparser.GiInfo.Names">
+            <summary>
+            Gets or sets the l li names.
+            </summary>
+            <value>
+            The l li names.
+            </value>
+        </member>
+        <member name="P:NKMparser.GiInfo.ReferenceIds">
+            <summary>
+            Gets or sets the gi ids.
+            </summary>
+            <value>
+            The gi ids.
+            </value>
+        </member>
+        <member name="P:NKMparser.GiInfo.LLiNames">
+            <summary>
+            Gets or sets the l li ids.
+            </summary>
+            <value>
+            The l li ids.
+            </value>
+        </member>
+        <member name="T:NKMparser.PilotTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NKMparser.PilotTypes.Names">
+            <summary>
+            Gets or sets the names.
+            </summary>
+            <value>
+            The names.
+            </value>
+        </member>
+        <member name="P:NKMparser.PilotTypes.ReferenceIds">
+            <summary>
+            Gets or sets the reference ids.
+            </summary>
+            <value>
+            The reference ids.
+            </value>
+        </member>
+        <member name="T:NKMparser.ProductTypes">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NKMparser.ProductTypes.Names">
+            <summary>
+            Gets or sets the names.
+            </summary>
+            <value>
+            The names.
+            </value>
+        </member>
+        <member name="P:NKMparser.ProductTypes.ReferenceIds">
+            <summary>
+            Gets or sets the reference ids.
+            </summary>
+            <value>
+            The reference ids.
+            </value>
+        </member>
+        <member name="P:NKMparser.ProductTypes.VaraiblesName">
+            <summary>
+            Gets or sets the name of the varaibles.
+            </summary>
+            <value>
+            The name of the varaibles.
+            </value>
+        </member>
+        <member name="P:NKMparser.ProductTypes.VaraiblesId">
+            <summary>
+            Gets or sets the varaibles identifier.
+            </summary>
+            <value>
+            The varaibles identifier.
+            </value>
+        </member>
+        <member name="P:NKMparser.ProductTypes.VaraiblesDataType">
+            <summary>
+            Gets or sets the type of the varaibles data.
+            </summary>
+            <value>
+            The type of the varaibles data.
+            </value>
+        </member>
+        <member name="P:NKMparser.ProductTypes.VaraiblesOffset">
+            <summary>
+            Gets or sets the varaibles offset.
+            </summary>
+            <value>
+            The varaibles offset.
+            </value>
+        </member>
+        <member name="T:NKMparser.Regulations">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NKMparser.Regulations.Names">
+            <summary>
+            Gets or sets the names.
+            </summary>
+            <value>
+            The names.
+            </value>
+        </member>
+        <member name="P:NKMparser.Regulations.ReferenceIds">
+            <summary>
+            Gets or sets the reference ids.
+            </summary>
+            <value>
+            The reference ids.
+            </value>
+        </member>
+        <member name="T:NKMparser.Cycle">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NKMparser.Cycle.Names">
+            <summary>
+            Gets or sets the names.
+            </summary>
+            <value>
+            The names.
+            </value>
+        </member>
+        <member name="P:NKMparser.Cycle.ReferenceIds">
+            <summary>
+            Gets or sets the reference ids.
+            </summary>
+            <value>
+            The reference ids.
+            </value>
+        </member>
+        <member name="T:NKMparser.Faults">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:NKMparser.Faults.Names">
+            <summary>
+            Gets or sets the names.
+            </summary>
+            <value>
+            The names.
+            </value>
+        </member>
+        <member name="P:NKMparser.Faults.ReferenceIds">
+            <summary>
+            Gets or sets the reference ids.
+            </summary>
+            <value>
+            The reference ids.
+            </value>
+        </member>
+    </members>
+</doc>

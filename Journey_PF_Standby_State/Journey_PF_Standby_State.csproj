@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EB4BE975-BA4A-4FEF-ABD8-D732DFDFE831}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Journey_PF_Standby_State</RootNamespace>
+    <AssemblyName>Journey_PF_Standby_State</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>TRL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>TRL\HIL_Test_Script.XML</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>TRL\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>TRL\</OutputPath>
+    <DocumentationFile>TRL\HIL_Test_Script.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ComConfig">
+      <HintPath>..\..\Nucleus_Dlls\ComConfig.dll</HintPath>
+    </Reference>
+    <Reference Include="DatasetReadWrite">
+      <HintPath>..\..\Nucleus_Dlls\DatasetReadWrite.dll</HintPath>
+    </Reference>
+    <Reference Include="Etas.Eas.Atcl.Interfaces">
+      <HintPath>..\..\Nucleus_Dlls\Etas.Eas.Atcl.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ETAS.LCA.Logging">
+      <HintPath>..\..\Nucleus_Dlls\ETAS.LCA.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\Nucleus_Dlls\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NTL">
+      <HintPath>..\..\Nucleus_Dlls\NTL.dll</HintPath>
+    </Reference>
+    <Reference Include="NTL_HIL">
+      <HintPath>..\..\Nucleus_Dlls\NTL_HIL.dll</HintPath>
+    </Reference>
+    <Reference Include="ProgramAgentLib">
+      <HintPath>..\..\Nucleus_Dlls\ProgramAgentLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Data" />
+    <Reference Include="WhirlpoolCommunication.Common">
+      <HintPath>..\..\Nucleus_Dlls\WhirlpoolCommunication.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="WideBoxLib">
+      <HintPath>..\..\Nucleus_Dlls\WideBoxLib.dll</HintPath>
+    </Reference>
+    <Reference Include="WiredLibModule">
+      <HintPath>..\..\Nucleus_Dlls\WiredLibModule.dll</HintPath>
+    </Reference>
+    <Reference Include="GESE_HIL_Labels">
+      <HintPath>..\..\ProjectSpecific\GESE_HIL_Labels.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\ProjectSpecific\Library_Functions_Communication.cs">
+      <Link>Library_Functions_Communication.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectSpecific\Library_Functions_electrical_signal.cs">
+      <Link>Library_Functions_electrical_signal.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectSpecific\Library_Integration.cs">
+      <Link>Library_Integration.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectSpecific\MemoryMappedVariable.cs">
+      <Link>MemoryMappedVariable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\ProjectSpecific\ModelVariableMapping.cs">
+      <Link>ModelVariableMapping.cs</Link>
+    </Compile>
+    <Compile Include="Journey_PF_Standby_State.cs" />
+    <Compile Include="Initialisation.cs" />
+    <Compile Include="PerformTest.cs" />
+    <Compile Include="RegisterAndLoadParameters.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResetTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="postBuild.bat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="ProductID.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"$(TargetFileName)"
+postBuild.bat $(TargetName)</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

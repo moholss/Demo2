@@ -1,0 +1,1148 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProgramAgentLib</name>
+    </assembly>
+    <members>
+        <member name="T:ProgramAgentLib.IAPPacket">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:ProgramAgentLib.IAPPacket.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.IAPPacket.Destination">
+            <summary>
+            Gets or sets the destination.
+            </summary>
+            <value>
+            The destination.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.IAPPacket.SAP">
+            <summary>
+            Gets the sap.
+            </summary>
+            <value>
+            The sap.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.IAPPacket.Count">
+            <summary>
+            Gets or sets the count.
+            </summary>
+            <value>
+            The count.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.IAPPacket.PUBLIC_NODE">
+            <summary>
+            Gets the public node.
+            </summary>
+            <value>
+            The public node.
+            </value>
+        </member>
+        <member name="T:ProgramAgentLib.IAPPacket.CMD_ID">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_ID.NODE_SET_ADDRESS">
+            <summary>
+            The node set address
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_ID.NODE_VALIDATE_ADDRESS">
+            <summary>
+            The node validate address
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_ID.NODE_WRITE">
+            <summary>
+            The node write
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_ID.NODE_READ_REQUEST">
+            <summary>
+            The node read request
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_ID.NODE_ERASE">
+            <summary>
+            The node erase
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_ID.NODE_CRC_REQUEST">
+            <summary>
+            The node crc request
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_ID.NODE_INFO_REQUEST">
+            <summary>
+            The node info request
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_ID.NODE_STATUS_REQUEST">
+            <summary>
+            The node status request
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_ID.PUBLISH_ALIVE">
+            <summary>
+            The publish alive
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_ID.PUBLISH_GO">
+            <summary>
+            The publish go
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_ID.PUBLISH_RESET">
+            <summary>
+            The publish reset
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_ID.PUBLISH_SPEED_CHANGE">
+            <summary>
+            The publish speed change
+            </summary>
+        </member>
+        <member name="T:ProgramAgentLib.IAPPacket.FBD_MSG_SIZE">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.FBD_MSG_SIZE.IAP_FBD_ID_NODE_SET_ADDRESS_SIZE">
+            <summary>
+            The iap fbd id node set address size
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.FBD_MSG_SIZE.IAP_FBD_ID_NODE_VALIDATE_ADDRESS_SIZE">
+            <summary>
+            The ia p_ fb d_ i d_ nod e_ validat e_ addres s_ size
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.FBD_MSG_SIZE.IAP_FBD_ID_NODE_WRITE_SIZE">
+            <summary>
+            The ia p_ fb d_ i d_ nod e_ writ e_ size
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.FBD_MSG_SIZE.IAP_FBD_ID_NODE_READ_REQUEST_SIZE">
+            <summary>
+            The ia p_ fb d_ i d_ nod e_ rea d_ reques t_ size
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.FBD_MSG_SIZE.IAP_FBD_ID_NODE_ERASE_SIZE">
+            <summary>
+            The ia p_ fb d_ i d_ nod e_ eras e_ size
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.FBD_MSG_SIZE.IAP_FBD_ID_NODE_CRC_REQUEST_SIZE">
+            <summary>
+            The ia p_ fb d_ i d_ nod e_ cr c_ reques t_ size
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.FBD_MSG_SIZE.IAP_FBD_ID_NODE_INFO_REQUEST_SIZE">
+            <summary>
+            The ia p_ fb d_ i d_ nod e_ inf o_ reques t_ size
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.FBD_MSG_SIZE.IAP_FBD_ID_NODE_STATUS_REQUEST_SIZE">
+            <summary>
+            The ia p_ fb d_ i d_ nod e_ statu s_ reques t_ size
+            </summary>
+        </member>
+        <member name="T:ProgramAgentLib.IAPPacket.ERASE_TYPE">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.ERASE_TYPE.ERASE_BLOCK">
+            <summary>
+            The iap erase block
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.ERASE_TYPE.ERASE_CHIP">
+            <summary>
+            The iap erase chip
+            </summary>
+        </member>
+        <member name="T:ProgramAgentLib.IAPPacket.SPEED">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.SPEED.B1200">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.SPEED.B2400">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.SPEED.B4800">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.SPEED.B9600">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.SPEED.B19200">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.SPEED.B38400">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.SPEED.B57600">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.SPEED.B115200">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:ProgramAgentLib.IAPPacket.ENGINE_STATUS">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.ENGINE_STATUS.ENGINE_STATUS_IDLE">
+            <summary>
+            The iap engine status idle
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.ENGINE_STATUS.ENGINE_STATUS_DONE">
+            <summary>
+            The iap engine status done
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.ENGINE_STATUS.ENGINE_STATUS_ERROR">
+            <summary>
+            The iap engine status error
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.ENGINE_STATUS.ENGINE_STATUS_WRITING">
+            <summary>
+            The iap engine status writing
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.ENGINE_STATUS.ENGINE_STATUS_ERASING">
+            <summary>
+            The iap engine status erasing
+            </summary>
+        </member>
+        <member name="T:ProgramAgentLib.IAPPacket.CMD_STATUS">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_STATUS.CMD_STATUS_ACK">
+            <summary>
+            The iap cmd status ack
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_STATUS.CMD_STATUS_BUSY">
+            <summary>
+            The iap cmd status busy
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_STATUS.CMD_STATUS_PARSE_ERR">
+            <summary>
+            The iap cmd status parse error
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_STATUS.CMD_STATUS_FRAME_ERR">
+            <summary>
+            The iap cmd status frame error
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.IAPPacket.CMD_STATUS.CMD_STATUS_UNKNOWN_CMD_ERR">
+            <summary>
+            The iap cmd status unknown cmd error
+            </summary>
+        </member>
+        <member name="P:ProgramAgentLib.IAPPacket.Cmd_Id">
+            <summary>
+            Gets or sets the CMD_ identifier.
+            </summary>
+            <value>
+            The CMD_ identifier.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.IAPPacket.Fbd_Status">
+            <summary>
+            Gets or sets a value indicating whether [FBD_ status].
+            </summary>
+            <value>
+              <c>true</c> if [FBD_ status]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.IAPPacket.Payload">
+            <summary>
+            Gets or sets the payload.
+            </summary>
+            <value>
+            The payload.
+            </value>
+        </member>
+        <member name="M:ProgramAgentLib.IAPPacket.ParseSimpleWhirlpoolMessage(WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket)">
+            <summary>
+            Parses the simple whirlpool message.
+            </summary>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ProgramAgentLib.IAPPacket.ToMessagePayload">
+            <summary>
+            Gets the message payload.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ProgramAgentLib.PAEngine">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.RX_CMD_ID">
+            <summary>
+            IAP Message Response Properties
+            </summary>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Cmd_Status_Fbd">
+            <summary>
+            Gets the CMD_ status_ FBD.
+            </summary>
+            <value>
+            The CMD_ status_ FBD.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Engine_Status_Fbd">
+            <summary>
+            Gets the engine_ status_ FBD.
+            </summary>
+            <value>
+            The engine_ status_ FBD.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Address_Fbd">
+            <summary>
+            Gets or sets the address_ FBD.
+            </summary>
+            <value>
+            The address_ FBD.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Read_Data_Fbd">
+            <summary>
+            Gets the read_ data_ FBD.
+            </summary>
+            <value>
+            The read_ data_ FBD.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Crc_Fbd">
+            <summary>
+            </summary>
+            <value>
+            The CRC_ FBD.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Max_Speed_Fbd">
+            <summary>
+            Gets the max_ speed_ FBD.
+            </summary>
+            <value>
+            The max_ speed_ FBD.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Current_Speed">
+            <summary>
+            Gets the current_ speed.
+            </summary>
+            <value>
+            The current_ speed.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Max_Payload_Fbd">
+            <summary>
+            Gets the max_ payload_ FBD.
+            </summary>
+            <value>
+            The max_ payload_ FBD.
+            </value>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.swVersion">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.SoftwareVersion">
+            <summary>
+            Gets or sets the software version.
+            </summary>
+            <value>
+            The software version.
+            </value>
+        </member>
+        <member name="T:ProgramAgentLib.PAEngine.Version">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Version.Major">
+            <summary>
+            Gets or sets the major.
+            </summary>
+            <value>
+            The major.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Version.Minor">
+            <summary>
+            Gets or sets the minor.
+            </summary>
+            <value>
+            The minor.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Version.Test">
+            <summary>
+            Gets or sets the test.
+            </summary>
+            <value>
+            The test.
+            </value>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.Version.SetVersion(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Sets the version.
+            </summary>
+            <param name="major">The major.</param>
+            <param name="minor">The minor.</param>
+            <param name="test">The test.</param>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Version.ReleaseDate">
+            <summary>
+            Gets or sets the release date.
+            </summary>
+            <value>
+            The release date.
+            </value>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.Version.SetReleaseDate(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Sets the release date.
+            </summary>
+            <param name="day">The day.</param>
+            <param name="month">The month.</param>
+            <param name="year">The year.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.Version.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.Part_Number_Fbd">
+            <summary>
+            The part_ number_ FBD
+            </summary>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Block_Start_Fbd">
+            <summary>
+            Gets the block_ start_ FBD.
+            </summary>
+            <value>
+            The block_ start_ FBD.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Block_End_Fbd">
+            <summary>
+            Gets the block_ end_ FBD.
+            </summary>
+            <value>
+            The block_ end_ FBD.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Block_Crc_Fbd">
+            <summary>
+            Gets the block_ CRC_ FBD.
+            </summary>
+            <value>
+            The block_ CRC_ FBD.
+            </value>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.addr">
+            <summary>
+            IAP Message Construction Properties
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.Fbd_Status">
+            <summary>
+            The FBD_ status
+            </summary>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Mode_Engage">
+            <summary>
+            Gets or sets a value indicating whether [mode_ engage].
+            </summary>
+            <value>
+              <c>true</c> if [mode_ engage]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Prev_Msg_Count">
+            <summary>
+            Gets the prev_ MSG_ count.
+            </summary>
+            <value>
+            The prev_ MSG_ count.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Destn_Node">
+            <summary>
+            Gets or sets the destn_ node.
+            </summary>
+            <value>
+            The destn_ node.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Source">
+            <summary>
+            Gets or sets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.DebugLog">
+            <summary>
+            Gets or sets a value indicating whether [debug log].
+            </summary>
+            <value>
+              <c>true</c> if [debug log]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:ProgramAgentLib.PAEngine.PA_STATE_TYPE">
+            <summary>
+            IAP message Queue properties
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_IDLE">
+            <summary>
+            The pa state idle
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_START_FLASH">
+            <summary>
+            The pa state start flash
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_SWITCHING_TO_IAP">
+            <summary>
+            The pa state switching to iap
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_WAITING_FOR_SWITCH">
+            <summary>
+            The pa state waiting for switch
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_INITIALIZE">
+            <summary>
+            The pa state initialize
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_INITIALIZE_REPLY">
+            <summary>
+            The pa state initialize reply
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_SPEED_ANALYSIS">
+            <summary>
+            The pa state speed analysis
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_SPEED_CHANGE">
+            <summary>
+            The pa state speed change
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_WAIT_FOR_SPEED_CHANGE">
+            <summary>
+            The pa state wait for speed change
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_SEND_QUEUE_CMD">
+            <summary>
+            The pa state send queue command
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_WATCH_SENT_CMD_REPLY">
+            <summary>
+            The pa state watch sent cmd reply
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_ERROR">
+            <summary>
+            The pa state error
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_ABORTED">
+            <summary>
+            The pa state aborted
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_COMPLETED">
+            <summary>
+            The pa state completed
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.PA_STATE_TYPE.PA_STATE_COM_TEST">
+            <summary>
+            The pa state co m_ test
+            </summary>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Handler_Status">
+            <summary>
+            Gets the handler status.
+            </summary>
+            <value>
+            The handler status.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.QueueMsgWriteIndex">
+            <summary>
+            Gets the index of the queue MSG write.
+            </summary>
+            <value>
+            The index of the queue MSG write.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Tran_Time">
+            <summary>
+            Gets or sets the tran_ time.
+            </summary>
+            <value>
+            The tran_ time.
+            </value>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.msgtimeout">
+            <summary>
+            The msgtimeout
+            </summary>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.MsgRetry_Count">
+            <summary>
+            Gets or sets the MSG retry count.
+            </summary>
+            <value>
+            The MSG retry_ count.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.Start_programming">
+            <summary>
+            Gets or sets a value indicating whether this <see cref="T:ProgramAgentLib.PAEngine"/> is start_programming.
+            </summary>
+            <value>
+              <c>true</c> if start_programming; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="F:ProgramAgentLib.PAEngine.Seg_Size">
+            <summary>
+            The seg_ size
+            </summary>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngine.PacketSize">
+            <summary>
+            Gets or sets the size of the packet.
+            </summary>
+            <value>
+            The size of the packet.
+            </value>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.#ctor(WhirlpoolCommunication.IDevice)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ProgramAgentLib.PAEngine" /> class.
+            </summary>
+            <param name="device">The device bridge between .</param>
+            <exception cref="T:System.NullReferenceException">sendMessage cannot be null
+            or
+            sendCommand cannot be null</exception>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.GetEngineStatus">
+            <summary>
+            Get_s the engine status.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.MakeComplete">
+            <summary>
+            Makes the complete.
+            </summary>
+        </member>
+        <member name="E:ProgramAgentLib.PAEngine.ProgramingStop">
+            <summary>
+            Occurs when [programing stop]. check Handler_Status to set the result
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.OnProgramingStop">
+            <summary>
+            Called when [programing stop].
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.SetLogger(WhirlpoolCommunication.Utilities.Logger.ILogger)">
+            <summary>
+            Sets the logger.
+            Set null to stop logging.
+            </summary>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.StartRecord(DatasetReadWrite.MemoryRecord)">
+             <summary>
+            
+             </summary>
+             <param name="map"></param>
+             <returns></returns>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.Start_Programming">
+            <summary>
+            Starts the programming.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.Stop_Programming">
+            <summary>
+            Stops the programming.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.Start_EngageIAP">
+            <summary>
+            Starts the engage iap.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.Stop__EngageIAP">
+            <summary>
+            Stop__s the engage iap.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.Start_Alive">
+            <summary>
+            Starts the alive.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.Stop_Alive">
+            <summary>
+            Stops the alive.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.IsEngineFree">
+            <summary>
+            Determines whether the engine is free.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.SetCCBBaud(ProgramAgentLib.IAPPacket.SPEED)">
+            <summary>
+            Sets the CCB baud.
+            Send the command 7 with the data as { 0, (byte)baud }
+            </summary>
+            <param name="baud">The baud.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.SetCommunication(System.Byte)">
+            <summary>
+            Sets the communication.
+            Send the command with the configurationCommand byte and {3,14,3} as data.
+            </summary>
+            <param name="configurationCommand">The configuration command.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.Queue_Remain_Messages">
+            <summary>
+            Queue_s the remain_ messages.
+            </summary>
+            <returns>0 if nothing in queue</returns>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.Programming_Thread">
+            <summary>
+            Programming the thread.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.StartComTest">
+            <summary>
+            Starts the COM test.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.StopComTest">
+            <summary>
+            Stops the COM test.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.ParseSimpleWhirlpoolMessage(WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket)">
+            <summary>
+            Parse received messages
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.KeepAliveThread">
+            <summary>
+            Keeps the alive_ thread.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.RestartRxStatusMutex">
+            <summary>
+            Restarts the rx status mutex.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.ReleaseRxStatusOnce">
+            <summary>
+            Releases the rx status once.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.Init_Queue">
+            <summary>
+            Initializes the queue.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.NodeSetAddress(System.UInt32)">
+            <summary>
+            IAP Direct command and Queue Command
+            </summary>
+            <param name="address">The address.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.NodeValidateAddress">
+            <summary>
+            Nodes the validate address.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.NodeWrite(System.Byte[])">
+            <summary>
+            Nodes the write.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.NodeReadReq(System.UInt16)">
+            <summary>
+            Nodes the read request.
+            </summary>
+            <param name="size">The size.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.NodeChipErase">
+            <summary>
+            Nodes the chip erase.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.NodeErase(ProgramAgentLib.IAPPacket.ERASE_TYPE)">
+            <summary>
+            Nodes the erase.
+            </summary>
+            <param name="erase_type">The erase_type.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.NodeCrcReq(System.UInt32,System.UInt32)">
+            <summary>
+            Nodes the CRC request.
+            </summary>
+            <param name="start_address">The start address.</param>
+            <param name="end_address">The end address.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.NodeInfoReq">
+            <summary>
+            Nodes the information request.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.NodeStatusReq">
+            <summary>
+            Nodes the status request.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.PublishAlive">
+            <summary>
+            Publishes the alive.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.PublishGo">
+            <summary>
+            Publishes the go.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.PublishReset">
+            <summary>
+            Publishes the reset.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.PublishSpeedChange(System.Byte)">
+            <summary>
+            Publishes the speed change.
+            </summary>
+            <param name="bus_speed">The bus_speed.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueNodeSetAddress(System.UInt32)">
+            <summary>
+            Queue Commands
+            </summary>
+            <param name="address">The address.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueNodeValidateAddress">
+            <summary>
+            Queues the node validate address.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueNodeWrite(System.Byte[])">
+            <summary>
+            Queues the node write.
+            </summary>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueNodeWrite(System.Byte[],System.UInt32)">
+            <summary>
+            Queues the node write.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="address">The address.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueNodeReadReq(System.UInt16)">
+            <summary>
+            Queues the node read req.
+            </summary>
+            <param name="size">The size.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueNodeErase(ProgramAgentLib.IAPPacket.ERASE_TYPE)">
+            <summary>
+            Queues the node erase.
+            </summary>
+            <param name="erase_type">The erase_type.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueNodeCrcReq(System.UInt32,System.UInt32)">
+            <summary>
+            Queues the node CRC req.
+            </summary>
+            <param name="start_address">The start address.</param>
+            <param name="end_address">The end address.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueNodeInfoReq">
+            <summary>
+            Queues the node information request.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueNodeStatusReq">
+            <summary>
+            Queues the node status request.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueNodeStatusReq(System.Boolean)">
+            <summary>
+            Queues the node status request.
+            </summary>
+            <param name="addrupdate">if set to <c>true</c> [addrupdate].</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueuePublishAlive">
+            <summary>
+            Queues the publish alive.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueuePublishGo">
+            <summary>
+            Queues the publish go.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueuePublishReset">
+            <summary>
+            Queues the publish reset.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueuePublishSpeedChange(System.Byte)">
+            <summary>
+            Queues the publish speed change.
+            </summary>
+            <param name="bus_speed">The bus_speed.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.SendIAP(ProgramAgentLib.IAPPacket)">
+            <summary>
+            Sends the iap.
+            </summary>
+            <param name="iap_pkt">The iap_pkt.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.SendIAP(ProgramAgentLib.IAPPacket.CMD_ID,System.Byte)">
+            <summary>
+            Sends the iap.
+            </summary>
+            <param name="cmd">The command.</param>
+            <param name="node">The node.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.SendIAP(ProgramAgentLib.IAPPacket.CMD_ID,System.Byte,System.Byte[])">
+            <summary>
+            Sends the iap.
+            </summary>
+            <param name="cmd">The command.</param>
+            <param name="node">The node.</param>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueWriteCmd(ProgramAgentLib.IAPPacket)">
+            <summary>
+            Queues the write command.
+            </summary>
+            <param name="iap_pkt">The iap_pkt.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueWriteCmd(ProgramAgentLib.IAPPacket.CMD_ID,System.Byte)">
+            <summary>
+            Queues the write command.
+            </summary>
+            <param name="cmd">The command.</param>
+            <param name="node">The node.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.QueueWriteCmd(ProgramAgentLib.IAPPacket.CMD_ID,System.Byte,System.Byte[])">
+            <summary>
+            Queues the write command.
+            </summary>
+            <param name="cmd">The command.</param>
+            <param name="node">The node.</param>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.SendQueueCmd">
+            <summary>
+            Sends the queue command.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.UpdateQueueMsgWriteIndex">
+            <summary>
+            Updates the index of the queue MSG write.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngine.UpdateQueueMsgWriteIndex(System.UInt32)">
+            <summary>
+            Updates the index of the queue MSG write.
+            </summary>
+            <param name="address">The address.</param>
+        </member>
+        <member name="T:ProgramAgentLib.PAEngineProgressArgs">
+            <summary>
+            Progress arguments for repoting the PAEngine progress.
+            </summary>
+        </member>
+        <member name="M:ProgramAgentLib.PAEngineProgressArgs.#ctor(System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ProgramAgentLib.PAEngineProgressArgs"/> class.
+            </summary>
+            <param name="completion">The completion.</param>
+            <param name="status">The status.</param>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngineProgressArgs.Completion">
+            <summary>
+            Gets the completion percentage.
+            </summary>
+            <value>
+            The completion percentage.
+            </value>
+        </member>
+        <member name="P:ProgramAgentLib.PAEngineProgressArgs.Status">
+            <summary>
+            Gets the status.
+            </summary>
+            <value>
+            The status.
+            </value>
+        </member>
+        <member name="T:ProgramAgentLib.IPAEngineProgress">
+            <summary>
+            Interface to implement the report progress.
+            </summary>
+            <seealso cref="!:IProgress&lt;ProgramAgentLib.PAEngineProgressArgs&gt;" />
+        </member>
+        <member name="T:ProgramAgentLib.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:ProgramAgentLib.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:ProgramAgentLib.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:ProgramAgentLib.SystemConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.cpu">
+            <summary>
+            The cpu
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.port">
+            <summary>
+            The port
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.speed">
+            <summary>
+            The speed
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.protocol">
+            <summary>
+            The protocol
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.node_type">
+            <summary>
+            The node_type
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.address">
+            <summary>
+            The address
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.polling_list">
+            <summary>
+            The polling_list
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.filter_message">
+            <summary>
+            The filter_message
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.full_duplex">
+            <summary>
+            The full_duplex
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.node_address">
+            <summary>
+            The node_address
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.packet_size">
+            <summary>
+            The packet_size
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.write_delay">
+            <summary>
+            The write_delay
+            </summary>
+        </member>
+        <member name="F:ProgramAgentLib.SystemConfig.destination_node">
+            <summary>
+            The destination_node
+            </summary>
+        </member>
+    </members>
+</doc>

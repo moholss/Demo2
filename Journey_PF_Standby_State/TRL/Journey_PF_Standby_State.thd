@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<File xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Extension=".thd" TDC="ATCL hierarchy file" TDL="ATCL" Type="Test Hierarchy Description" Version="1.0">
+  <Test Control="" InstanceID="Journey_PF_Standby_State" Name="Journey_PF_Standby_State" OrdNum="0" ParamSetOID="" Type="Test Case">
+    <MetaData>
+      <MetaDataEntry Field="Version">1.0.7359.27408</MetaDataEntry>
+      <MetaDataEntry Field="Comment">No set by tc developer</MetaDataEntry>
+      <MetaDataEntry Field="Purpose">&lt;== Add the purpose for this test case here.==&gt;</MetaDataEntry>
+      <MetaDataEntry Field="TCD">Unknown</MetaDataEntry>
+      <MetaDataEntry Field="Test Case Developer">HIL_USER</MetaDataEntry>
+      <MetaDataEntry Field="Copyright"> - 2020</MetaDataEntry>
+      <MetaDataEntry Field="Project">Journey_PF_Standby_State</MetaDataEntry>
+    </MetaData>
+  </Test>
+</File>

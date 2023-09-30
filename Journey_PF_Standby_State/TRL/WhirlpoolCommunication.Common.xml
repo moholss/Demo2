@@ -1,0 +1,1215 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WhirlpoolCommunication.Common</name>
+    </assembly>
+    <members>
+        <member name="T:WhirlpoolCommunication.IDevice">
+            <summary>
+            Interface that provide bare bone to a whirlpool bus device.
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.IDevice.GetMessage">
+            <summary>
+            Gets the message. Shall return null if no message is in the incoming queue.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.IDevice.SendMessage(System.Byte,System.Byte,System.Byte[],System.Boolean,System.Double)">
+            <summary>
+            Sends the message.
+            </summary>
+            <param name="target">The target.</param>
+            <param name="SAP">The sap.</param>
+            <param name="payload">The payload.</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.IDevice.SendCommand(System.Byte,System.Byte[],System.Boolean,System.Double)">
+            <summary>
+            Sends the command.
+            </summary>
+            <param name="command">The command.</param>
+            <param name="data">The data.</param>
+            <param name="blockingExecution">if set to <c>true</c> [blocking execution].</param>
+            <param name="timeout">The timeout.</param>
+            <returns></returns>
+        </member>
+        <member name="T:WhirlpoolCommunication.Utilities.BitField">
+            <summary>
+            Class that can Hold a Bit Field and convert to byte or byte array
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.BitField.AddByte(System.Byte)">
+            <summary>
+            Add a entire byte in the bit field
+            </summary>
+            <param name="value">Byte to be added</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.BitField.AddByte(System.Byte,System.Int32)">
+            <summary>
+            Insert or change the value of bit on Byte size (8)
+            If the previous positions are not set before they are set as false
+            i.e. set the 2 position before add the first position
+            </summary>
+            <param name="value">Byte value to be set</param>
+            <param name="byte_index">Position of the byte starting in 0</param>
+        </member>
+        <member name="P:WhirlpoolCommunication.Utilities.BitField.Item(System.Int32,System.Int32)">
+            <summary>
+            Return the value of given byte and bit
+            </summary>
+            <param name="byte_index">Byte to get the bit value</param>
+            <param name="bit">bit from the byte to get the value</param>
+            <returns>true if the bit is set or false otherwise</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.BitField.toByte">
+            <summary>
+            Return the first byte value
+            </summary>
+            <returns>value of the first byte</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.BitField.toByte(System.Int32)">
+            <summary>
+            Return the given byte value
+            If the byte is not completed by the bits the value on the remaining bits will be false
+            If the byte is not filled yet
+            </summary>
+            <param name="start_byte">Byte to get the value</param>
+            <returns>Value of the byte</returns>
+            <throw>IndexOutOfRangeException when the given byte is out of range</throw>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.BitField.toByteArray">
+            <summary>
+            Get all the bytes filled
+            </summary>
+            <returns>array of the value of the bytes that was filled</returns>
+        </member>
+        <member name="T:WhirlpoolCommunication.Utilities.ByteExtensions">
+            <summary>
+            Extends Byte functionality.
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.ByteExtensions.GetHighNibble(System.Byte)">
+            <summary>
+            Get the high the nibble of a byte.
+            </summary>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.ByteExtensions.GetLowNibble(System.Byte)">
+            <summary>
+            Get the low the nibble of a byte.
+            </summary>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.ByteExtensions.SetHighNibble(System.Byte,System.Byte)">
+            <summary>
+            Set the high the nibble of a byte.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="msn">The MSN.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.ByteExtensions.SetLowNibble(System.Byte,System.Byte)">
+            <summary>
+            Set the low the nibble of a byte.
+            </summary>
+            <param name="data">The data.</param>
+            <param name="lsn">The LSN.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.ByteExtensions.Bit(System.Byte,System.Byte)">
+            <summary>
+            Return true if the bit is 1
+            </summary>
+            <param name="data"></param>
+            <param name="bit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.ByteExtensions.MergeNibbles(System.Byte,System.Byte)">
+            <summary>
+            Merges the nibbles.
+            </summary>
+            <param name="msn">The MSN.</param>
+            <param name="lsn">The LSN.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.ByteExtensions.CalculateCRC16(System.Collections.Generic.List{System.Byte},System.UInt16,System.Int32,System.Int32)">
+            <summary>
+            Calculates the crc 16 of the given list.
+            </summary>
+            <param name="pk">The pk.</param>
+            <param name="seed">The seed.</param>
+            <param name="startIndex">The start index to start the crc calculation.</param>
+            <param name="endIndex">The end index.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.ByteExtensions.CalculateCRC16(System.Byte[],System.UInt16,System.Int32,System.Int32)">
+            <summary>
+            Calculates the crc 16 of the given list.
+            </summary>
+            <param name="pk">The pk.</param>
+            <param name="seed">The seed.</param>
+            <param name="startIndex">The start index to start the crc calculation.</param>
+            <param name="endIndex">The end index.</param>
+            <returns></returns>
+        </member>
+        <member name="T:WhirlpoolCommunication.Utilities.Crc16">
+            <summary>
+            Class that handle CRC16-CITT calculation
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Crc16.FastCRCUpd(System.UInt16,System.Byte)">
+            <summary>
+            Calculate a new CRC value based on a new data byte and a given crc accumulation
+            </summary>
+            <param name="crc_accum">Start seed or previous acculated CRC value</param>
+            <param name="data_byte">new data byte to be calculate</param>
+            <returns>New CRC accumulation value</returns>
+        </member>
+        <member name="T:WhirlpoolCommunication.Utilities.Logger.ILogger">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Trace(System.String,System.Object[])">
+            <summary>
+            Traces the specified MSG.
+            </summary>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Trace(System.Exception,System.String,System.Object[])">
+            <summary>
+            Traces the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Trace(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Traces the specified FMT.
+            </summary>
+            <param name="fmt">The FMT.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Trace(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Traces the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+            <param name="fmt">The FMT.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Debug(System.String,System.Object[])">
+            <summary>
+            Debugs the specified MSG.
+            </summary>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Debug(System.Exception,System.String,System.Object[])">
+            <summary>
+            Debugs the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Debug(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Debugs the specified FMT.
+            </summary>
+            <param name="fmt">The FMT.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Debug(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Debugs the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+            <param name="fmt">The FMT.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Info(System.String,System.Object[])">
+            <summary>
+            Informations the specified MSG.
+            </summary>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Info(System.Exception,System.String,System.Object[])">
+            <summary>
+            Informations the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Info(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Informations the specified FMT.
+            </summary>
+            <param name="fmt">The FMT.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Info(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Informations the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+            <param name="fmt">The FMT.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Warn(System.String,System.Object[])">
+            <summary>
+            Warns the specified MSG.
+            </summary>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Warn(System.Exception,System.String,System.Object[])">
+            <summary>
+            Warns the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Warn(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Warns the specified FMT.
+            </summary>
+            <param name="fmt">The FMT.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Warn(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Warns the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+            <param name="fmt">The FMT.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Error(System.String,System.Object[])">
+            <summary>
+            Errors the specified MSG.
+            </summary>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Error(System.Exception,System.String,System.Object[])">
+            <summary>
+            Errors the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Error(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Errors the specified FMT.
+            </summary>
+            <param name="fmt">The FMT.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Error(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Errors the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+            <param name="fmt">The FMT.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Fatal(System.String,System.Object[])">
+            <summary>
+            Fatals the specified MSG.
+            </summary>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Fatal(System.Exception,System.String,System.Object[])">
+            <summary>
+            Fatals the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Fatal(System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Fatals the specified FMT.
+            </summary>
+            <param name="fmt">The FMT.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogger.Fatal(System.Exception,System.IFormatProvider,System.String,System.Object[])">
+            <summary>
+            Fatals the specified ex.
+            </summary>
+            <param name="ex">The ex.</param>
+            <param name="fmt">The FMT.</param>
+            <param name="msg">The MSG.</param>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="T:WhirlpoolCommunication.Utilities.Logger.LogLevel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:WhirlpoolCommunication.Utilities.Logger.LogLevel.Trace">
+            <summary>
+            The trace
+            </summary>
+        </member>
+        <member name="F:WhirlpoolCommunication.Utilities.Logger.LogLevel.Debug">
+            <summary>
+            The debug
+            </summary>
+        </member>
+        <member name="F:WhirlpoolCommunication.Utilities.Logger.LogLevel.Warn">
+            <summary>
+            The warn
+            </summary>
+        </member>
+        <member name="F:WhirlpoolCommunication.Utilities.Logger.LogLevel.Error">
+            <summary>
+            The error
+            </summary>
+        </member>
+        <member name="F:WhirlpoolCommunication.Utilities.Logger.LogLevel.Fatal">
+            <summary>
+            The fatal
+            </summary>
+        </member>
+        <member name="T:WhirlpoolCommunication.Utilities.Logger.ILogManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogManager.GetLogger(System.Type)">
+            <summary>
+            Gets the logger.
+            </summary>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.Logger.ILogManager.GetLogger``1">
+            <summary>
+            Gets the logger.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:WhirlpoolCommunication.Utilities.UInt16Extensions">
+            <summary>
+            Extends UInt16 functionalities.
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.UInt16Extensions.GetHigherByte(System.UInt16)">
+            <summary>
+            Get highest significant byte.
+            </summary>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.UInt16Extensions.GetLowerByte(System.UInt16)">
+            <summary>
+            Get lowest significant Byte.
+            </summary>
+            <param name="data">The data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Utilities.UInt16Extensions.MergeBytes(System.Byte,System.Byte)">
+            <summary>
+            Merges the bytes into ushort.
+            </summary>
+            <param name="msb">The MSB.</param>
+            <param name="lsb">The LSB.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.IDevicePacket.ToArray(System.Boolean)">
+            <summary>
+            To the array.
+            </summary>
+            <param name="recalculatePayloadLeght">if set to <c>true</c> [recalculate payload leght].</param>
+            <returns></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.IDevicePacket.ParseArray(System.Byte[])">
+            <summary>
+            Parses the array.
+            </summary>
+            <param name="array">The array.</param>
+            <returns></returns>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.IDevicePacket.IsValid">
+            <summary>
+            Returns true if ... is valid.
+            </summary>
+            <value>
+              <c>true</c> if this instance is valid; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.IDevicePacket.TimeStamp">
+            <summary>
+            Gets the time stamp.
+            </summary>
+            <value>
+            The time stamp.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.IDevicePacket.Source">
+            <summary>
+            Gets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.IDevicePacket.Destination">
+            <summary>
+            Gets the destination.
+            </summary>
+            <value>
+            The destination.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.IDevicePacket.Payload">
+            <summary>
+            Gets the payload.
+            </summary>
+            <value>
+            The payload.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.IDevicePacket.PayloadLenght">
+            <summary>
+            Gets the payload lenght.
+            </summary>
+            <value>
+            The payload lenght.
+            </value>
+        </member>
+        <member name="T:WhirlpoolCommunication.Packets.PPWPacket">
+            <summary>
+            Representation of a PPW (Peer to Peer Wide) packet.
+            </summary>
+        </member>
+        <member name="F:WhirlpoolCommunication.Packets.PPWPacket.SOP">
+            <summary>
+            The Start of Packet byte.
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.PPWPacket.IsFromDevice">
+            <summary>
+            Gets or sets a value indicating whether this instance is from device.
+            </summary>
+            <value>
+            <c>true</c> if this instance is from device; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.PPWPacket.IsWideMessage">
+            <summary>
+            Gets or sets a value indicating whether this instance is wide message.
+            </summary>
+            <value>
+            <c>true</c> if this instance is wide message; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.PPWPacket.FrameWindowId">
+            <summary>
+            Gets or sets the frame window identifier.
+            </summary>
+            <value>
+            The frame window identifier.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.PPWPacket.IsValid">
+            <summary>
+            Returns true if this packet is valid.
+            </summary>
+            <value>
+              <c>true</c> if this instance is valid; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.PPWPacket.TimeStamp">
+            <summary>
+            Gets the time stamp.
+            </summary>
+            <value>
+            The time stamp.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.PPWPacket.Source">
+            <summary>
+            Gets the source.
+            </summary>
+            <value>
+            The source.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.PPWPacket.Destination">
+            <summary>
+            Gets the destination.
+            </summary>
+            <value>
+            The destination.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.PPWPacket.Payload">
+            <summary>
+            Gets the payload.
+            </summary>
+            <value>
+            The payload.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.PPWPacket.PayloadLenght">
+            <summary>
+            Gets the payload lenght.
+            </summary>
+            <value>
+            The payload lenght.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.PPWPacket.Command">
+            <summary>
+            Gets or sets the command.
+            </summary>
+            <value>
+            The command.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.PPWPacket.IncomingResponse">
+            <summary>
+            Gets or sets the incoming response byte identifyer.
+            </summary>
+            <value>
+            The incoming response.
+            </value>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.PPWPacket.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WhirlpoolCommunication.Packets.PPWPacket"/> class.
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.PPWPacket.ToArray(System.Boolean)">
+            <summary>
+            Convert this packet into a array to the Device.
+            Array to be sent over serial or the incoming message if is wide message.
+            </summary>
+            <param name="recalculatePayloadLeght">if set to <c>true</c> [recalculate payload leght].</param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.PPWPacket.ParseArray(System.Byte[])">
+            <summary>
+            Parses the array comming from the Device.
+            </summary>
+            <param name="array">The array.</param>
+            <returns></returns>
+        </member>
+        <member name="T:WhirlpoolCommunication.Packets.WMSPPacket">
+            <summary>
+            Representation of a WMSP (Whirlpool Master Slave Protocol) packet.
+            </summary>
+        </member>
+        <member name="F:WhirlpoolCommunication.Packets.WMSPPacket.SOP">
+            <summary>
+            The Start of Packet byte.
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.WMSPPacket.SAP">
+            <summary>
+            Get or Set the Packet SAP
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.WMSPPacket.Source">
+            <summary>
+            Get or Set the Packet Source
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.WMSPPacket.Destination">
+            <summary>
+            Get or Set the Packet Destination
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.WMSPPacket.Payload">
+            <summary>
+            Get or Set the Packet Payload
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.WMSPPacket.IsValid">
+            <summary>
+            Returns true if ... is valid.
+            </summary>
+            <value>
+              <c>true</c> if this instance is valid; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.WMSPPacket.TimeStamp">
+            <summary>
+            Gets or sets the time stamp.
+            </summary>
+            <value>
+            The time stamp.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.WMSPPacket.PayloadLenght">
+            <summary>
+            Gets or sets the payload lenght.
+            </summary>
+            <value>
+            The payload lenght.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.WMSPPacket.PayloadLenghtLowByte">
+            <summary>
+            Gets or sets the payload lenght low byte.
+            </summary>
+            <value>
+            The payload lenght low byte.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.WMSPPacket.ExtLenghtAndSAPByte">
+            <summary>
+            Gets or sets the ext lenght and sap byte.
+            </summary>
+            <value>
+            The ext lenght and sap byte.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.WMSPPacket.AddressByte">
+            <summary>
+            Gets or sets the address byte.
+            </summary>
+            <value>
+            The address byte.
+            </value>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.WMSPPacket.ToString">
+            <summary>
+            Convert the ToArray method into a string of bytes in Hex and comma separated
+            <para>
+            SOURCE,DESTINATION,SAP,P0...Pn (for example 00,02,04,00,01,02...)
+            </para>
+            </summary>
+            <returns>A comma separated string with the Hex values of SOURCE,DESTINATION,SAP,P0...Pn (for example 00,02,04,00,01,02...)</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.WMSPPacket.ParseArray(System.Byte[])">
+            <summary>
+            Parse a byte array into this packet message.
+            </summary>
+            <param name="array">byte array with expected byte array b[0]:source b[1]:destination b[2]:SAP b[3..n]:payload</param>
+            <returns>True if the array was a valid WMSP Packet message</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.WMSPPacket.ToArray(System.Boolean)">
+            <summary>
+            Returns a byte array with expected b[0]:source b[1]:destination b[2]:SAP b[3..n]:payload
+            </summary>
+            <param name="recalculatePayloadLeght">if set to <c>true</c> [recalculate payload leght].</param>
+            <returns>
+            Array of bytes containing a simple whirlpool packet structure (see summary)
+            </returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.WMSPPacket.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WhirlpoolCommunication.Packets.WMSPPacket"/> class.
+            </summary>
+        </member>
+        <member name="T:WhirlpoolCommunication.Packets.DeviceMessage">
+            <summary>
+            Device Message class
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.DeviceMessage.Message">
+            <summary>
+            Gets or sets the message from the Device.
+            </summary>
+            <value>
+            The message.
+            </value>
+            <remarks>
+            Possible available messages <see cref="!:DeviceMessageStrings"/>
+            </remarks>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.DeviceMessage.Data">
+            <summary>
+            Gets or sets the Full data packet from the device.
+            </summary>
+            <value>
+            The data.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.DeviceMessage.MessageTime">
+            <summary>
+            Gets or sets the message Time when the message has arrived.
+            </summary>
+            <value>
+            The message time.
+            </value>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.DeviceMessage.ToString">
+            <summary>
+            Joins the Message and Data in one string like Message (Data[0],Data[1],...). Data in Hexadecimal display.
+            </summary>
+            <returns>String with Message and Data</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.DeviceMessage.ToString(System.String)">
+            <summary>
+            Joins the MessageTime, Message and Data in one string like MessageTime.ToString(timeStampFormat) + Message + (Data[0],Data[1],...)
+            </summary>
+            <param name="timeStampFormat">Desired format to MessageTime</param>
+            <returns>String with MessageTime, Message and Data with MessageTime with given format</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.DeviceMessage.ByteToHexString(System.Byte)">
+            <summary>
+            Return a byte in his Hexadecimal representation
+            </summary>
+            <param name="b">byte to convert to hexadecimal string</param>
+            <returns>byte as string in a Hexadecimal representation</returns>
+        </member>
+        <member name="T:WhirlpoolCommunication.Packets.ExtendedSimpleWhirlpoolPacket">
+            <summary>
+            SimpleWhirlpoolPacket with validation and timestamp
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.ExtendedSimpleWhirlpoolPacket.TimeStamp">
+            <summary>
+            Get or Set the current Packet Timestamp
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.ExtendedSimpleWhirlpoolPacket.IsValid">
+            <summary>
+            Get or Set if the packet is valid
+            </summary>
+        </member>
+        <member name="T:WhirlpoolCommunication.Packets.IMessage">
+            <summary>
+            Public interface to syncronize device and sw messages
+            </summary>
+        </member>
+        <member name="T:WhirlpoolCommunication.Packets.GmclPacket">
+            <summary>
+            Class that represents a Gmcl Packet
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.GmclPacket.SAP">
+            <summary>
+            Get the standard SAP of a Gmcl Packet
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.GmclPacket.Source">
+            <summary>
+            Get or Set the Source
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.GmclPacket.Destination">
+            <summary>
+            Get or Set the Destination
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.GmclPacket.Command">
+            <summary>
+            Get or Set the Command of current packet
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.GmclPacket.Length">
+            <summary>
+            Get or Set the Length of current packet
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.GmclPacket.Payload">
+            <summary>
+            Get or Set the Payload of current packet
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.GmclPacket.#ctor">
+            <summary>
+            Instantiate a new TDDPacket
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.GmclPacket.ParseWidePacket(System.Byte[])">
+            <summary>
+            Set the packet given a wide payload
+            </summary>
+            <param name="data">Wide payload data</param>
+            <returns>True if data is a valid TDD packet</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.GmclPacket.ParseSimpleWhirlpoolMessage(WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket)">
+            <summary>
+            Set the packet given a Simple Whirlpool Packet 
+            </summary>
+            <param name="data">simple whirlpool packet</param>
+            <returns>True if data is a valid TDD packet</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.GmclPacket.getSimpleWhirlpoolPacket">
+            <summary>
+            Return the mounted reveal packet on the Simple Whirlpool Packet 
+            </summary>
+            <returns>Packet to be used in WideBox.SendMessage functions</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.GmclPacket.ToSimpleWhirlpoolPacket">
+            <summary>
+            Return the mounted reveal packet on the Simple Whirlpool Packet 
+            </summary>
+            <returns>Packet to be used in <see cref="!:IWhirlpoolWiredBus.SendMessage">SendMessage</see> function</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.GmclPacket.getMessagePayload">
+            <summary>
+            Return the mounted Gmcl packet on the SDU payload.
+            Include the Command as the first byte.
+            Can be used directly on the SendMessage function from WideBoxLib on data parameter
+            </summary>
+            <returns>Array of bytes containing the Message payload to serve as the data parameter in <see cref="!:IWhirlpoolWiredBus.SendMessage">SendMessage</see></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.GmclPacket.ToMessagePayload">
+            <summary>
+            Return the mounted Gmcl packet on the SDU payload.
+            Include the Command as the first byte.
+            Can be used directly on the SendMessage function from WideBoxLib on data parameter
+            </summary>
+            <returns>Array of bytes containing the Message payload to serve as the data parameter in <see cref="!:IWhirlpoolWiredBus.SendMessage">SendMessage</see></returns>
+        </member>
+        <member name="T:WhirlpoolCommunication.Packets.RevealPacket">
+            <summary>
+            Class that represents a Reveal Packet
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.RevealPacket.SAP">
+            <summary>
+            Get the standard SAP of a Reveal Packet
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.RevealPacket.API">
+            <summary>
+            Get and Set the API of this packet
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.RevealPacket.OpCode">
+            <summary>
+            Get and Set the opcode of this packet
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.RevealPacket.FullOpcode">
+            <summary>
+            Get and set the full opcode byte including MMP,Frag and Cmd/Fb.
+            </summary>
+            <value>
+            The full opcode.
+            </value>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.RevealPacket.Destination">
+            <summary>
+            Get and Set Destination Node
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.RevealPacket.Source">
+            <summary>
+            Get and Set Source Node
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.RevealPacket.PayLoadLength">
+            <summary>
+            Get and Set Length of this packet PayLoad
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.RevealPacket.IsFragmented">
+            <summary>
+            Get and Set if this message is a Fragmented message (frag = 1 set it true)
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.RevealPacket.iIsFragmented">
+            <summary>
+            Get and Set if this message is a Fragmented message (frag = 1 set it true)
+            Backward compatibility only
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.RevealPacket.IsFeedback">
+            <summary>
+            Get and Set if this message is a Feedback message (Cmd/fb = 1 set it true)
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.RevealPacket.MoreMessagePending">
+            <summary>
+            Get and Set if this packet has more messages pending (MMP = 1 set it true)
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.RevealPacket.PayLoad">
+            <summary>
+            Get and Set the Pay Load of this reveal packet
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.RevealPacket.#ctor">
+            <summary>
+            Creates a empty packet
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.RevealPacket.#ctor(System.Byte,System.Byte,System.Byte,System.Byte,System.Boolean,System.Byte[])">
+            <summary>
+            Creates a reveal packet with given fields
+            </summary>
+            <param name="api">Reveal API</param>
+            <param name="opcode">Reveal Opcode</param>
+            <param name="source">Address Node of the packet source</param>
+            <param name="destination">Address Node of the packet destination</param>
+            <param name="isFeedback">true if is a feedback message</param>
+            <param name="payload">Data to send trough packet (can be null)</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.RevealPacket.#ctor(System.Byte,System.Byte,System.Byte,System.Byte,System.Byte[])">
+            <summary>
+            Creates a reveal packet with given fields
+            Is created as a command by default (i.e. isFeedback false)
+            </summary>
+            <param name="api">Reveal API</param>
+            <param name="opcode">Reveal Opcode</param>
+            <param name="source">Address Node of the packet source</param>
+            <param name="destination">Address Node of the packet destination</param>
+            <param name="payload">Data to send trough packet (can be null)</param>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.RevealPacket.ParseWidePacket(System.Byte[])">
+            <summary>
+            Get a wide packet and transfer to this Reveal Packet.
+            If its not a reveal packet it returns false.
+            </summary>
+            <param name="widepkt">wide packet to be parsed</param>
+            <returns>True if widepkt was a RevealPacket</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.RevealPacket.ParseSimpleWhirlpoolMessage(WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket)">
+            <summary>
+            Get a simple whirlpool packet and transfer to this Reveal Packet.
+            If its not a reveal packet it returns false.
+            </summary>
+            <param name="data">data packet to be parsed</param>
+            <returns>True if data was a RevealPacket</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.RevealPacket.getWideMsg">
+            <summary>
+            Return the mounted reveal packet including SAP, length, destination and source bytes
+            </summary>
+            <returns>Array of bytes containing Wide Payload plus Wide header (source, destination, sap and length) excluding SOP (0xED)</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.RevealPacket.getWidePayload">
+            <summary>
+            Return the mounted reveal packet on the wide payload
+            i.e only the bytes after and including the API number
+            Can be used directly on the SendWideMsg function from WideBoxLib on data parameter
+            </summary>
+            <returns>Array of bytes containing the Message payload to serve as the data parameter in <see cref="!:WideBox.SendWideMsg(byte,byte,byte[])">SendWideMsg</see></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.RevealPacket.getMessagePayload">
+            <summary>
+            Return the mounted reveal packet on the SDU payload
+            i.e only the bytes after and including the API number
+            Can be used directly on the SendMessage function from WideBoxLib on data parameter
+            </summary>
+            <returns>Array of bytes containing the Message payload to serve as the data parameter in <see cref="!:IWhirlpoolWiredBus.SendMessage">SendMessage</see></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.RevealPacket.ToMessagePayload">
+            <summary>
+            Return the mounted reveal packet on the SDU payload
+            i.e only the bytes after and including the API number
+            Can be used directly on the SendMessage function from WideBoxLib on data parameter
+            </summary>
+            <returns>Array of bytes containing the Message payload to serve as the data parameter in <see cref="!:IWhirlpoolWiredBus.SendMessage">SendMessage</see></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.RevealPacket.getSimpleWhirlpoolPacket">
+            <summary>
+            Return the mounted reveal packet on the Simple Whirlpool Packet 
+            </summary>
+            <returns>This RevealPacket as a SimpleWhirlpoolPacket</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.RevealPacket.ToSimpleWhirlpoolPacket">
+            <summary>
+            Return the mounted reveal packet on the Simple Whirlpool Packet 
+            </summary>
+            <returns>This RevealPacket as a SimpleWhirlpoolPacket</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.RevealPacket.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="T:WhirlpoolCommunication.Packets.TDDPacket">
+            <summary>
+            Class that represents a TDD Packet
+            </summary>
+        </member>
+        <member name="T:WhirlpoolCommunication.Packets.TDDPacket.SAP">
+            <summary>
+            Enumeration of SAP that can represent a TDD Packet
+            </summary>
+        </member>
+        <member name="F:WhirlpoolCommunication.Packets.TDDPacket.SAP.UTDD">
+            <summary>
+            UTDD Sap
+            </summary>
+        </member>
+        <member name="F:WhirlpoolCommunication.Packets.TDDPacket.SAP.ATDD">
+            <summary>
+            ATDD Sap
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.TDDPacket.Source">
+            <summary>
+            Get or Set the Source
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.TDDPacket.Destination">
+            <summary>
+            Get or Set the Destination
+            </summary>
+        </member>
+        <member name="T:WhirlpoolCommunication.Packets.TDDPacket.ModeType">
+            <summary>
+            TDD mode type
+            </summary>
+        </member>
+        <member name="F:WhirlpoolCommunication.Packets.TDDPacket.ModeType.Non_Response">
+            <summary>
+            UTDD Packet that don't require a response back
+            </summary>
+        </member>
+        <member name="F:WhirlpoolCommunication.Packets.TDDPacket.ModeType.Response">
+            <summary>
+            ATDD Packet that require a response back
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.TDDPacket.Mode">
+            <summary>
+            Get or Set the Mode of current packet
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.TDDPacket.Length">
+            <summary>
+            Get or Set the Length of current packet
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.TDDPacket.Payload">
+            <summary>
+            Get or Set the Payload of current packet
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.TDDPacket.#ctor">
+            <summary>
+            Instantiate a new TDDPacket
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.TDDPacket.ParseWidePacket(System.Byte[])">
+            <summary>
+            Set the packet given a wide payload
+            </summary>
+            <param name="data">Wide payload data</param>
+            <returns>True if data is a valid TDD packet</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.TDDPacket.ParseSimpleWhirlpoolMessage(WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket)">
+            <summary>
+            Set the packet given a Simple Whirlpool Packet 
+            </summary>
+            <param name="data">simple whirlpool packet</param>
+            <returns>True if data is a valid TDD packet</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.TDDPacket.getSimpleWhirlpoolPacket">
+            <summary>
+            Return the mounted reveal packet on the Simple Whirlpool Packet 
+            </summary>
+            <returns>Packet to be used in WideBox.SendMessage functions</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.TDDPacket.ToSimpleWhirlpoolPacket">
+            <summary>
+            Return the mounted reveal packet on the Simple Whirlpool Packet 
+            </summary>
+            <returns>Packet to be used in WideBox.SendMessage functions</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.TDDPacket.getMessagePayload">
+            <summary>
+            Return the mounted TDD packet on the SDU payload
+            Can be used directly on the SendMessage function from WideBoxLib on data parameter
+            </summary>
+            <returns>Array of bytes containing the Message payload to serve as the data parameter in <see cref="!:IWhirlpoolWiredBus.SendMessage">SendMessage</see></returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.TDDPacket.ToMessagePayload">
+            <summary>
+            Return the mounted TDD packet on the SDU payload
+            Can be used directly on the SendMessage function from WideBoxLib on data parameter
+            </summary>
+            <returns>Array of bytes containing the Message payload to serve as the data parameter in <see cref="!:IWhirlpoolWiredBus.SendMessage">SendMessage</see></returns>
+        </member>
+        <member name="T:WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket">
+            <summary>
+            Represents A Simple Whirlpool Packet Message that covers all of Whirlpool's communication protocols.
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket.SAP">
+            <summary>
+            Get or Set the Packet SAP
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket.Source">
+            <summary>
+            Get or Set the Packet Source
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket.Destination">
+            <summary>
+            Get or Set the Packet Destination
+            </summary>
+        </member>
+        <member name="P:WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket.Payload">
+            <summary>
+            Get or Set the Packet Payload
+            </summary>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket.ToString">
+            <summary>
+            Convert the ToArray method into a string of bytes in Hex and comma separated
+            <para>
+            SOURCE,DESTINATION,SAP,P0...Pn (for example 00,02,04,00,01,02...)
+            </para>
+            </summary>
+            <returns>A comma separated string with the Hex values of SOURCE,DESTINATION,SAP,P0...Pn (for example 00,02,04,00,01,02...)</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket.SetSimpleWhirlpoolPacketArray(System.Byte[])">
+            <summary>
+            Set this SWP with a byte array (same as the Send Message CCB2 command)
+            </summary>
+            <param name="swpacketarray">byte array with expected b[0]:source b[1]:destination b[2]:SAP b[3..n]:payload</param>
+            <returns>True if the swpacketarray was a valid SimpleWhirlpoolPacket message</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket.ToArray">
+            <summary>
+            Returns a byte array with expected b[0]:source b[1]:destination b[2]:SAP b[3..n]:payload
+            </summary>
+            <returns>Array of bytes containing a simple whirlpool packet structure (see summary)</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket.GetWideMessage">
+            <summary>
+            Convert Simple Whirlpool Packet to wide Message in order to be able to send messages over old dll's
+            </summary>
+            <returns>Array of bytes containing a Wide packet message</returns>
+        </member>
+        <member name="M:WhirlpoolCommunication.Packets.SimpleWhirlpoolPacket.SetWideMessage(System.Byte[])">
+            <summary>
+            Convert a wide message into a SimpleWhirlpool packet format
+            </summary>
+            <param name="wide_data">array of bytes containing a wide message</param>
+            <returns>True if the wide_data was a valid Wide packet message</returns>
+        </member>
+    </members>
+</doc>
